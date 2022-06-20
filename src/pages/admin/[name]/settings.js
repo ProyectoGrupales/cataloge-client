@@ -1,7 +1,9 @@
-// Icons
-import HomeIcon from '@mui/icons-material/Home';
 import Link from 'next/link';
+
+// Icons & styles
+import HomeIcon from '@mui/icons-material/Home';
 import style from '../../../styles/Settings.module.scss';
+
 const Settings = () => {
 	return (
 		<div className={style.container}>
