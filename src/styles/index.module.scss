@@ -7,19 +7,30 @@
 	width: 300px;
 	gap: 10px;
 	margin: auto;
-	margin-top: 150px;
-	background-color: blue;
-	height: 250px;
+	margin-top: 50px;
+	text-align: center;
 
-	input {
-		height: 30px;
-		padding: 0px 10px;
-		font-size: 14px;
-		border-radius: 8px;
-		border: none;
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		input {
+			height: 30px;
+			padding: 0px 10px;
+			font-size: 14px;
+			border-radius: 8px;
+			border: none;
+		}
 
-		&:focus {
-			outline: none;
+		button {
+			width: fit-content;
+			border: none;
+			border-radius: 8px;
+			background-color: $violet;
+			padding: 10px 35px;
+			margin: auto;
+			margin-top: 15px;
+			color: white;
 		}
 	}
 }
