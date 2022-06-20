@@ -1,9 +1,7 @@
 @import './config/color.scss';
 
 .container {
-	background-color: $violet;
 	min-height: 100vh;
-	color: white;
 
 	.head {
 		display: flex;
@@ -13,8 +11,13 @@
 
 		.iconContainer {
 			position: absolute;
-			left: 0;
+			right: 15px;
+			top: 5px;
 		}
+	}
+
+	.imageContainer {
+		margin-top: 50px;
 	}
 
 	.buttonList {
@@ -23,13 +26,16 @@
 		gap: 20px;
 		width: 60%;
 		margin: auto;
-		margin-top: 100px;
+		margin-top: 50px;
 
 		button {
-			height: 30px;
-			background-color: white;
+			background-color: $violet;
 			border: none;
 			border-radius: 4px;
+			padding: 8px 10px;
+			font-size: 15px;
+			color: white;
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 		}
 	}
 }

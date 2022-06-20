@@ -5,7 +5,7 @@ import Card from '../../components/Card/Card';
 // Data
 import catalogeData from '../../data/cataloge.json';
 
-import style from '../../styles/Cataloge.module.scss';
+import style from '../../styles/ClientCataloge.module.scss';
 
 // Esto es lo que se les muestra a los clientes que ingresan al catalogo.
 const Cataloge = () => {
