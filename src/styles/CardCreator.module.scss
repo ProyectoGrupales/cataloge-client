@@ -1,0 +1,80 @@
+@import './config/color.scss';
+
+.container {
+	padding-top: 150px;
+	min-height: 100vh;
+	text-align: center;
+
+	h1 {
+		font-size: 18px;
+	}
+
+	.chooseTypeContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		width: 60%;
+		margin: auto;
+		margin-top: 50px;
+
+		button {
+			border: none;
+			border-radius: 8px;
+			height: 30px;
+			background-color: $violet;
+			color: white;
+		}
+	}
+}
+
+.inListContainer {
+	h1 {
+		font-size: 18px;
+		text-align: center;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+		text-align: center;
+
+		p {
+			font-size: 11px;
+		}
+
+		button {
+			border: none;
+			border-radius: 8px;
+			padding: 5px 15px;
+			background-color: $violet;
+		}
+	}
+}
+
+.previewContainer {
+	text-align: center;
+	h1 {
+		font-size: 18px;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+
+		button {
+			border: none;
+			border-radius: 8px;
+			padding: 5px 15px;
+			background-color: $violet;
+		}
+	}
+}

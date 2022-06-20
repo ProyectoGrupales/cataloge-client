@@ -7,4 +7,11 @@
 @font-face {
 	font-family: 'Poppins-Medium';
 	src: url('../fonts/Poppins-Light.otf');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins-Italic';
+	src: url('../fonts/Poppins-LightItalic.otf');
+	font-display: swap;
 }
