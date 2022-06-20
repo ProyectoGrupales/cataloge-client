@@ -1,7 +1,33 @@
 @import './config/color.scss';
 
+.head {
+	display: flex;
+	justify-content: center;
+	color: white;
+	background-color: $violet;
+	height: 80px;
+	border-radius: 0px 0px 20px 20px;
+	position: relative;
+
+	h1 {
+		align-self: center;
+		position: absolute;
+		bottom: 10px;
+	}
+
+	.iconContainer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 10px;
+		top: 5px;
+		height: 30px;
+		width: 30px;
+	}
+}
+
 .container {
-	padding-top: 150px;
 	min-height: 100vh;
 	text-align: center;
 
@@ -48,6 +74,7 @@
 			border-radius: 8px;
 			padding: 5px 15px;
 			background-color: $violet;
+			color: white;
 		}
 	}
 }
@@ -68,6 +95,14 @@
 		div {
 			display: flex;
 			flex-direction: column;
+		}
+
+		.inputNumber {
+			flex-direction: row;
+			gap: 50px;
+			input {
+				width: 50px;
+			}
 		}
 
 		button {

@@ -1,3 +1,6 @@
+import Link from 'next/link';
+// Icons
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import style from '../../../styles/CardCreator.module.scss';
 
 import { useState } from 'react';
@@ -7,7 +10,13 @@ const CardCreator = () => {
 	if (typeCard === 'productsInList') {
 		return (
 			<div className={style.inListContainer}>
-				<h1>Seleccionó productos en lista</h1>
+				<div className={style.head}>
+					<div className={style.iconContainer} onClick={() => history.go(-1)}>
+						<ArrowBackIosNewIcon />
+					</div>
+
+					<h1>Productos Listados</h1>
+				</div>
 				<form onSubmit={() => console.log('Se está creando está mierda!!')}>
 					<div>
 						<label>Imagen del listado</label>
@@ -39,7 +48,13 @@ const CardCreator = () => {
 	if (typeCard === 'productPreview') {
 		return (
 			<div className={style.previewContainer}>
-				<h1>Seleccionó preview de un producto</h1>
+				<div className={style.head}>
+					<div className={style.iconContainer} onClick={() => history.go(-1)}>
+						<ArrowBackIosNewIcon />
+					</div>
+
+					<h1>Producto detallado</h1>
+				</div>
 
 				<form>
 					<div>
@@ -52,12 +67,16 @@ const CardCreator = () => {
 						<textarea rows={5} cols={40} />
 					</div>
 
-					<div>
-						<label>Stock</label>
-						<input type='number' />
+					<div className={style.inputNumber}>
+						<div>
+							<label>Stock</label>
+							<input type='number' />
+						</div>
 
-						<label>Price</label>
-						<input type='number' />
+						<div>
+							<label>Price</label>
+							<input type='number' />
+						</div>
 					</div>
 
 					<button>Crear</button>
@@ -68,10 +87,16 @@ const CardCreator = () => {
 
 	return (
 		<div className={style.container}>
-			<h1>Escoja el tipo de Card que desea crear</h1>
+			<div className={style.head}>
+				<div className={style.iconContainer} onClick={() => history.go(-1)}>
+					<ArrowBackIosNewIcon />
+				</div>
+
+				<h1>Escoja el tipo de card que desea crear</h1>
+			</div>
 			<div className={style.chooseTypeContainer}>
 				<button onClick={() => setTypeCard('productsInList')}>
-					Lista de productos
+					Productos Listados
 				</button>
 				<button onClick={() => setTypeCard('productPreview')}>
 					Producto detallado
