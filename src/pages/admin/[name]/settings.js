@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HeaderCustom from '../../../components/HeaderCustom/HeaderCustom';
 
 // Icons & styles
 import HomeIcon from '@mui/icons-material/Home';
@@ -7,15 +8,11 @@ import style from '../../../styles/Settings.module.scss';
 const Settings = () => {
 	return (
 		<div className={style.container}>
-			<div className={style.head}>
-				<div className={style.iconContainer}>
-					<Link href={'/admin/[name]'} as={'/admin/test'}>
-						<HomeIcon fontSize='large' />
-					</Link>
-				</div>
-
-				<h1>Settings</h1>
-			</div>
+			<HeaderCustom
+				title='Settings'
+				icon={<HomeIcon fontSize='large' htmlColor='white' />}
+				redirectTo={{ href: '/admin/[name]', as: '/admin/test' }}
+			/>
 
 			<div className={style.buttonList}>
 				<Link href='/admin/[name]/list' as={'/admin/test/list'}>

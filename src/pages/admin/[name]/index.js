@@ -1,9 +1,11 @@
-import Header from '../../../components/Header/Header';
+import HeaderCustom from '../../../components/HeaderCustom/HeaderCustom';
 import Card from '../../../components/Card/Card';
 import Link from 'next/link';
 
 // Icons
 import AddIcon from '@mui/icons-material/Add';
+import SettingsIcon from '@mui/icons-material/Settings';
+
 import style from '../../../styles/AdminCataloge.module.scss';
 
 // Data
@@ -12,7 +14,11 @@ import catalogeData from '../../../data/cataloge.json';
 const View = () => {
 	return (
 		<div>
-			<Header />
+			<HeaderCustom
+				title='Nombre del comercio'
+				icon={<SettingsIcon fontSize='large' />}
+				redirectTo={{ href: '/admin/test/settings', as: '' }}
+			/>
 
 			<div className='cardContainer'>
 				{catalogeData.cards.map(card => {
