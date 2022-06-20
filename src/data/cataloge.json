@@ -1,0 +1,29 @@
+{
+	"id": 768123,
+	"name": "Comercio de Locos",
+	"description": "Un humilde comercio destinado a brindar calidad en nuestros productos para el bienestar de nuestros clientes",
+	"attention_hour": [],
+	"branch_office": "",
+	"cards": [
+		{
+			"id": 123456,
+			"title": "Comestibles",
+			"type": "productsInList"
+		},
+		{
+			"id": 123457,
+			"title": "Fiambrería",
+			"type": "productsInList"
+		},
+		{
+			"id": 123458,
+			"title": "Limpieza",
+			"type": "productsInList"
+		},
+		{
+			"id": 123459,
+			"title": "Higuiene Personal",
+			"type": "productsInList"
+		}
+	]
+}

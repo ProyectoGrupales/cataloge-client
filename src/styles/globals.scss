@@ -1,0 +1,42 @@
+@import './config/fonts.scss';
+@import './config/color.scss';
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins-Regular';
+	color: $black;
+}
+
+h1 {
+	font-family: 'Poppins-Medium';
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+	margin: 0;
+}
+
+button {
+	font-family: 'Poppins-Medium';
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.cardContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 25px;
+}
