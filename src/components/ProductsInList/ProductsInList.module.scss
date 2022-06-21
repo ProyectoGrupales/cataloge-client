@@ -1,0 +1,51 @@
+@import '../../styles/config/mixins.scss';
+@import '../../styles/config/color.scss';
+
+// Principal container
+.mainContainer_div {
+	display: flex;
+	flex-direction: column;
+
+	min-width: 100%;
+}
+
+.productDetail_div {
+	display: flex;
+	justify-content: space-between;
+
+	border: 0.3px solid rgba(0, 0, 0, 0.2);
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+
+	column-gap: 1rem;
+
+	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);
+
+	max-width: 100%;
+	// overflow-x: scroll;
+
+	p {
+		@include LargeLabe3();
+		white-space: nowrap;
+	}
+}
+
+// /* Width */
+// .productDetail_div::-webkit-scrollbar {
+// 	height: 5px;
+// }
+
+// /* Thumb */
+// .productDetail_div::-webkit-scrollbar-thumb {
+// 	background: $violet;
+// 	border-radius: 50px;
+// }
+
+// .productDetail_div::-webkit-scrollbar-thumb:hover {
+// 	background: #555;
+// }
+
+// /* Track */
+// .productDetail_div::-webkit-scrollbar-track {
+// 	background: fff;
+// }
