@@ -5,6 +5,8 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import style from '../../../styles/CardCreator.module.scss';
 
 // El tema aquí es como manejar todos los datos de multiples páginas en una sola
+
+// REFACTORIZAR ESTA PÁGINA
 const CardCreator = () => {
 	const [typeCard, setTypeCard] = useState(null);
 
@@ -19,7 +21,10 @@ const CardCreator = () => {
 
 					<h1>Lista de productos</h1>
 				</div>
-				<form onSubmit={() => console.log('Se está creando está mierda!!')}>
+				<form
+					onSubmit={() => console.log('Se está creando está mierda!!')}
+					className={style.form}
+				>
 					<div>
 						<label>Imagen del listado</label>
 						<input type='file' accept='image/*' />
@@ -59,7 +64,7 @@ const CardCreator = () => {
 					<h1>Producto detallado</h1>
 				</div>
 
-				<form>
+				<form className={style.form}>
 					<div>
 						<label>Elija las imagenes</label>
 						<input type='file' accept='image/*' multiple />
@@ -95,7 +100,7 @@ const CardCreator = () => {
 
 	// Estas son las opciónes para escojer al principio
 	return (
-		<div className={style.container}>
+		<div className={style.defaultPage}>
 			<div className={style.head}>
 				<div className={style.iconContainer} onClick={() => history.go(-1)}>
 					<ArrowBackIosNewIcon fontSize='large' />
@@ -103,6 +108,7 @@ const CardCreator = () => {
 
 				<h1>Creador de Cards</h1>
 			</div>
+
 			<div className={style.chooseTypeContainer}>
 				<button onClick={() => setTypeCard('productsInList')}>
 					Lista de productos

@@ -1,5 +1,8 @@
 @import '../../styles/config/color.scss';
 
 .carouselContainer {
-    margin: 1rem;
+    display: flex;
+    align-items: center;
+    
+    margin: 1rem 0;
 }
