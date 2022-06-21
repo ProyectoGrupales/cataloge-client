@@ -1,0 +1,55 @@
+@import '../../styles/config/mixins.scss';
+@import '../../styles/config/color.scss';
+
+.mainContainer_div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: fixed;
+	bottom: 0;
+
+	border-radius: 10px 10px 0 0;
+
+	max-width: 100%;
+	width: 90%;
+	height: 35vh;
+
+	background: linear-gradient(
+		180deg,
+		#9123ff 0%,
+		rgba(0, 53, 115, 0.7) 220.78%,
+		rgba(0, 53, 115, 0.7) 220.78%
+	);
+
+	opacity: 1;
+
+	animation-name: slidein;
+	animation-duration: 0.2s;
+	animation-timing-function: ease-in;
+}
+
+@keyframes slidein {
+	0% {
+		opacity: 0;
+		margin-top: 100px;
+	}
+
+	20% {
+		opacity: 0.2;
+		margin-top: 1100px;
+	}
+	40% {
+		opacity: 0.4;
+	}
+	60% {
+		opacity: 0.6;
+	}
+	80% {
+		opacity: 0.9;
+	}
+	100% {
+		opacity: 1;
+		margin-top: 500px;
+	}
+}

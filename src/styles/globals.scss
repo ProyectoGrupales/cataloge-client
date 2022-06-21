@@ -1,6 +1,11 @@
 @import './config/fonts.scss';
 @import './config/color.scss';
 
+*,
+*::after {
+    box-sizing: border-box;
+}
+
 html,
 body {
 	padding: 0;
