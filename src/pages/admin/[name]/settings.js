@@ -2,7 +2,6 @@ import Link from 'next/link';
 import HeaderCustom from '../../../components/HeaderCustom/HeaderCustom';
 
 // Icons & styles
-import HomeIcon from '@mui/icons-material/Home';
 import style from '../../../styles/Settings.module.scss';
 
 const Settings = () => {
@@ -10,7 +9,7 @@ const Settings = () => {
 		<div className={style.container}>
 			<HeaderCustom
 				title='Settings'
-				icon={<HomeIcon fontSize='large' htmlColor='white' />}
+				icon='back'
 				redirectTo={{ href: '/admin/[name]', as: '/admin/test' }}
 			/>
 

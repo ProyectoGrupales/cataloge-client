@@ -1,21 +1,23 @@
-import Link from 'next/link';
+import { useState } from 'react';
+
 // Icons
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import style from '../../../styles/CardCreator.module.scss';
 
-import { useState } from 'react';
+// El tema aquí es como manejar todos los datos de multiples páginas en una sola
 const CardCreator = () => {
 	const [typeCard, setTypeCard] = useState(null);
 
+	// Lo que se muestra en caso de que escoja productsInList
 	if (typeCard === 'productsInList') {
 		return (
 			<div className={style.inListContainer}>
 				<div className={style.head}>
 					<div className={style.iconContainer} onClick={() => history.go(-1)}>
-						<ArrowBackIosNewIcon />
+						<ArrowBackIosNewIcon fontSize='large' />
 					</div>
 
-					<h1>Productos Listados</h1>
+					<h1>Lista de productos</h1>
 				</div>
 				<form onSubmit={() => console.log('Se está creando está mierda!!')}>
 					<div>
@@ -45,18 +47,24 @@ const CardCreator = () => {
 			</div>
 		);
 	}
+	// Lo que se muestra en caso de que escoja productPreview
 	if (typeCard === 'productPreview') {
 		return (
 			<div className={style.previewContainer}>
 				<div className={style.head}>
 					<div className={style.iconContainer} onClick={() => history.go(-1)}>
-						<ArrowBackIosNewIcon />
+						<ArrowBackIosNewIcon fontSize='large' />
 					</div>
 
 					<h1>Producto detallado</h1>
 				</div>
 
 				<form>
+					<div>
+						<label>Elija las imagenes</label>
+						<input type='file' accept='image/*' multiple />
+					</div>
+
 					<div>
 						<label>Nombre del producto</label>
 						<input type='text' />
@@ -85,18 +93,19 @@ const CardCreator = () => {
 		);
 	}
 
+	// Estas son las opciónes para escojer al principio
 	return (
 		<div className={style.container}>
 			<div className={style.head}>
 				<div className={style.iconContainer} onClick={() => history.go(-1)}>
-					<ArrowBackIosNewIcon />
+					<ArrowBackIosNewIcon fontSize='large' />
 				</div>
 
-				<h1>Escoja el tipo de card que desea crear</h1>
+				<h1>Creador de Cards</h1>
 			</div>
 			<div className={style.chooseTypeContainer}>
 				<button onClick={() => setTypeCard('productsInList')}>
-					Productos Listados
+					Lista de productos
 				</button>
 				<button onClick={() => setTypeCard('productPreview')}>
 					Producto detallado
