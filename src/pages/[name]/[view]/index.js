@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import HeadDefault from '../../../components/MetaHead/HeadDefault';
+import HeadDefault from '../../../components/MetaHead/MetaHead';
 import Header from '../../../components/Header/Header';
 import Carousel from '../../../components/Carousel/Carousel';
 import ProductsInList from '../../../components/ProductsInList/ProductsInList';
@@ -17,6 +17,7 @@ const View = () => {
 		<div className={'mainContainer_div'}>
 			<Header />
 			{routes.query.view && isNaN(routes.query.view) ? (
+				// SIMPLE PRODUCTS
 				<div className='midContainer_div'>
 					<HeadDefault
 						title={'Listado De Productos'}
@@ -36,6 +37,7 @@ const View = () => {
 					<Modal openModal={openModal} setOpenModal={setOpenModal} />
 				</div>
 			) : (
+				// COMPLEX PRODUCTS
 				<div className='midContainer_div'>
 					<HeadDefault
 						title={'Detalle Del Producto'}
