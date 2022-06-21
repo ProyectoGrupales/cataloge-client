@@ -3,7 +3,7 @@ import styles from './ProductsInList.module.scss';
 export default function ProductsInList({ products, openModal, setOpenModal }) {
 	return products.length ? (
 		<div
-			onClick={() => setOpenModal(!openModal)}
+			onClick={() => setOpenModal(true)}
 			className={styles.mainContainer_div}
 		>
 			{products.map((product, index) => {

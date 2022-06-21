@@ -13,16 +13,17 @@
 	display: flex;
 	justify-content: space-between;
 
+	background-color: #fff;
+
+	border-radius: 5px;
 	border: 0.3px solid rgba(0, 0, 0, 0.2);
+
 	margin: 0.5rem 0;
 	padding: 0.5rem;
-
-	column-gap: 1rem;
 
 	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);
 
 	max-width: 100%;
-	// overflow-x: scroll;
 
 	p {
 		@include LargeLabe3();

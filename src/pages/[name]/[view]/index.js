@@ -1,11 +1,11 @@
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import HeadDefault from '../../../components/MetaHead/HeadDefault';
 import Header from '../../../components/Header/Header';
-import { useRouter } from 'next/router';
 import Carousel from '../../../components/Carousel/Carousel';
-import products from './products';
 import ProductsInList from '../../../components/ProductsInList/ProductsInList';
 import Modal from '../../../components/Modal/Modal';
-import { useState } from 'react';
+import products from '../../../data/products';
 
 // Esto es lo que ellos ven al clickear en una card
 const View = () => {
