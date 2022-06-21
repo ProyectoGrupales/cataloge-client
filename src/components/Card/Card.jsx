@@ -1,34 +1,37 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import style from './Card.module.scss';
+import arrowImage from '../../../public/images/Arrow.svg';
 
 // Este es el item que se muestra al inicio del catalogo
 const Card = ({ data }) => {
-	const isInList = data.type === 'productsInList';
+	const router = useRouter();
 
-	if (isInList) {
-		const href = `/test/${data.title.toLowerCase()}`;
+	if (data.type === 'productsInList') {
 		return (
 			// Este link te envia hacía el nombre del listado
-			<Link href={'/[name]/[view]/'} as={href} passHref>
-				<div className={style.container + ' ' + style.inList}>
-					{data.image ? (
-						<img src={data.image} />
-					) : (
-						<div className={style.fallBackImage} />
-					)}
+			<div
+				className={style.simpleCardContainer}
+				onClick={() => router.push(`/test/${data.title.toLowerCase()}`)}
+			>
+				<Image src={data.image} alt='Image of the card' layout='fill' />
 
-					<h1>{data.title}</h1>
-				</div>
-			</Link>
+				<figcaption>
+					<h6>{data.title}</h6>
+					<Image src={arrowImage}></Image>
+				</figcaption>
+			</div>
 		);
 	}
+	//
 
 	return (
 		// Este link te envía hacía el id del producto
 		<Link href={`test/${data.id}`}>
 			<div className={style.container + ' ' + style.preview}>
 				{data.image ? (
-					<img src={data.image} />
+					<Image src={data.image} alt='Image of the card' />
 				) : (
 					<div className={style.fallBackImage} />
 				)}

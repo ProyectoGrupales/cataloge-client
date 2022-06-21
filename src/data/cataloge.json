@@ -13,18 +13,20 @@
 			"id": 123456,
 			"type": "productsInList",
 			"title": "Comestibles",
-			"price": 0
+			"price": 0,
+			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
 		},
 		{
 			"id": 123457,
 			"type": "productsInList",
 			"title": "Fiambrería",
-			"price": 0
+			"price": 0,
+			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
 		},
 		{
 			"id": 123458,
 			"type": "productPreview",
-			"title": "Pantalon jogger blancoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			"title": "Pantalon jogger blanco",
 			"price": 10250
 		},
 		{
