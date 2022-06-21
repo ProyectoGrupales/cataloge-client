@@ -1,29 +1,37 @@
 {
 	"id": 768123,
+	"image": "",
 	"name": "Comercio de Locos",
 	"description": "Un humilde comercio destinado a brindar calidad en nuestros productos para el bienestar de nuestros clientes",
-	"attention_hour": [],
-	"branch_office": "",
+	"attention_hour": [
+		[9, 13],
+		[18, 22]
+	],
+	"branch_office": "Santiago del estero y AV Raúl Alfonsín",
 	"cards": [
 		{
 			"id": 123456,
+			"type": "productsInList",
 			"title": "Comestibles",
-			"type": "productsInList"
+			"price": 0
 		},
 		{
 			"id": 123457,
+			"type": "productsInList",
 			"title": "Fiambrería",
-			"type": "productsInList"
+			"price": 0
 		},
 		{
 			"id": 123458,
-			"title": "Limpieza",
-			"type": "productsInList"
+			"type": "productPreview",
+			"title": "Pantalon jogger blancoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			"price": 10250
 		},
 		{
 			"id": 123459,
-			"title": "Higuiene Personal",
-			"type": "productsInList"
+			"type": "productPreview",
+			"title": "Remera unisex roja",
+			"price": 1250
 		}
 	]
 }

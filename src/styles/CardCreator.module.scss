@@ -3,17 +3,11 @@
 .head {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	color: white;
 	background-color: $violet;
 	height: 80px;
-	border-radius: 0px 0px 20px 20px;
 	position: relative;
-
-	h1 {
-		align-self: center;
-		position: absolute;
-		bottom: 10px;
-	}
 
 	.iconContainer {
 		display: flex;
@@ -21,16 +15,35 @@
 		justify-content: center;
 		position: absolute;
 		left: 10px;
-		top: 5px;
+		top: 50%;
+		transform: translateY(-50%);
 		height: 30px;
 		width: 30px;
+		cursor: pointer;
 	}
 }
 
-.container {
-	min-height: 100vh;
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
+	gap: 15px;
 
+	button {
+		width: 50%;
+		height: 35px;
+		border: none;
+		border-radius: 8px;
+		padding: 5px 15px;
+		background-color: $violet;
+		color: white;
+		cursor: pointer;
+	}
+}
+
+.defaultPage {
 	h1 {
 		font-size: 18px;
 	}
@@ -44,11 +57,13 @@
 		margin-top: 50px;
 
 		button {
+			height: 50px;
+			font-size: 15px;
 			border: none;
 			border-radius: 8px;
-			height: 30px;
 			background-color: $violet;
 			color: white;
+			cursor: pointer;
 		}
 	}
 }
@@ -59,22 +74,8 @@
 		text-align: center;
 	}
 	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 15px;
-		text-align: center;
-
 		p {
 			font-size: 11px;
-		}
-
-		button {
-			border: none;
-			border-radius: 8px;
-			padding: 5px 15px;
-			background-color: $violet;
-			color: white;
 		}
 	}
 }
@@ -86,12 +87,6 @@
 	}
 
 	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 15px;
-
 		div {
 			display: flex;
 			flex-direction: column;
@@ -103,13 +98,6 @@
 			input {
 				width: 50px;
 			}
-		}
-
-		button {
-			border: none;
-			border-radius: 8px;
-			padding: 5px 15px;
-			background-color: $violet;
 		}
 	}
 }

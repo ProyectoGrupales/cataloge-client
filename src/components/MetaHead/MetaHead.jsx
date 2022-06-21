@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 // Este componente se lo llama en cada página para añadir la meta informacion
-const HeadDefault = ({ title, description, meta }) => {
+const MetaHead = ({ title, description, meta }) => {
 	return (
 		<Head>
 			<title>{title || 'Default Text'} - Catálogo</title>
@@ -11,4 +11,4 @@ const HeadDefault = ({ title, description, meta }) => {
 	);
 };
 
-export default HeadDefault;
+export default MetaHead;
