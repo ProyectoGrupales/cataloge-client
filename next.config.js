@@ -2,8 +2,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
-		domains: ['images.pexels.com'],
-		formats: ['image/avif', 'image/webp'],
+		domains: ['images.pexels.com', 'upload.wikimedia.org', 'drifters.com.ar'],
 	},
 };
 
