@@ -17,7 +17,12 @@ const Settings = () => {
 				<Link href='/admin/[name]/list' as={'/admin/test/list'}>
 					<button>Productos/Listados</button>
 				</Link>
+
 				<Link href='/admin/[name]/profile' as={'/admin/test/profile'}>
+					<button>Perfil</button>
+				</Link>
+
+				<Link href='/admin/[name]/finances' as={'/admin/test/finances'}>
 					<button>Perfil</button>
 				</Link>
 			</div>
