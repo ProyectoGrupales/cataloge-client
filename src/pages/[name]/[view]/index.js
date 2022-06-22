@@ -6,7 +6,6 @@ import style from '../../../styles/View.module.scss';
 import MetaHead from '../../../components/MetaHead/MetaHead';
 import Header from '../../../components/Header/Header';
 import Modal from '../../../components/Modal/Modal';
-import ProductsInList from '../../../components/ProductsInList/ProductsInList';
 import Carousel from '../../../components/Carousel/Carousel';
 import SimpleCard from '../../../components/SimpleCard/SimpleCard';
 
