@@ -6,9 +6,9 @@ import style from '../../../styles/View.module.scss';
 import MetaHead from '../../../components/MetaHead/MetaHead';
 import Header from '../../../components/Header/Header';
 import Modal from '../../../components/Modal/Modal';
-import ProductsInList from '../../../components/ProductsInList/ProductsInList';
 import Carousel from '../../../components/Carousel/Carousel';
 import SimpleCard from '../../../components/SimpleCard/SimpleCard';
+import ComplexProductDetail from '../../../components/ComplexProductDetail/ComplexProductDetail';
 
 // Data
 import products from '../../../data/products';
@@ -21,18 +21,18 @@ const View = () => {
 	// En esta var se almacena lo que luego se muestra en pantalla
 	let screenConfig;
 
-	console.log(routes.query.view);
-
 	// Analizamos el tipo de card según la ruta
 	if (routes.query.view && isNaN(routes.query.view)) {
 		// PRODUCTS IN LIST
 		screenConfig = (
-			<div className={style.midContainer_div}>
+			<div className={'mainContainer_div'}>
 				<MetaHead title={'Hola'} />
+
 				<Carousel />
-				<h4>Nombre de la categoría</h4>
 
 				<div className={style.listContainer}>
+					<h4>Nombre de la categoría</h4>
+
 					{products.map((simpleProduct, index) => {
 						// Parseamos la info del objeto
 						const parseObj = [];
@@ -58,20 +58,20 @@ const View = () => {
 	if (!isNaN(routes.query.view)) {
 		// COMPLEX PRODUCTS
 		screenConfig = (
-			<div className={style.midContainer_div}>
-				<h1>Product Preview</h1>;
+			<div className={'mainContainer_div'}>
+				<ComplexProductDetail />
 			</div>
 		);
 	}
 
 	return (
-		<div className={style.mainContainer_div}>
+		<>
 			<MetaHead title={'Vista de Card'} />
 			<Header />
 
 			{/* Aqui renderizamos lo elegido */}
 			{screenConfig}
-		</div>
+		</>
 	);
 };
 
