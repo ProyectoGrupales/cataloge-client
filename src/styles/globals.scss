@@ -14,25 +14,12 @@ body {
 	background-color: #dbdee7;
 }
 
-h1 {
-	font-family: 'Poppins-Medium';
-}
-
 h1,
 h2,
 h3,
 h4,
 p {
 	margin: 0;
-}
-
-label,
-p {
-	font-family: 'Poppins-Italic';
-}
-
-button {
-	font-family: 'Poppins-Medium';
 }
 
 a {
@@ -50,4 +37,33 @@ a {
 	justify-content: center;
 	gap: 10px;
 	margin-top: 25px;
+}
+
+.mainContainer_div {
+	display: flex;
+	flex-direction: column;
+
+	min-height: 100vh;
+	min-width: 100%;
+
+	padding: 20px 5%;
+
+	row-gap: 1rem;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+	max-width: 100%;
+	width: 100%;
+	display: block;
+	/* opcional */
+	-o-object-fit: cover;
+	object-fit: cover;
+	/* opcional */
+	-o-object-position: center center;
+	object-position: center center;
 }
