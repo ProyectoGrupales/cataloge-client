@@ -3,18 +3,19 @@
 	font-size: $fontSize;
 	line-height: $lineHeight;
 	font-weight: $fontWeight;
+	font-family: 'Poppins';
 }
 @mixin Headline1 {
-	@include Font(78px, 98px, 800);
+	@include Font(78px, 98px, 900);
 }
 @mixin Headline2() {
-	@include Font(48px, 64px, 800);
+	@include Font(48px, 64px, 900);
 }
 @mixin Headline3() {
-	@include Font(40px, 54px, 800);
+	@include Font(40px, 54px, 900);
 }
 @mixin Headline4() {
-	@include Font(28px, 40px, 800);
+	@include Font(28px, 40px, 900);
 }
 @mixin Headline5() {
 	@include Font(24px, 32px, 600);
@@ -24,7 +25,7 @@
 }
 
 @mixin Subtitle1 {
-	@include Font(18px, 28px, 700);
+	@include Font(20px, 28px, 700);
 }
 @mixin Subtitle2 {
 	@include Font(18px, 28px, 600);
@@ -37,28 +38,28 @@
 	@include Font(18px, 32px, 400);
 }
 @mixin Lead2 {
-	@include Font(14px, 24px, 600);
+	@include Font(14px, 24px, 500);
 }
 
 @mixin Body1 {
-	@include Font(18px, 26px, 400);
+	@include Font(18px, 26px, 500);
 }
 @mixin Body2 {
-	@include Font(14px, 22px, 400);
+	@include Font(14px, 20px, 400);
 }
 
-@mixin LargeLabel {
+@mixin LargeLabel1 {
 	@include Font(20px, 30px, 600);
 }
-@mixin LargeLabe2 {
-	@include Font(14px, 20px, 600);
+@mixin LargeLabel2 {
+	@include Font(14px, 20px, 700);
 }
-@mixin LargeLabe3 {
-	@include Font(12px, 16px, 600);
+@mixin LargeLabel3 {
+	@include Font(13px, 16px, 600);
 }
 
 @mixin Capitalised {
-	@include Font(14px, 18px, 800);
+	@include Font(14px, 18px, 900);
 	letter-spacing: 1px;
 	text-transform: capitalize;
 }
