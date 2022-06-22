@@ -1,3 +1,5 @@
+// Components
+import MetaHead from '../../../components/MetaHead/MetaHead';
 import HeaderCustom from '../../../components/HeaderCustom/HeaderCustom';
 import Card from '../../../components/Card/Card';
 import Link from 'next/link';
@@ -11,9 +13,11 @@ import style from '../../../styles/AdminCataloge.module.scss';
 // Data
 import catalogeData from '../../../data/cataloge.json';
 
+// Esta es la vista de los productos
 const View = () => {
 	return (
 		<div>
+			<MetaHead title='Admin' />
 			<HeaderCustom
 				title='Nombre del comercio'
 				icon={<SettingsIcon fontSize='large' />}
@@ -26,7 +30,7 @@ const View = () => {
 				})}
 			</div>
 
-			<Link href={'/admin/[name]/cardCreator'} as={'/admin/test/cardCreator'}>
+			<Link href={'/admin/[name]/cardCreator/'} as={'/admin/test/cardCreator'}>
 				<button className={style.addButton}>
 					<AddIcon fontSize='large' />
 				</button>
