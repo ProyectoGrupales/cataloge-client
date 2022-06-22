@@ -1,11 +1,11 @@
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import MetaHead from '../../../components/MetaHead/MetaHead';
 import Header from '../../../components/Header/Header';
-import { useRouter } from 'next/router';
 import Carousel from '../../../components/Carousel/Carousel';
-import products from './products';
 import ProductsInList from '../../../components/ProductsInList/ProductsInList';
 import Modal from '../../../components/Modal/Modal';
-import { useState } from 'react';
+import products from '../../../data/products';
 
 // Esto es lo que ellos ven al clickear en una card
 const View = () => {
@@ -17,6 +17,7 @@ const View = () => {
 		<div className={'mainContainer_div'}>
 			<Header />
 			{routes.query.view && isNaN(routes.query.view) ? (
+				// SIMPLE PRODUCTS
 				<div className='midContainer_div'>
 					<MetaHead
 						title={'Listado De Productos'}
@@ -36,6 +37,7 @@ const View = () => {
 					<Modal openModal={openModal} setOpenModal={setOpenModal} />
 				</div>
 			) : (
+				// COMPLEX PRODUCTS
 				<div className='midContainer_div'>
 					<MetaHead
 						title={'Detalle Del Producto'}

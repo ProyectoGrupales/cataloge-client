@@ -1,10 +1,29 @@
+import Image from 'next/image';
 import styles from './Modal.module.scss';
+import whatsappIcon from '../../../public/images/whatsappIcon.svg';
+import cartIcon from '../../../public/images/cartIcon.svg';
 
 export default function Modal({ openModal, setOpenModal }) {
 	return openModal ? (
-		<div className={styles.mainContainer_div}>
-			Modal
-			<button onClick={() => setOpenModal(!openModal)}>x</button>
+		<div className={styles.mainContainer}>
+			<button
+				className={styles.closeButton}
+				onClick={() => setOpenModal(!openModal)}
+			>
+				ⓧ
+			</button>
+
+			<div>
+				<button className={styles.whatsappButton}>
+					<Image src={whatsappIcon} alt='Whatasapp icon' />
+
+					<h4>Consultar Por Whatsapp</h4>
+				</button>
+				<button className={styles.cartButton}>
+					<Image src={cartIcon} alt='Cart icon' />
+					<h4>Agregar Al Carrito</h4>
+				</button>
+			</div>
 		</div>
 	) : null;
 }
