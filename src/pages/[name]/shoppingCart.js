@@ -1,4 +1,5 @@
 // Components
+import Link from 'next/link';
 import HeaderCustom from '../../components/HeaderCustom/HeaderCustom';
 import MetaHead from '../../components/MetaHead/MetaHead';
 
@@ -14,6 +15,9 @@ const ShoppingCart = () => {
 				redirectTo={{ href: '/[name]', as: '/test' }}
 			/>
 			<h1>Este sería el carrito</h1>
+			<Link href='/[name]/payment/' as='/test/payment'>
+				<button>Comprar</button>
+			</Link>
 		</div>
 	);
 };

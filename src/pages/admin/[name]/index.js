@@ -1,3 +1,5 @@
+// Components
+import MetaHead from '../../../components/MetaHead/MetaHead';
 import HeaderCustom from '../../../components/HeaderCustom/HeaderCustom';
 import Card from '../../../components/Card/Card';
 import Link from 'next/link';
@@ -14,6 +16,7 @@ import catalogeData from '../../../data/cataloge.json';
 const View = () => {
 	return (
 		<div>
+			<MetaHead title='Admin' />
 			<HeaderCustom
 				title='Nombre del comercio'
 				icon={<SettingsIcon fontSize='large' />}

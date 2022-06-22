@@ -1,6 +1,10 @@
+// Components
+import MetaHead from '../components/MetaHead/MetaHead';
 import Image from 'next/image';
-import style from '../styles/index.module.scss';
+
+// Images
 import teamWork from '../../public/images/teamWork.svg';
+import style from '../styles/index.module.scss';
 
 const Home = () => {
 	const redirect = e => {
@@ -9,6 +13,7 @@ const Home = () => {
 	};
 	return (
 		<div className={style.container}>
+			<MetaHead title='Inicio de Sesión' />
 			<h1>Bienvenido de nuevo! 🚀</h1>
 
 			<div>
