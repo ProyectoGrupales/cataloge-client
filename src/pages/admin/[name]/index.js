@@ -13,6 +13,7 @@ import style from '../../../styles/AdminCataloge.module.scss';
 // Data
 import catalogeData from '../../../data/cataloge.json';
 
+// Esta es la vista de los productos
 const View = () => {
 	return (
 		<div>
@@ -29,7 +30,7 @@ const View = () => {
 				})}
 			</div>
 
-			<Link href={'/admin/[name]/cardCreator'} as={'/admin/test/cardCreator'}>
+			<Link href={'/admin/[name]/cardCreator/'} as={'/admin/test/cardCreator'}>
 				<button className={style.addButton}>
 					<AddIcon fontSize='large' />
 				</button>
