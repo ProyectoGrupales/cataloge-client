@@ -1,0 +1,11 @@
+{
+	"products": [
+		{
+			"id": 123458,
+			"type": "productPreview",
+			"title": "Pantalon jogger blanco",
+			"price": 10250,
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/200px-Trousers-colourisolated.jpg"
+		}
+	]
+}

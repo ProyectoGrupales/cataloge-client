@@ -1,9 +1,11 @@
+@import './color.scss';
 // Font
 
 @mixin Font($fontSize, $lineHeight, $fontWeight) {
 	font-size: $fontSize;
 	line-height: $lineHeight;
 	font-weight: $fontWeight;
+	color: $black;
 }
 
 @mixin Headline1 {
@@ -31,14 +33,10 @@
 }
 
 @mixin Subtitle1 {
-	@include Font(18px, 28px, 700);
+	@include Font(18px, 28px, 900);
 }
 
 @mixin Subtitle2 {
-	@include Font(18px, 28px, 600);
-}
-
-@mixin Subtitle3 {
 	@include Font(16px, 28px, 500);
 }
 
@@ -67,7 +65,7 @@
 }
 
 @mixin LargeLabe3 {
-	@include Font(12px, 16px, 600);
+	@include Font(11px, 16px, 600);
 }
 
 @mixin Capitalised {

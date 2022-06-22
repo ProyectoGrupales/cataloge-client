@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+
+// Icons
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import style from './Card.module.scss';
-import arrowImage from '../../../public/images/Arrow.svg';
 
 // Este es el item que se muestra al inicio del catalogo
 const Card = ({ data }) => {
@@ -12,14 +14,19 @@ const Card = ({ data }) => {
 		return (
 			// Este link te envia hacía el nombre del listado
 			<div
-				className={style.simpleCardContainer}
+				className={style.container + ' ' + style.inList}
 				onClick={() => router.push(`/test/${data.title.toLowerCase()}`)}
 			>
-				<Image src={data.image} alt='Image of the card' layout='fill' />
+				<Image
+					src={data.image}
+					alt='Image of the card'
+					layout='fill'
+					objectFit='cover'
+					priority={true}
+				/>
 
 				<figcaption>
 					<h6>{data.title}</h6>
-					<Image src={arrowImage}></Image>
 				</figcaption>
 			</div>
 		);
@@ -31,7 +38,14 @@ const Card = ({ data }) => {
 		<Link href={`test/${data.id}`}>
 			<div className={style.container + ' ' + style.preview}>
 				{data.image ? (
-					<Image src={data.image} alt='Image of the card' />
+					<Image
+						src={data.image}
+						alt='Image of the card'
+						width={130}
+						height={150}
+						objectFit='contain'
+						layout='fixed'
+					/>
 				) : (
 					<div className={style.fallBackImage} />
 				)}
@@ -39,6 +53,12 @@ const Card = ({ data }) => {
 				<div className={style.title}>
 					<h1>${data.price}</h1>
 					<h2>{data.title}</h2>
+				</div>
+
+				<div className={style.buttonContainer}>
+					<button>
+						<ShoppingCartIcon fontSize='small' /> Añadir al carrito
+					</button>
 				</div>
 			</div>
 		</Link>

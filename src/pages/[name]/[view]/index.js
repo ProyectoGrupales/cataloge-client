@@ -1,59 +1,76 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import style from '../../../styles/View.module.scss';
+
+// Components
 import MetaHead from '../../../components/MetaHead/MetaHead';
 import Header from '../../../components/Header/Header';
-import Carousel from '../../../components/Carousel/Carousel';
-import ProductsInList from '../../../components/ProductsInList/ProductsInList';
 import Modal from '../../../components/Modal/Modal';
+import ProductsInList from '../../../components/ProductsInList/ProductsInList';
+import Carousel from '../../../components/Carousel/Carousel';
+import SimpleCard from '../../../components/SimpleCard/SimpleCard';
+
+// Data
 import products from '../../../data/products';
 
 // Esto es lo que ellos ven al clickear en una card
 const View = () => {
+	const [openModal, setOpenModal] = useState(false);
 	const routes = useRouter();
 
-	const [openModal, setOpenModal] = useState(false);
+	// En esta var se almacena lo que luego se muestra en pantalla
+	let screenConfig;
+
+	console.log(routes.query.view);
+
+	// Analizamos el tipo de card según la ruta
+	if (routes.query.view && isNaN(routes.query.view)) {
+		// PRODUCTS IN LIST
+		screenConfig = (
+			<div className={style.midContainer_div}>
+				<MetaHead title={'Hola'} />
+				<Carousel />
+				<h4>Nombre de la categoría</h4>
+
+				<div className={style.listContainer}>
+					{products.map((simpleProduct, index) => {
+						// Parseamos la info del objeto
+						const parseObj = [];
+						for (const property in simpleProduct) {
+							parseObj.push(simpleProduct[property]);
+						}
+
+						return (
+							<SimpleCard
+								colums={parseObj}
+								onClick={() => setOpenModal(!openModal)}
+								key={index}
+							/>
+						);
+					})}
+				</div>
+
+				<Modal openModal={openModal} setOpenModal={setOpenModal} />
+			</div>
+		);
+	}
+
+	if (!isNaN(routes.query.view)) {
+		// COMPLEX PRODUCTS
+		screenConfig = (
+			<div className={style.midContainer_div}>
+				<h1>Product Preview</h1>;
+			</div>
+		);
+	}
 
 	return (
-		<div className={'mainContainer_div'}>
+		<div className={style.mainContainer_div}>
+			<MetaHead title={'Vista de Card'} />
 			<Header />
-			{routes.query.view && isNaN(routes.query.view) ? (
-				// SIMPLE PRODUCTS
-				<div className='midContainer_div'>
-					<MetaHead
-						title={'Listado De Productos'}
-						description={
-							'En esta sección podrá ver todos los productos relacionados a la categoría en forma de listado'
-						}
-					/>
-					<Carousel />
-					<h4>Nombre De La Categoría</h4>
 
-					<ProductsInList
-						openModal={openModal}
-						setOpenModal={setOpenModal}
-						products={products}
-					/>
-
-					<Modal openModal={openModal} setOpenModal={setOpenModal} />
-				</div>
-			) : (
-				// COMPLEX PRODUCTS
-				<div className='midContainer_div'>
-					<MetaHead
-						title={'Detalle Del Producto'}
-						description={'Información general del producto seleccionado'}
-					/>
-					<h1>Product Preview</h1>;
-				</div>
-			)}
-
-			<style jsx>{`
-				.midContainer_div {
-					padding: 0 5%;
-
-					position: relative;
-				}
-			`}</style>
+			{/* Aqui renderizamos lo elegido */}
+			{screenConfig}
 		</div>
 	);
 };

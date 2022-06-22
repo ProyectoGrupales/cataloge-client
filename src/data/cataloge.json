@@ -12,7 +12,7 @@
 		{
 			"id": 123456,
 			"type": "productsInList",
-			"title": "Comestibles",
+			"title": "Electrodomesticos",
 			"price": 0,
 			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
 		},
@@ -27,13 +27,29 @@
 			"id": 123458,
 			"type": "productPreview",
 			"title": "Pantalon jogger blanco",
-			"price": 10250
+			"price": 10250,
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/200px-Trousers-colourisolated.jpg"
 		},
 		{
 			"id": 123459,
 			"type": "productPreview",
-			"title": "Remera unisex roja",
-			"price": 1250
+			"title": "Remera unisex negra",
+			"price": 1250,
+			"image": "https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+		},
+		{
+			"id": 123460,
+			"type": "productsInList",
+			"title": "Elemento de prueba",
+			"price": 1250,
+			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
+		},
+		{
+			"id": 123461,
+			"type": "productPreview",
+			"title": "Elemento de prueba 2",
+			"price": 1250,
+			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
 		}
 	]
 }
