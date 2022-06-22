@@ -12,11 +12,9 @@ const HeaderCustom = ({ title, icon, redirectTo }) => {
 			<h1>{title}</h1>
 
 			{icon === 'back' ? (
-				<Link href={redirectTo.href} as={redirectTo.as}>
-					<div className={style.backIconContainer}>
-						<ArrowBackIosNewIcon fontSize='large' />
-					</div>
-				</Link>
+				<div className={style.backIconContainer} onClick={() => history.go(-1)}>
+					<ArrowBackIosNewIcon fontSize='large' />
+				</div>
 			) : (
 				<Link href={redirectTo.href} as={redirectTo.as}>
 					<div className={style.iconContainer}>{icon}</div>

@@ -21,14 +21,12 @@ const View = () => {
 	// En esta var se almacena lo que luego se muestra en pantalla
 	let screenConfig;
 
-	console.log(routes.query.view);
-
 	// Analizamos el tipo de card según la ruta
 	if (routes.query.view && isNaN(routes.query.view)) {
 		// PRODUCTS IN LIST
 		screenConfig = (
 			<div className={style.midContainer_div}>
-				<MetaHead title={'Hola'} />
+				<MetaHead title={'Lista de productos'} />
 				<Carousel />
 				<h4>Nombre de la categoría</h4>
 
@@ -59,6 +57,7 @@ const View = () => {
 		// COMPLEX PRODUCTS
 		screenConfig = (
 			<div className={style.midContainer_div}>
+				<MetaHead title={'Nombre del producto'} />
 				<h1>Product Preview</h1>;
 			</div>
 		);
@@ -66,7 +65,6 @@ const View = () => {
 
 	return (
 		<div className={style.mainContainer_div}>
-			<MetaHead title={'Vista de Card'} />
 			<Header />
 
 			{/* Aqui renderizamos lo elegido */}

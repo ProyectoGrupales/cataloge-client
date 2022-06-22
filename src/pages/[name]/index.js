@@ -1,4 +1,5 @@
 // Components
+import MetaHead from '../../components/MetaHead/MetaHead';
 import Header from '../../components/Header/Header';
 import Card from '../../components/Card/Card';
 
@@ -11,6 +12,7 @@ import style from '../../styles/ClientCataloge.module.scss';
 const Cataloge = () => {
 	return (
 		<div className={style.container}>
+			<MetaHead title={catalogeData.name} />
 			<Header />
 
 			<div className={'cardContainer'}>
