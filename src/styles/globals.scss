@@ -1,6 +1,7 @@
 @import './config/fonts.scss';
 @import './config/color.scss';
 
+// Reset styles
 *,
 *::after {
 	box-sizing: border-box;
@@ -31,27 +32,6 @@ a {
 	box-sizing: border-box;
 }
 
-.cardContainer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 10px;
-	margin-top: 25px;
-}
-
-.mainContainer_div {
-	display: flex;
-	flex-direction: column;
-
-	min-height: 100vh;
-	min-width: 100%;
-
-	padding: 20px 5%;
-
-	row-gap: 1rem;
-}
-
-/* Evitamos problemas con las imagenes */
 img,
 picture,
 video,
@@ -67,3 +47,19 @@ figure {
 	-o-object-position: center center;
 	object-position: center center;
 }
+
+// Styles
+// .mainContainer {
+// 	display: flex;
+// 	flex-direction: column;
+
+// 	min-height: 100vh;
+// 	min-width: 100%;
+
+// 	row-gap: 1.5rem;
+
+.container {
+	min-width: 100%;
+	padding: 0 10px;
+}
+// }

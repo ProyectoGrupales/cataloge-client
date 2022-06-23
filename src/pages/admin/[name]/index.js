@@ -1,42 +1,28 @@
 // Components
-import MetaHead from '../../../components/MetaHead/MetaHead';
-import HeaderCustom from '../../../components/HeaderCustom/HeaderCustom';
-import Card from '../../../components/Card/Card';
-import Link from 'next/link';
+import Cataloge from '../../../components/Common/Cataloge/Cataloge';
+import MetaHead from '../../../components/Common/MetaHead/MetaHead';
+import HeaderCustom from '../../../components/Common/HeaderCustom/HeaderCustom';
 
 // Icons
-import AddIcon from '@mui/icons-material/Add';
 import SettingsIcon from '@mui/icons-material/Settings';
-
-import style from '../../../styles/AdminCataloge.module.scss';
 
 // Data
 import catalogeData from '../../../data/cataloge.json';
 
-// Esta es la vista de los productos
-const View = () => {
+const AdminHome = () => {
 	return (
 		<div>
 			<MetaHead title='Admin' />
 			<HeaderCustom
-				title='Nombre del comercio'
+				title={catalogeData.name}
 				icon={<SettingsIcon fontSize='large' />}
 				redirectTo={{ href: '/admin/test/settings', as: '' }}
 			/>
-
-			<div className='cardContainer'>
-				{catalogeData.cards.map(card => {
-					return <Card data={card} key={card.id} />;
-				})}
+			<div className='container'>
+				<Cataloge data={catalogeData} />
 			</div>
-
-			<Link href={'/admin/[name]/cardCreator/'} as={'/admin/test/cardCreator'}>
-				<button className={style.addButton}>
-					<AddIcon fontSize='large' />
-				</button>
-			</Link>
 		</div>
 	);
 };
 
-export default View;
+export default AdminHome;

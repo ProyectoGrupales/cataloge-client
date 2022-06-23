@@ -1,28 +1,21 @@
 import { useState } from 'react';
 
-// Components
-import MetaHead from '../../components/MetaHead/MetaHead';
-import Header from '../../components/Header/Header';
-import Card from '../../components/Card/Card';
-import ProfileModal from '../../components/ProfileModal/ProfileModal';
-
-// Data
+// Componets
+import Header from '../../components/Common/Header/Header';
+import MetaHead from '../../components/Common/MetaHead/MetaHead';
+import Cataloge from '../../components/Common/Cataloge/Cataloge';
 import catalogeData from '../../data/cataloge.json';
+import ProfileModal from '../../components/Common/ProfileModal/ProfileModal';
 
-import style from '../../styles/ClientCataloge.module.scss';
-
-// Esto es lo que se les muestra a los clientes que ingresan al catalogo.
-const Cataloge = () => {
+const ClientHome = () => {
 	const [modal, setModal] = useState(false);
+
 	return (
-		<div className={style.container}>
+		<div>
 			<MetaHead title={catalogeData.name} />
 			<Header onClick={() => setModal(!modal)} />
-
-			<div className={'cardContainer'}>
-				{catalogeData.cards.map(card => {
-					return <Card data={card} key={card.id} />;
-				})}
+			<div className='container'>
+				<Cataloge data={catalogeData} />
 			</div>
 
 			<ProfileModal data={catalogeData} open={modal} setOpen={setModal} />
@@ -30,4 +23,4 @@ const Cataloge = () => {
 	);
 };
 
-export default Cataloge;
+export default ClientHome;

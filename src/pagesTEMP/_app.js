@@ -1,7 +1,25 @@
 import '../styles/globals.scss';
+import { useRouter } from 'next/router';
 
+import Header from '../components/Common/Header/Header';
+import HeaderCustom from '../components/Common/HeaderCustom/HeaderCustom';
+
+// TERMINAR LAYOUT
 function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+	const router = useRouter();
+	console.log(router.query);
+
+	// Solucionar el tema del Header
+	return (
+		<div className={'mainContainer'}>
+			<Header />
+			<HeaderCustom />
+
+			<div className='children'>
+				<Component {...pageProps} />
+			</div>
+		</div>
+	);
 }
 
 export default MyApp;

@@ -1,0 +1,12 @@
+@import '../../../../styles/config/color.scss';
+@import '../../../../styles/config/fonts.scss';
+@import '../../../../styles/config/mixins.scss';
+
+.listContainer {
+	display: flex;
+	flex-direction: column;
+
+	gap: 5px;
+
+	margin: 10px 0;
+}

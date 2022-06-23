@@ -1,0 +1,77 @@
+@import '../../../styles/config/color.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	text-align: center;
+	background-color: $violet;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.541);
+	margin-bottom: 15px;
+
+	.imgFallback {
+		width: 45px;
+		height: 45px;
+		border-radius: 40px;
+		background-color: $label;
+		position: absolute;
+		top: 5px;
+		left: 8px;
+		cursor: pointer;
+	}
+
+	.catalogeData {
+		display: flex;
+		flex-direction: column;
+		width: fit-content;
+		margin: auto;
+		align-items: flex-start;
+		color: white;
+		h1 {
+			font-size: 18px;
+			height: 20px;
+		}
+		p {
+			font-size: 12px;
+		}
+		cursor: pointer;
+	}
+
+	.iconContainer {
+		display: flex;
+		position: absolute;
+		right: 10px;
+		top: 5px;
+		color: white;
+		cursor: pointer;
+	}
+
+	.searchContainer {
+		display: flex;
+		width: fit-content;
+		margin: auto;
+		margin-bottom: 7px;
+		input {
+			width: 220px;
+			height: 30px;
+			border: none;
+			border-radius: 8px 0px 0px 8px;
+			font-size: 14px;
+			padding: 0px 5px;
+
+			&:focus {
+				outline: none;
+			}
+		}
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 35px;
+			background-color: white;
+			border-radius: 0px 10px 10px 0px;
+			transform: translateX(-0px);
+			cursor: pointer;
+		}
+	}
+}
