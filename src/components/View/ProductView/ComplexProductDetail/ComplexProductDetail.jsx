@@ -2,7 +2,6 @@
 import Image from 'next/image';
 
 // Componets
-import Header from '../../../Common/Header/Header';
 
 // Icons & style
 import styles from './ComplexProductDetail.module.scss';
