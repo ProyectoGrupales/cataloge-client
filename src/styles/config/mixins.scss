@@ -1,5 +1,7 @@
+@import './color.scss';
+
 // Font
-@mixin Font($fontSize, $lineHeight, $fontWeight) {
+@mixin Font($fontSize, $lineHeight, $fontWeight, $color) {
 	font-size: $fontSize;
 	line-height: $lineHeight;
 	font-weight: $fontWeight;
@@ -64,6 +66,6 @@
 	text-transform: capitalize;
 }
 
-@mixin BadgeLabel {
-	@include Font(20px, 25px, 400);
+@mixin BadgeLabel($color) {
+	@include Font(20px, 25px, 400, $color);
 }

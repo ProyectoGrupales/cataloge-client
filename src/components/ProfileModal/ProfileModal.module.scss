@@ -1,0 +1,67 @@
+@import '../../styles/config/color.scss';
+@import '../../styles/config/mixins.scss';
+
+.isVisible {
+	visibility: visible !important;
+	transition: 0.5s !important;
+}
+
+.container {
+	visibility: hidden;
+	width: 90%;
+	min-height: 350px;
+	padding: 10px;
+	padding-top: 30px;
+
+	position: fixed;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	border-radius: 4px;
+	background: linear-gradient(180deg, #9123ff 0%, rgb(0, 54, 115) 220.78%);
+	color: white;
+
+	p {
+		@include LargeLabel2(white);
+	}
+
+	.closeButton {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		border: none;
+		background-color: transparent;
+		color: white;
+		cursor: pointer;
+	}
+
+	.header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		h1 {
+			@include Headline5(white);
+		}
+
+		.fallbackImage {
+			width: 65px;
+			height: 65px;
+
+			border-radius: 40px;
+			background-color: $label;
+		}
+	}
+
+	.branch_office {
+		margin: 15px 0px;
+	}
+
+	.description {
+		p {
+			@include LargeLabel(white);
+			text-align: center;
+		}
+	}
+}

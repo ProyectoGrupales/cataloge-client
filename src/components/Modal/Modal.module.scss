@@ -19,22 +19,15 @@
 	width: 90%;
 	height: 35vh;
 
-	background: linear-gradient(
-		180deg,
-		#9123ff 0%,
-		rgba(0, 53, 115, 0.8) 220.78%,
-		rgba(0, 53, 115, 0.8) 220.78%
-	);
-
-	opacity: 1;
+	background: linear-gradient(180deg, #9123ff 0%, rgb(0, 54, 115) 220.78%);
 
 	animation-name: slidein;
-	animation-duration: 0.15s;
-	animation-timing-function: ease-in-out;
+	animation-duration: 0.2s;
+	// animation-timing-function: ease-in;
 
 	// Close button
 	button {
-		@include Headline5();
+		@include Headline5($black);
 		font-weight: bolder;
 
 		color: #fff;
@@ -78,11 +71,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-
 		column-gap: 10%;
-
 		min-width: 100%;
-
 		padding: 5px 5%;
 
 		border: none;
@@ -97,14 +87,14 @@
 	.whatsappButton {
 		h4 {
 			color: #06a85a;
-			@include Body2();
+			@include Body2(white);
 		}
 		background-color: #fff;
 	}
 	.cartButton {
 		h4 {
 			color: #fff;
-			@include Body2();
+			@include Body2(white);
 		}
 		margin-top: 1rem;
 		border: 1px solid #ffff;
