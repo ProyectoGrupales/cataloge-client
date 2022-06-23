@@ -1,79 +1,79 @@
 @import './color.scss';
 // Font
 
-@mixin Font($fontSize, $lineHeight, $fontWeight) {
+@mixin Font($fontSize, $lineHeight, $fontWeight, $color) {
 	font-size: $fontSize;
 	line-height: $lineHeight;
 	font-weight: $fontWeight;
-	color: $black;
+	color: $color;
 }
 
-@mixin Headline1 {
-	@include Font(78px, 98px, 800);
+@mixin Headline1($color) {
+	@include Font(78px, 98px, 800, $color);
 }
 
-@mixin Headline2() {
-	@include Font(48px, 64px, 800);
+@mixin Headline2($color) {
+	@include Font(48px, 64px, 800, $color);
 }
 
-@mixin Headline3() {
-	@include Font(40px, 54px, 800);
+@mixin Headline3($color) {
+	@include Font(40px, 54px, 800, $color);
 }
 
-@mixin Headline4() {
-	@include Font(28px, 40px, 800);
+@mixin Headline4($color) {
+	@include Font(28px, 40px, 800, $color);
 }
 
-@mixin Headline5() {
-	@include Font(24px, 32px, 600);
+@mixin Headline5($color) {
+	@include Font(24px, 32px, 600, $color);
 }
 
-@mixin Headline6() {
-	@include Font(20px, 32px, 500);
+@mixin Headline6($color) {
+	@include Font(20px, 32px, 500, $color);
 }
 
-@mixin Subtitle1 {
-	@include Font(18px, 28px, 900);
+@mixin Subtitle1($color) {
+	@include Font(18px, 28px, 900, $color);
 }
 
-@mixin Subtitle2 {
-	@include Font(16px, 28px, 500);
+@mixin Subtitle2($color) {
+	@include Font(16px, 28px, 500, $color);
 }
 
-@mixin Lead1 {
-	@include Font(18px, 32px, 400);
+@mixin Lead1($color) {
+	@include Font(18px, 32px, 400, $color);
 }
 
-@mixin Lead2 {
-	@include Font(14px, 24px, 600);
+@mixin Lead2($color) {
+	@include Font(14px, 24px, 600, $color);
 }
 
-@mixin Body1 {
-	@include Font(18px, 26px, 400);
+@mixin Body1($color) {
+	@include Font(18px, 26px, 400, $color);
 }
 
-@mixin Body2 {
-	@include Font(14px, 22px, 900);
+@mixin Body2($color) {
+	@include Font(14px, 22px, 900, $color);
 }
 
-@mixin LargeLabel {
-	@include Font(20px, 30px, 600);
+@mixin LargeLabel($color) {
+	@include Font(16px, 30px, 600, $color);
 }
 
-@mixin LargeLabe2 {
-	@include Font(14px, 20px, 600);
+@mixin LargeLabel2($color) {
+	@include Font(14px, 20px, 400, $color);
 }
 
-@mixin LargeLabe3 {
-	@include Font(11px, 16px, 600);
+@mixin LargeLabel3($color) {
+	@include Font(11px, 16px, 400, $color);
 }
 
-@mixin Capitalised {
-	@include Font(14px, 18px, 800);
+@mixin Capitalised($color) {
+	@include Font(14px, 18px, 800, $color);
 	letter-spacing: 1px;
 	text-transform: capitalize;
 }
 
-@mixin BadgeLabel {
-	@include Font(20px, 25px, 400);
+@mixin BadgeLabel($color) {
+	@include Font(20px, 25px, 400, $color);
 }

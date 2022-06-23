@@ -1,3 +1,4 @@
+@import '../../styles/config/color.scss';
 @import '../../styles/config/mixins.scss';
 
 .container {
@@ -10,5 +11,5 @@
 	border-radius: 5px;
 	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);
 	cursor: pointer;
-	@include LargeLabe3();
+	@include LargeLabel3($black);
 }

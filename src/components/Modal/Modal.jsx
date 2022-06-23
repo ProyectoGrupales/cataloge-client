@@ -3,6 +3,9 @@ import styles from './Modal.module.scss';
 import whatsappIcon from '../../../public/images/whatsappIcon.svg';
 import cartIcon from '../../../public/images/cartIcon.svg';
 
+// Icons
+import CloseIcon from '@mui/icons-material/Close';
+
 export default function Modal({ openModal, setOpenModal }) {
 	return openModal ? (
 		<div className={styles.mainContainer}>
@@ -10,7 +13,7 @@ export default function Modal({ openModal, setOpenModal }) {
 				className={styles.closeButton}
 				onClick={() => setOpenModal(!openModal)}
 			>
-				ⓧ
+				<CloseIcon />
 			</button>
 
 			<div>
@@ -19,6 +22,7 @@ export default function Modal({ openModal, setOpenModal }) {
 
 					<h4>Consultar Por Whatsapp</h4>
 				</button>
+
 				<button className={styles.cartButton}>
 					<Image src={cartIcon} alt='Cart icon' />
 					<h4>Agregar Al Carrito</h4>
