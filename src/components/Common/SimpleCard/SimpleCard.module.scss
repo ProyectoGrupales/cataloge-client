@@ -1,0 +1,15 @@
+@import '../../../styles/config/color.scss';
+@import '../../../styles/config/mixins.scss';
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+	padding: 0px 5px;
+	align-items: center;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);
+	cursor: pointer;
+	@include LargeLabel3();
+}

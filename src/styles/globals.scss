@@ -1,28 +1,37 @@
 @import './config/fonts.scss';
 @import './config/color.scss';
 
-html,
-body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Poppins-Regular';
-	color: $black;
+// Reset styles
+*,
+*::after {
+	box-sizing: border-box;
 }
 
-h1 {
-	font-family: 'Poppins-Medium';
+html,
+body {
+	margin: 0;
+	font-family: 'Poppins';
+	color: $black;
+	background-color: #dbdee7;
 }
 
 h1,
 h2,
 h3,
 h4,
-p {
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
 	margin: 0;
-}
-
-button {
-	font-family: 'Poppins-Medium';
+	padding: 0;
 }
 
 a {
@@ -34,9 +43,34 @@ a {
 	box-sizing: border-box;
 }
 
-.cardContainer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	margin-top: 25px;
+img,
+picture,
+video,
+iframe,
+figure {
+	max-width: 100%;
+	width: 100%;
+	display: block;
+	/* opcional */
+	-o-object-fit: cover;
+	object-fit: cover;
+	/* opcional */
+	-o-object-position: center center;
+	object-position: center center;
 }
+
+// Styles
+// .mainContainer {
+// 	display: flex;
+// 	flex-direction: column;
+
+// 	min-height: 100vh;
+// 	min-width: 100%;
+
+// 	row-gap: 1.5rem;
+
+.container {
+	min-width: 100%;
+	padding: 0 10px;
+}
+// }

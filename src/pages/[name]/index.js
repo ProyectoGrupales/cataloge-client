@@ -1,25 +1,26 @@
-// Components
-import Header from '../../components/Header/Header';
-import Card from '../../components/Card/Card';
+import { useState } from 'react';
 
-// Data
+// Componets
+import Header from '../../components/Common/Header/Header';
+import MetaHead from '../../components/Common/MetaHead/MetaHead';
+import Cataloge from '../../components/Common/Cataloge/Cataloge';
 import catalogeData from '../../data/cataloge.json';
+import ProfileModal from '../../components/Common/ProfileModal/ProfileModal';
 
-import style from '../../styles/Cataloge.module.scss';
+const ClientHome = () => {
+	const [modal, setModal] = useState(false);
 
-// Esto es lo que se les muestra a los clientes que ingresan al catalogo.
-const Cataloge = () => {
 	return (
-		<div className={style.container}>
-			<Header />
-
-			<div className={'cardContainer'}>
-				{catalogeData.cards.map(card => {
-					return <Card data={card} key={card.id} />;
-				})}
+		<div>
+			<MetaHead title={catalogeData.name} />
+			<Header onClick={() => setModal(!modal)} />
+			<div className='container'>
+				<Cataloge data={catalogeData} />
 			</div>
+
+			<ProfileModal data={catalogeData} open={modal} setOpen={setModal} />
 		</div>
 	);
 };
 
-export default Cataloge;
+export default ClientHome;

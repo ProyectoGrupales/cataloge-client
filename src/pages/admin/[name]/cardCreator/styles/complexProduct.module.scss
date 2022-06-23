@@ -1,0 +1,41 @@
+@import '../../../../../styles/config/color.scss';
+
+.container {
+	text-align: center;
+	h1 {
+		font-size: 18px;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		gap: 15px;
+
+		button {
+			width: 50%;
+			height: 35px;
+			border: none;
+			border-radius: 8px;
+			padding: 5px 15px;
+			background-color: $violet;
+			color: white;
+			cursor: pointer;
+		}
+
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.inputNumber {
+			flex-direction: row;
+			gap: 50px;
+			input {
+				width: 50px;
+			}
+		}
+	}
+}

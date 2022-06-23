@@ -1,21 +1,28 @@
-import Header from '../../../components/Header/Header';
-import Card from '../../../components/Card/Card';
+// Components
+import Cataloge from '../../../components/Common/Cataloge/Cataloge';
+import MetaHead from '../../../components/Common/MetaHead/MetaHead';
+import HeaderCustom from '../../../components/Common/HeaderCustom/HeaderCustom';
+
+// Icons
+import SettingsIcon from '@mui/icons-material/Settings';
 
 // Data
 import catalogeData from '../../../data/cataloge.json';
 
-const View = () => {
+const AdminHome = () => {
 	return (
 		<div>
-			<Header />
-
-			<div className='cardContainer'>
-				{catalogeData.cards.map(card => {
-					return <Card data={card} key={card.id} />;
-				})}
+			<MetaHead title='Admin' />
+			<HeaderCustom
+				title={catalogeData.name}
+				icon={<SettingsIcon fontSize='large' />}
+				redirectTo={{ href: '/admin/test/settings', as: '' }}
+			/>
+			<div className='container'>
+				<Cataloge data={catalogeData} />
 			</div>
 		</div>
 	);
 };
 
-export default View;
+export default AdminHome;

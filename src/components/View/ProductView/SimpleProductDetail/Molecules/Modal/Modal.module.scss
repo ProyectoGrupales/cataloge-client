@@ -1,0 +1,103 @@
+@import '../../../../../../styles/config/mixins.scss';
+@import '../../../../../../styles/config/color.scss';
+
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-start;
+
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+
+	padding: 1rem 1.5rem;
+	border-radius: 30px 30px 0 0;
+
+	max-width: 100%;
+	width: 90%;
+	height: 35vh;
+
+	background: linear-gradient(180deg, #9123ff 0%, rgb(0, 54, 115) 220.78%);
+
+	animation-name: slidein;
+	animation-duration: 0.2s;
+	// animation-timing-function: ease-in;
+
+	// Close button
+	button {
+		@include Headline5();
+		font-weight: bolder;
+
+		color: #fff;
+		background-color: transparent;
+
+		border: none;
+		margin-left: auto;
+		margin-bottom: 1.5rem;
+
+		cursor: pointer;
+	}
+}
+
+@keyframes slidein {
+	0% {
+		opacity: 0;
+		bottom: -100px;
+	}
+
+	20% {
+		opacity: 0;
+		bottom: -50px;
+	}
+	60% {
+		opacity: 0.4;
+	}
+	80% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// Custom buttons
+.mainContainer div {
+	min-width: 100%;
+
+	.whatsappButton,
+	.cartButton {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		column-gap: 10%;
+		min-width: 100%;
+		padding: 5px 5%;
+
+		border: none;
+		border-radius: 10px;
+
+		img {
+			width: 30px !important;
+			height: 30px !important;
+		}
+	}
+
+	.whatsappButton {
+		h4 {
+			color: #06a85a;
+			@include Body2();
+		}
+		background-color: #fff;
+	}
+	.cartButton {
+		h4 {
+			color: #fff;
+			@include Body2();
+		}
+		margin-top: 1rem;
+		border: 1px solid #ffff;
+		background-color: transparent;
+	}
+}
