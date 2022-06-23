@@ -23,7 +23,7 @@
 	color: white;
 
 	p {
-		@include LargeLabel2(white);
+		@include LargeLabel2();
 	}
 
 	.closeButton {
@@ -42,7 +42,7 @@
 		gap: 10px;
 
 		h1 {
-			@include Headline5(white);
+			@include Headline5();
 		}
 
 		.fallbackImage {
@@ -60,7 +60,7 @@
 
 	.description {
 		p {
-			@include LargeLabel(white);
+			@include LargeLabel1();
 			text-align: center;
 		}
 	}
