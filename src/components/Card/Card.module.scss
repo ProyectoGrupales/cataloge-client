@@ -36,7 +36,7 @@
 		background-color: #ffffff;
 
 		h6 {
-			@include Subtitle1($black);
+			@include Subtitle1();
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;

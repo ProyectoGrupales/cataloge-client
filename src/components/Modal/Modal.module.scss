@@ -27,7 +27,7 @@
 
 	// Close button
 	button {
-		@include Headline5($black);
+		@include Headline5();
 		font-weight: bolder;
 
 		color: #fff;
@@ -87,14 +87,14 @@
 	.whatsappButton {
 		h4 {
 			color: #06a85a;
-			@include Body2(white);
+			@include Body2();
 		}
 		background-color: #fff;
 	}
 	.cartButton {
 		h4 {
 			color: #fff;
-			@include Body2(white);
+			@include Body2();
 		}
 		margin-top: 1rem;
 		border: 1px solid #ffff;
