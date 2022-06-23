@@ -31,37 +31,38 @@ const Card = ({ data }) => {
 			</div>
 		);
 	}
-	//
 
 	return (
 		// Este link te envía hacía el id del producto
-		<Link href={`test/${data.id}`}>
-			<div className={style.container + ' ' + style.preview}>
-				{data.image ? (
-					<Image
-						src={data.image}
-						alt='Image of the card'
-						width={130}
-						height={150}
-						objectFit='contain'
-						layout='fixed'
-					/>
-				) : (
-					<div className={style.fallBackImage} />
-				)}
+		<div className={style.container + ' ' + style.preview}>
+			<Link href={`test/${data.id}`}>
+				<div>
+					{data.image ? (
+						<Image
+							src={data.image}
+							alt='Image of the card'
+							width={130}
+							height={150}
+							objectFit='contain'
+							layout='fixed'
+						/>
+					) : (
+						<div className={style.fallBackImage} />
+					)}
 
-				<div className={style.title}>
-					<h1>${data.price}</h1>
-					<h2>{data.title}</h2>
+					<div className={style.title}>
+						<h1>${data.price}</h1>
+						<h2>{data.title}</h2>
+					</div>
 				</div>
+			</Link>
 
-				<div className={style.buttonContainer}>
-					<button>
-						<ShoppingCartIcon fontSize='small' /> Añadir al carrito
-					</button>
-				</div>
+			<div className={style.buttonContainer}>
+				<button>
+					<ShoppingCartIcon fontSize='small' /> Añadir al carrito
+				</button>
 			</div>
-		</Link>
+		</div>
 	);
 };
 

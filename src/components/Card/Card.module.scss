@@ -36,7 +36,7 @@
 		background-color: #ffffff;
 
 		h6 {
-			@include Subtitle1();
+			@include Subtitle1($black);
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
@@ -47,7 +47,7 @@
 
 // Styles for product detailing
 .preview {
-	height: 260px;
+	height: 270px;
 	.title {
 		text-align: left;
 		margin-top: 10px;
@@ -71,8 +71,8 @@
 			display: flex;
 			position: absolute;
 			width: fit-content;
-			justify-content: space-around;
-			padding: 2px 15px;
+			gap: 5px;
+			padding: 5px 15px;
 			bottom: 5px;
 			left: 50%;
 			transform: translateX(-50%);
@@ -81,6 +81,12 @@
 			background-color: transparent;
 			border-radius: 4px;
 			cursor: pointer;
+
+			&:active {
+				background-color: $violet;
+				color: white;
+				transition: 0.2s;
+			}
 		}
 	}
 }
