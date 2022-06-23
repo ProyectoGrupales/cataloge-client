@@ -3,7 +3,7 @@
 	font-family: 'Poppins';
 	src: url('../Fonts/Poppins-Thin.otf') format('otf');
 	font-style: normal;
-	font-weight: 200;
+	font-weight: 100;
 	font-display: swap;
 }
 @font-face {
@@ -53,12 +53,5 @@
 	src: url('../Fonts/Poppins-Black.otf') format('otf');
 	font-style: normal;
 	font-display: swap;
-	font-weight: 800;
-}
-@font-face {
-	font-family: 'Poppins';
-	src: url('../Fonts/Poppins-Black.otf') format('otf');
-	font-style: normal;
-	font-display: swap;
-	font-weight: 800;
+	font-weight: 900;
 }

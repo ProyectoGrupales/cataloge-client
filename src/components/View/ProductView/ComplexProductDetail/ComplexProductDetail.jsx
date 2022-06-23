@@ -41,6 +41,17 @@ export default function ComplexProductDetail() {
 					<h4>Compartir Producto</h4>
 				</button>
 			</div>
+
+			<p className={styles.description}>
+				Lorem ipsum dolor sit amet. Lorem ipsum dolor sit ametLorem ipsum dolor
+				sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum
+				dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem
+				ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+				ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum
+				dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem
+				ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+				ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+			</p>
 		</div>
 	);
 }

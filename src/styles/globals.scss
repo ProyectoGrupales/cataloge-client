@@ -10,7 +10,7 @@
 html,
 body {
 	margin: 0;
-	font-family: 'Poppins-Regular';
+	font-family: 'Poppins';
 	color: $black;
 	background-color: #dbdee7;
 }
@@ -19,8 +19,19 @@ h1,
 h2,
 h3,
 h4,
-p {
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
 	margin: 0;
+	padding: 0;
 }
 
 a {
