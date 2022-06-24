@@ -29,12 +29,15 @@ const ProfileModal = ({ data, open, setOpen }) => {
 					</div>
 				</div>
 
-				<div className={style.branch_office}>
-					<h3>Sucursales : {data.branch_office}</h3>
-				</div>
-
 				<div className={style.description}>
 					<p>{data.description}</p>
+				</div>
+
+				<div className={style.branch_office}>
+					<p>Sucursales:</p>
+					{data.branch_office.map((item, index) => (
+						<h5 key={index}>{item}</h5>
+					))}
 				</div>
 			</div>
 		);

@@ -28,19 +28,20 @@ const Header = () => {
 
 	return (
 		<div className={style.container}>
-			<div
-				onClick={() => setOpen(!open)}
-				className={style.profileImageContainer}
-			>
-				{/* Si estamos fuera de home, renderiza el icono de la casa, caso contrario evalua que el usuario tenga imagen de perfil */}
-				{route.query.view ? (
-					homeIcon
-				) : catalogeData.image ? (
-					<img src={catalogeData.image} />
-				) : (
-					<div className={style.imgFallback} />
-				)}
-			</div>
+			{route.query.view ? (
+				<div className={style.homeIcon}>{homeIcon}</div>
+			) : (
+				<div
+					onClick={() => setOpen(!open)}
+					className={style.profileImageContainer}
+				>
+					{catalogeData.image ? (
+						<img src={catalogeData.image} />
+					) : (
+						<div className={style.imgFallback} />
+					)}
+				</div>
+			)}
 
 			<div className={style.catalogeData} onClick={() => setOpen(!open)}>
 				<h1>{catalogeData.name || 'Nombre del comercio'}</h1>

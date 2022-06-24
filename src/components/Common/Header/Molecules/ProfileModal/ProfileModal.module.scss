@@ -11,7 +11,7 @@
 
 	visibility: hidden;
 	width: 90%;
-	min-height: 350px;
+	max-height: 65vh;
 	padding: 10px;
 	padding-top: 30px;
 
@@ -25,7 +25,7 @@
 	color: white;
 
 	p {
-		@include LargeLabel2();
+		@include LargeLabel3();
 	}
 
 	.closeButton {
@@ -53,15 +53,17 @@
 			border-radius: 50%;
 		}
 	}
-
-	.branch_office {
+	.description {
 		margin: 15px 0px;
+		p {
+			@include LargeLabel2();
+			text-align: center;
+		}
 	}
 
-	.description {
-		p {
-			@include LargeLabel1();
-			text-align: center;
+	.branch_office {
+		h5 {
+			@include Body2();
 		}
 	}
 }
