@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
 import style from './ProfileModal.module.scss';
@@ -18,17 +16,7 @@ const ProfileModal = ({ data, open, setOpen }) => {
 				</button>
 
 				<div className={style.header}>
-					{data.image ? (
-						<Image
-							src={data.image}
-							width={150}
-							height={150}
-							layout='fill'
-							objectFit='cover'
-						/>
-					) : (
-						<div className={style.fallbackImage} />
-					)}
+					<img src={data.image} />
 
 					<div>
 						<h1>{data.name}</h1>
