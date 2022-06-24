@@ -2,7 +2,7 @@ import Link from 'next/link';
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 
 // Icons & style
-import style from './styles/settings.module.scss';
+import style from './styles/Settings.module.scss';
 
 const SettingsPage = () => {
 	return (

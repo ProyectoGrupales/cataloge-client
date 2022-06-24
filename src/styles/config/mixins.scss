@@ -54,7 +54,7 @@
 	@include Font(20px, 30px, 600);
 }
 @mixin LargeLabel2 {
-	@include Font(14px, 20px, 700);
+	@include Font(14px, 20px, 400);
 }
 @mixin LargeLabel3 {
 	@include Font(13px, 16px, 600);
