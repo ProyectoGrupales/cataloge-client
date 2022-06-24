@@ -20,13 +20,9 @@ const Header = () => {
 	const route = useRouter();
 	const attentionHour = `De: ${catalogeData.attention_hour[0][0]}hs a ${catalogeData.attention_hour[0][1]}hs, y de ${catalogeData.attention_hour[1][0]}hs a ${catalogeData.attention_hour[1][1]}hs`;
 
-	console.log(route.query.view);
-
 	const homeIcon = (
 		<Link href='/test'>
-			<div className={style.homeIcon}>
-				<HomeIcon fontSize='large' />
-			</div>
+			<HomeIcon fontSize='large' />
 		</Link>
 	);
 
