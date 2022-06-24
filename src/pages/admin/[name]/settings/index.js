@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 
-// Icons & styles
+// Icons & style
 import style from './styles/settings.module.scss';
 
 const SettingsPage = () => {
