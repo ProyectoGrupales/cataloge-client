@@ -1,47 +1,64 @@
-// Components
+// Dependencies
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+// Styles, components & assets
+import styles from './SimpleProductDetail.module.scss';
 import MetaHead from '../../../Common/MetaHead/MetaHead';
 import Carousel from './Molecules/Carousel/Carousel';
 import Modal from './Molecules/Modal/Modal';
 import SimpleCard from '../../../../components/Common/SimpleCard/SimpleCard';
+// Sample data
+import Catalogo from '../../../../data/cataloge.json';
 
-// Icons & styles
-import styles from './SimpleProductDetail.module.scss';
-import { useRouter } from 'next/router';
-
-export default function SimpleProductDetail({
-	products,
-	openModal,
-	setOpenModal,
-}) {
+export default function SimpleProductDetail({ openModal, setOpenModal }) {
 	const router = useRouter();
-	console.log('Router:', router);
 
-	return (
-		<div className='container'>
-			<MetaHead title={'Hola'} />
-			<Carousel />
+	const [card, setCard] = useState();
 
-			<div className={styles.listContainer}>
-				<h4>Nombre de la categoría</h4>
+	useEffect(() => {
+		if (router.query.view) {
+			const cardFound = Catalogo.cards.find(card => {
+				if (
+					card.type === 'productsInList' &&
+					card.title.toLowerCase() === router.query.view
+				) {
+					return card;
+				} else {
+					return false;
+				}
+			});
 
-				{products.map((simpleProduct, index) => {
-					// Parseamos la info del objeto
-					const parseObj = [];
-					for (const property in simpleProduct) {
-						parseObj.push(simpleProduct[property]);
-					}
+			setCard(cardFound);
+		}
+	}, [router.query.view]);
 
-					return (
-						<SimpleCard
-							colums={parseObj}
-							onClick={() => setOpenModal(!openModal)}
-							key={index}
-						/>
-					);
-				})}
+	if (card && !card.products.length) {
+		return <h1>No hay productos en esta carta</h1>;
+	}
+
+	if (card && card.products.length) {
+		return (
+			<div className='container'>
+				<MetaHead title={`Carta > ${card.title}`} />
+				<Carousel />
+
+				<div className={styles.listContainer}>
+					<h4>{card.title}</h4>
+
+					{card.products.map((simpleProduct, index) => {
+						const rowData = Object.values(simpleProduct);
+						return (
+							<SimpleCard
+								colums={rowData}
+								onClick={() => setOpenModal(!openModal)}
+								key={index}
+							/>
+						);
+					})}
+				</div>
+
+				<Modal openModal={openModal} setOpenModal={setOpenModal} />
 			</div>
-
-			<Modal openModal={openModal} setOpenModal={setOpenModal} />
-		</div>
-	);
+		);
+	}
 }

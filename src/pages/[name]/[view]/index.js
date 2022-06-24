@@ -6,9 +6,6 @@ import Header from '../../../components/Common/Header/Header';
 import ComplexProductDetail from '../../../components/View/ProductView/ComplexProductDetail/ComplexProductDetail';
 import SimpleProductDetail from '../../../components/View/ProductView/SimpleProductDetail/SimpleProductDetail';
 
-// Data
-import products from '../../../data/products.json';
-
 const ProductView = () => {
 	const routes = useRouter();
 	let screenConfig;
@@ -17,11 +14,7 @@ const ProductView = () => {
 	if (routes.query.view && isNaN(routes.query.view)) {
 		const [openModal, setOpenModal] = useState(false);
 		screenConfig = (
-			<SimpleProductDetail
-				products={products}
-				openModal={openModal}
-				setOpenModal={setOpenModal}
-			/>
+			<SimpleProductDetail openModal={openModal} setOpenModal={setOpenModal} />
 		);
 	}
 
