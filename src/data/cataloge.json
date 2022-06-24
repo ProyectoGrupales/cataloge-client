@@ -14,14 +14,168 @@
 			"type": "productsInList",
 			"title": "Electrodomesticos",
 			"price": 0,
-			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
+			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600",
+			"products": [
+				{
+					"ProductName": "Nombre del producto 1",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 2",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 3",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 4",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 5",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 6",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 7",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 8",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 10",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 11",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 12",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 13",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 14",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 16",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 16",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				}
+			]
 		},
 		{
 			"id": 123457,
 			"type": "productsInList",
 			"title": "Fiambrería",
 			"price": 0,
-			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
+			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600",
+			"products": [
+				{
+					"ProductName": "Nombre del producto 17",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 18",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 19",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 20",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 21",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 22",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 23",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 24",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 25",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 26",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 27",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 28",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 29",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 30",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				},
+				{
+					"ProductName": "Nombre del producto 31",
+					"ProductCategory": "Categoria del producto",
+					"ProductPrice": 0
+				}
+			]
 		},
 		{
 			"id": 123458,
@@ -36,20 +190,6 @@
 			"title": "Remera unisex negra",
 			"price": 1250,
 			"image": "https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
-		},
-		{
-			"id": 123460,
-			"type": "productsInList",
-			"title": "Elemento de prueba",
-			"price": 1250,
-			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
-		},
-		{
-			"id": 123461,
-			"type": "productPreview",
-			"title": "Elemento de prueba 2",
-			"price": 1250,
-			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
 		}
 	]
 }
