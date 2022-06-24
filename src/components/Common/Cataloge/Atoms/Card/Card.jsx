@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,10 +8,18 @@ import style from './Card.module.scss';
 
 // Este es el item que se muestra al inicio del catalogo
 const Card = ({ data }) => {
+	const router = useRouter();
+
+	let href = '/test';
+
+	if (router.pathname.includes('admin')) {
+		href = '/admin/test/';
+	}
+
 	if (data.type === 'productsInList') {
 		return (
 			// Este link te envia hacía el nombre del listado
-			<Link href='/[name]/[view]' as={`/test/${data.title.toLowerCase()}`}>
+			<Link href={`${href}/${data.title.toLowerCase()}`}>
 				<div className={style.container + ' ' + style.inList}>
 					<Image
 						src={data.image}
@@ -31,7 +40,7 @@ const Card = ({ data }) => {
 	return (
 		// Este link te envía hacía el id del producto
 		<div className={style.container + ' ' + style.preview}>
-			<Link href='/[name]/[view]' as={`/test/${data.id}`}>
+			<Link href={`${href}/${data.id}`}>
 				<div>
 					{data.image ? (
 						<Image
