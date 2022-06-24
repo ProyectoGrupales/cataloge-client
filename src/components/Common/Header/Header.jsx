@@ -32,7 +32,10 @@ const Header = () => {
 
 	return (
 		<div className={style.container}>
-			<div onClick={() => setOpen(!open)}>
+			<div
+				onClick={() => setOpen(!open)}
+				className={style.profileImageContainer}
+			>
 				{/* Si estamos fuera de home, renderiza el icono de la casa, caso contrario evalua que el usuario tenga imagen de perfil */}
 				{route.query.view ? (
 					homeIcon
