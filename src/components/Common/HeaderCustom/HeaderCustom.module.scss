@@ -1,4 +1,5 @@
 @import '../../../styles/config/color.scss';
+@import '../../../styles/config/mixins.scss';
 
 .container {
 	display: flex;
@@ -12,7 +13,7 @@
 	margin-bottom: 15px;
 
 	h1 {
-		font-size: 20px;
+		@include Subtitle2();
 	}
 
 	.backIconContainer {

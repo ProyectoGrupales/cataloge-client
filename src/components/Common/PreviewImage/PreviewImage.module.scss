@@ -1,0 +1,28 @@
+.container {
+	position: relative;
+	img {
+		height: 200px;
+	}
+
+	.deleteButton {
+		position: absolute;
+		top: 5px;
+		right: -40px;
+	}
+
+	.arrows {
+		display: flex;
+		gap: 50px;
+		width: 100%;
+		justify-content: space-between;
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		transform: translate(0, -50%);
+
+		// Esto hace referencia a todos los hijos
+		& > * {
+			cursor: pointer;
+		}
+	}
+}

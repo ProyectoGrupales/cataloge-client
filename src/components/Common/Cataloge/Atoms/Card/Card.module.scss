@@ -4,7 +4,8 @@
 // General properties
 .container {
 	background-color: white;
-	width: 180px;
+	max-width: 180px;
+	width: 48%;
 	text-align: center;
 	border-radius: 2px;
 	padding: 5px 0px;
@@ -36,7 +37,7 @@
 		background-color: #ffffff;
 
 		h6 {
-			@include Subtitle1();
+			@include LargeLabel2();
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
@@ -53,11 +54,12 @@
 		margin-top: 10px;
 		padding: 0px 10px;
 		h1 {
-			font-size: 20px;
+			@include Subtitle2();
 			height: 25px;
 		}
 
 		h2 {
+			@include Lead2();
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
@@ -90,3 +92,4 @@
 		}
 	}
 }
+
