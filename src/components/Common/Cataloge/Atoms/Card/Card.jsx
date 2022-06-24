@@ -8,10 +8,9 @@ import style from './Card.module.scss';
 
 // Este es el item que se muestra al inicio del catalogo
 const Card = ({ data }) => {
+	// Varia el lugar a redireccionar dependiendo de si estamos en client o admin
 	const router = useRouter();
-
 	let href = '/test';
-
 	if (router.pathname.includes('admin')) {
 		href = '/admin/test/';
 	}

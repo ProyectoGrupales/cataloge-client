@@ -36,22 +36,3 @@ const ProductView = () => {
 };
 
 export default ProductView;
-
-/*
-
-{products.map((simpleProduct, index) => {
-    // Parseamos la info del objeto
-    const parseObj = [];
-    for (const property in simpleProduct) {
-        parseObj.push(simpleProduct[property]);
-    }
-
-    return (
-        <SimpleCard
-            colums={parseObj}
-            onClick={() => setOpenModal(!openModal)}
-            key={index}
-        />
-    );
-})}
-*/

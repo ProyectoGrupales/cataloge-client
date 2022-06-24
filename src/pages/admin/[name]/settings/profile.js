@@ -57,8 +57,10 @@ const ProfilePage = () => {
 						</div>
 
 						<div className={style.text}>
-							<label>Sucursales:</label>
-							<input type='text' />
+							<div>
+								<label>Sucursales:</label>
+								<input type='text' />
+							</div>
 							<button onClick={e => e.preventDefault()}>Agregar</button>
 						</div>
 
