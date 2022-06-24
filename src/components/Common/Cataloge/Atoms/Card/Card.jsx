@@ -8,34 +8,38 @@ import style from './Card.module.scss';
 
 // Este es el item que se muestra al inicio del catalogo
 const Card = ({ data }) => {
+	// Varia el lugar a redireccionar dependiendo de si estamos en client o admin
 	const router = useRouter();
+	let href = '/test';
+	if (router.pathname.includes('admin')) {
+		href = '/admin/test/';
+	}
 
 	if (data.type === 'productsInList') {
 		return (
 			// Este link te envia hacía el nombre del listado
-			<div
-				className={style.container + ' ' + style.inList}
-				onClick={() => router.push(`/test/${data.title.toLowerCase()}`)}
-			>
-				<Image
-					src={data.image}
-					alt='Image of the card'
-					layout='fill'
-					objectFit='cover'
-					priority={true}
-				/>
+			<Link href={`${href}/${data.title.toLowerCase()}`}>
+				<div className={style.container + ' ' + style.inList}>
+					<Image
+						src={data.image}
+						alt='Image of the card'
+						layout='fill'
+						objectFit='cover'
+						priority={true}
+					/>
 
-				<figcaption>
-					<h6>{data.title}</h6>
-				</figcaption>
-			</div>
+					<figcaption>
+						<h6>{data.title}</h6>
+					</figcaption>
+				</div>
+			</Link>
 		);
 	}
 
 	return (
 		// Este link te envía hacía el id del producto
 		<div className={style.container + ' ' + style.preview}>
-			<Link href={`test/${data.id}`}>
+			<Link href={`${href}/${data.id}`}>
 				<div>
 					{data.image ? (
 						<Image

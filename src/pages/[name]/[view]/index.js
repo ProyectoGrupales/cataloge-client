@@ -7,11 +7,11 @@ import ComplexProductDetail from '../../../components/View/ProductView/ComplexPr
 import SimpleProductDetail from '../../../components/View/ProductView/SimpleProductDetail/SimpleProductDetail';
 
 const ProductView = () => {
-	const routes = useRouter();
+	const router = useRouter();
 	let screenConfig;
 
 	// En caso de que sea una lista de productos
-	if (routes.query.view && isNaN(routes.query.view)) {
+	if (router.query.view && isNaN(router.query.view)) {
 		const [openModal, setOpenModal] = useState(false);
 		screenConfig = (
 			<SimpleProductDetail openModal={openModal} setOpenModal={setOpenModal} />
@@ -19,7 +19,7 @@ const ProductView = () => {
 	}
 
 	// En caso de que sea un producto detallado
-	if (!isNaN(routes.query.view)) {
+	if (!isNaN(router.query.view)) {
 		screenConfig = (
 			<div className={'mainContainer_div'}>
 				<ComplexProductDetail />
@@ -36,22 +36,3 @@ const ProductView = () => {
 };
 
 export default ProductView;
-
-/*
-
-{products.map((simpleProduct, index) => {
-    // Parseamos la info del objeto
-    const parseObj = [];
-    for (const property in simpleProduct) {
-        parseObj.push(simpleProduct[property]);
-    }
-
-    return (
-        <SimpleCard
-            colums={parseObj}
-            onClick={() => setOpenModal(!openModal)}
-            key={index}
-        />
-    );
-})}
-*/
