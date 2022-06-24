@@ -30,7 +30,7 @@
 	@include Font(20px, 28px, 700);
 }
 @mixin Subtitle2 {
-	@include Font(18px, 28px, 600);
+	@include Font(18px, 28px, 500);
 }
 @mixin Subtitle3 {
 	@include Font(16px, 28px, 500);
@@ -40,7 +40,7 @@
 	@include Font(18px, 32px, 400);
 }
 @mixin Lead2 {
-	@include Font(14px, 24px, 500);
+	@include Font(14px, 24px, 300);
 }
 
 @mixin Body1 {
