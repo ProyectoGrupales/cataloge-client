@@ -38,7 +38,7 @@ export default function SimpleProductDetail({ openModal, setOpenModal }) {
 
 	if (card && card.products.length) {
 		return (
-			<div className='container'>
+			<div className=''>
 				<MetaHead title={`Carta > ${card.title}`} />
 				<Carousel />
 

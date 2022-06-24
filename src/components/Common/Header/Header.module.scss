@@ -27,24 +27,25 @@
 		svg {
 			color: #fff;
 		}
+
+		.imgFallback {
+			width: 45px;
+			height: 45px;
+			border-radius: 40px;
+			background-color: $label;
+			position: absolute;
+			top: 5px;
+			left: 8px;
+			cursor: pointer;
+		}
 	}
 
 	.homeIcon {
+		width: fit-content;
 		position: absolute;
-		color: white;
 		left: 10px;
 		top: 5px;
-		cursor: pointer;
-	}
-
-	.imgFallback {
-		width: 45px;
-		height: 45px;
-		border-radius: 40px;
-		background-color: $label;
-		position: absolute;
-		top: 5px;
-		left: 8px;
+		color: white;
 		cursor: pointer;
 	}
 
@@ -79,6 +80,7 @@
 		width: fit-content;
 		margin: auto;
 		margin-bottom: 7px;
+
 		input {
 			width: 220px;
 			height: 30px;
@@ -91,6 +93,7 @@
 				outline: none;
 			}
 		}
+
 		div {
 			display: flex;
 			align-items: center;
