@@ -20,6 +20,8 @@ const ProfilePage = () => {
 		description: catalogeData.description,
 	});
 
+	console.log(setCataloge);
+
 	const [edit, setEdit] = useState(false);
 	const attentionHour = parserHour(catalogeData.attention_hour);
 
