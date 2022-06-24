@@ -30,6 +30,10 @@ const SettingsPage = () => {
 				>
 					<button>Finanzas</button>
 				</Link>
+
+				<Link href='/' as={'/'}>
+					<button>Cerrar sesión</button>
+				</Link>
 			</div>
 		</div>
 	);
