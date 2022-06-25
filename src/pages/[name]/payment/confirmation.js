@@ -1,7 +1,21 @@
-import OrderScreen from '../../../components/View/Payment/OrderScreen/OrderScreen';
+// Components
+import HeaderCustom from '../../../components/Common/HeaderCustom/HeaderCustom';
+import Link from 'next/link';
 
-const Confirmation = () => {
-	return <OrderScreen />;
+const OrderScreen = () => {
+	return (
+		<div>
+			<HeaderCustom title='Detalles de compra' icon={'back'} />
+			<h1>
+				Esta es la pestaña en la que enlistan los detalles del pedido antes de
+				confirmarlo
+			</h1>
+
+			<Link href={'/[name]/payment/final'} as='/test/payment/final'>
+				<button>Finalizar compra</button>
+			</Link>
+		</div>
+	);
 };
 
-export default Confirmation;
+export default OrderScreen;
