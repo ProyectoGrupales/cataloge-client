@@ -6,21 +6,28 @@
 	transition: 0.5s !important;
 }
 
+.close {
+	bottom: -70vh;
+	transition: 0.3s;
+}
+
+.open {
+	bottom: -1px;
+	transition: 0.3s;
+}
+
 .container {
 	z-index: 10 !important;
-
-	visibility: hidden;
-	width: 90%;
+	width: 95%;
 	max-height: 65vh;
 	padding: 10px;
 	padding-top: 30px;
 
 	position: fixed;
-	bottom: -1px;
 	left: 50%;
 	transform: translateX(-50%);
 
-	border-radius: 4px;
+	border-radius: 10px 10px 0px 0px;
 	background: linear-gradient(180deg, #9123ff 0%, rgb(0, 54, 115) 220.78%);
 	color: white;
 

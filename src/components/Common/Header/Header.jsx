@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-// Components
+// Components & functions
+import parserHour from '../../../services/parserAttentionHour';
 import ProfileModal from './Molecules/ProfileModal/ProfileModal';
 
 // Iconos
@@ -14,11 +15,11 @@ import style from './Header.module.scss';
 // Data
 import catalogeData from '../../../data/cataloge.json';
 
-// Este componente es la cabecera de todas las páginas
+// Esta es la cabecera por defecto que ve el cliente
 const Header = () => {
-	const [open, setOpen] = useState(false);
 	const route = useRouter();
-	const attentionHour = `De: ${catalogeData.attention_hour[0][0]}hs a ${catalogeData.attention_hour[0][1]}hs, y de ${catalogeData.attention_hour[1][0]}hs a ${catalogeData.attention_hour[1][1]}hs`;
+	const attentionHour = parserHour(catalogeData.attention_hour);
+	const [open, setOpen] = useState(false);
 
 	const homeIcon = (
 		<Link href='/test'>
