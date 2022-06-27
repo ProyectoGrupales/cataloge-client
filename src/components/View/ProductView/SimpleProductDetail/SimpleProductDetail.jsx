@@ -1,23 +1,29 @@
 // Dependencies
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-// Styles, components & assets
+
+// Components
 import styles from './SimpleProductDetail.module.scss';
 import MetaHead from '../../../Common/MetaHead/MetaHead';
 import Carousel from './Molecules/Carousel/Carousel';
 import Modal from './Molecules/Modal/Modal';
 import SimpleCard from '../../../../components/Common/SimpleCard/SimpleCard';
-// Sample data
-import Catalogo from '../../../../data/cataloge.json';
 
-export default function SimpleProductDetail({ openModal, setOpenModal }) {
+// Data
+import catalogeData from '../../../../data/cataloge.json';
+
+const SimpleProductDetail = () => {
 	const router = useRouter();
 
-	const [card, setCard] = useState();
+	// Controladores del modal
+	const [openModal, setOpenModal] = useState(false);
+	const [currentData, setCurrentData] = useState(null);
 
+	// Busca y guarda la card que coincida con el nombre de la ruta
+	const [card, setCard] = useState();
 	useEffect(() => {
 		if (router.query.view) {
-			const cardFound = Catalogo.cards.find(card => {
+			const cardFound = catalogeData.cards.find(card => {
 				if (
 					card.type === 'productsInList' &&
 					card.title.toLowerCase() === router.query.view
@@ -32,33 +38,49 @@ export default function SimpleProductDetail({ openModal, setOpenModal }) {
 		}
 	}, [router.query.view]);
 
-	if (card && !card.products.length) {
+	const toggleModal = data => {
+		setOpenModal(!openModal);
+		setCurrentData(data);
+	};
+
+	// En el caso de que está card no tenga productos aún
+	if (!card) {
 		return <h1>No hay productos en esta carta</h1>;
 	}
 
 	if (card && card.products.length) {
 		return (
 			<div className=''>
-				<MetaHead title={`Carta > ${card.title}`} />
+				<MetaHead title={`${card.title}`} />
 				<Carousel />
 
 				<div className={styles.listContainer}>
 					<h4>{card.title}</h4>
 
 					{card.products.map((simpleProduct, index) => {
+						// Parseamos los datos del objeto en un arreglo
 						const rowData = Object.values(simpleProduct);
+						// Con este metodo le quitamos el ID
+						rowData.shift();
 						return (
 							<SimpleCard
 								colums={rowData}
-								onClick={() => setOpenModal(!openModal)}
+								onClick={() => toggleModal(rowData)}
 								key={index}
 							/>
 						);
 					})}
 				</div>
 
-				<Modal openModal={openModal} setOpenModal={setOpenModal} />
+				<Modal
+					openModal={openModal}
+					setOpenModal={setOpenModal}
+					data={currentData}
+					id='modalTest'
+				/>
 			</div>
 		);
 	}
-}
+};
+
+export default SimpleProductDetail;

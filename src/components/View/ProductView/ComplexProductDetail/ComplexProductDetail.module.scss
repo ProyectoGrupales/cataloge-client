@@ -1,9 +1,8 @@
 @import '../../../../styles/config/color.scss';
 @import '../../../../styles/config/mixins.scss';
-@import '../../../../styles/config/fonts.scss';
 
 // Main Container
-.mainContainer {
+.container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -15,9 +14,9 @@
 		justify-content: center;
 		align-items: center;
 
-		width: 350px;
+		width: 90%;
 		padding: 0 3rem;
-		height: 290px;
+		height: fit-content;
 
 		background-color: #bebaba3b;
 
@@ -29,16 +28,29 @@
 		}
 	}
 
-	.mainInformationContainer {
+	.priceWithDiscount {
+		width: 100%;
+		div {
+			display: flex;
+			gap: 5px;
+
+			p {
+				text-decoration: none;
+				color: green;
+			}
+		}
+		p {
+			color: $label;
+			text-decoration: line-through;
+		}
+	}
+
+	.productInfo {
 		display: flex;
 		flex-direction: column;
 		margin-right: auto;
 
-		margin-left: 5%;
-
 		h5 {
-			@include Subtitle1();
-			color: $label;
 			margin: 0;
 		}
 
@@ -80,11 +92,20 @@
 				white-space: nowrap;
 				@include LargeLabel2();
 			}
+
+			&:hover {
+				background-color: $lightGray;
+				transition: 0.3s;
+			}
+		}
+
+		.test {
+			cursor: pointer;
 		}
 	}
 
 	.description {
-		width: 90%;
+		width: 100%;
 		text-align: center;
 		@include Body2();
 	}

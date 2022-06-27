@@ -44,7 +44,7 @@
 }
 
 @mixin Body1 {
-	@include Font(18px, 26px, 500);
+	@include Font(18px, 30px, 600);
 }
 @mixin Body2 {
 	@include Font(14px, 20px, 500);

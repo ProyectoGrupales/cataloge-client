@@ -18,7 +18,9 @@
 			"type": "productsInList",
 			"title": "Electrodomesticos",
 			"price": 0,
-			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600",
+			"images": [
+				"https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
+			],
 			"products": [
 				{
 					"_id": 1,
@@ -117,7 +119,9 @@
 			"type": "productsInList",
 			"title": "Fiambrería",
 			"price": 0,
-			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600",
+			"images": [
+				"https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
+			],
 			"products": [
 				{
 					"_id": 16,
@@ -213,17 +217,49 @@
 		},
 		{
 			"id": 123458,
+			"images": [
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/200px-Trousers-colourisolated.jpg"
+			],
 			"type": "productPreview",
 			"title": "Pantalon jogger blanco",
 			"price": 10250,
-			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/200px-Trousers-colourisolated.jpg"
+			"discount": 0,
+			"description": "Remera negra TRASHER para hombre mujer UNISEX todas las tallas excelente calidad"
 		},
 		{
 			"id": 123459,
+			"images": [
+				"https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+			],
 			"type": "productPreview",
 			"title": "Remera unisex negra",
 			"price": 1250,
-			"image": "https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+			"discount": 0,
+			"description": "Remera negra TRASHER para hombre mujer UNISEX todas las tallas excelente calidad"
+		},
+		{
+			"id": 123460,
+			"images": [
+				"https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+			],
+			"type": "productPreview",
+			"title": "Remeron Negro oversize",
+			"price": 2900,
+			"discount": 5,
+			"stock": 5,
+			"description": "Remera negra TRASHER para hombre mujer UNISEX todas las tallas excelente calidad"
+		},
+		{
+			"id": 123461,
+			"images": [
+				"https://www.hotelramada.com/pluginAppObj_20_14/Matrimonial.JPG"
+			],
+			"type": "productPreview",
+			"title": "Habitación por noche",
+			"description": "Habitación disponible, cuenta con televisor, ducha, y una cama de dos plazas. La hora comienza a correr al momento en que usted llega al edificio",
+			"price": 3200,
+			"discount": 0,
+			"stock": 0
 		}
 	]
 }

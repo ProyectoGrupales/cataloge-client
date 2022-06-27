@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 // Componets
 import Header from '../../../components/Common/Header/Header';
@@ -12,10 +11,7 @@ const ProductView = () => {
 
 	// En caso de que sea una lista de productos
 	if (router.query.view && isNaN(router.query.view)) {
-		const [openModal, setOpenModal] = useState(false);
-		screenConfig = (
-			<SimpleProductDetail openModal={openModal} setOpenModal={setOpenModal} />
-		);
+		screenConfig = <SimpleProductDetail />;
 	}
 
 	// En caso de que sea un producto detallado
