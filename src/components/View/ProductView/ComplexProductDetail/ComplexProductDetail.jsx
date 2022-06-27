@@ -1,5 +1,4 @@
 // Dependencies
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 // Componets
@@ -33,12 +32,6 @@ export default function ComplexProductDetail() {
 			<div className={style.container}>
 				<div className={style.imageContainer}>
 					<PreviewImage images={cardFound.images} />
-					{/* <Image
-						src={cardFound.images[0]}
-						width={200}
-						height={200}
-						objectFit='cover'
-					/> */}
 				</div>
 
 				{cardFound.discount ? (
