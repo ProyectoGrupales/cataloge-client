@@ -1,5 +1,5 @@
 // Components
-import Card from './Atoms/Card/Card';
+import Card from './Molecules/Card/Card';
 import style from './Cataloge.module.scss';
 
 // Contenedor del listado de cards

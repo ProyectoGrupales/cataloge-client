@@ -7,6 +7,7 @@ const nextConfig = {
 			'upload.wikimedia.org',
 			'drifters.com.ar',
 			'cdn-icons-png.flaticon.com',
+			'www.hotelramada.com',
 		],
 	},
 };
