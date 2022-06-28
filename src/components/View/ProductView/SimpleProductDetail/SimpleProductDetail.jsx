@@ -14,7 +14,6 @@ import catalogeData from '../../../../data/cataloge.json';
 
 const SimpleProductDetail = () => {
 	const router = useRouter();
-
 	// Controladores del modal
 	const [openModal, setOpenModal] = useState(false);
 	const [currentData, setCurrentData] = useState(null);
@@ -40,7 +39,10 @@ const SimpleProductDetail = () => {
 
 	const toggleModal = data => {
 		setOpenModal(!openModal);
-		setCurrentData(data);
+		setCurrentData({
+			card: router.query.view,
+			...data,
+		});
 	};
 
 	// En el caso de que está card no tenga productos aún
@@ -58,14 +60,14 @@ const SimpleProductDetail = () => {
 					<h4>{card.title}</h4>
 
 					{card.products.map((simpleProduct, index) => {
-						// Parseamos los datos del objeto en un arreglo
+						// Parseamos los datos, de objeto a un arreglo
 						const rowData = Object.values(simpleProduct);
-						// Con este metodo le quitamos el ID
+						// Le quitamos el ID
 						rowData.shift();
 						return (
 							<SimpleCard
-								colums={rowData}
-								onClick={() => toggleModal(rowData)}
+								columns={rowData}
+								onClick={() => toggleModal(simpleProduct)}
 								key={index}
 							/>
 						);
@@ -76,7 +78,6 @@ const SimpleProductDetail = () => {
 					openModal={openModal}
 					setOpenModal={setOpenModal}
 					data={currentData}
-					id='modalTest'
 				/>
 			</div>
 		);
