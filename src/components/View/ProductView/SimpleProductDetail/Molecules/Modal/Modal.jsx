@@ -1,13 +1,32 @@
 import Image from 'next/image';
-import style from './Modal.module.scss';
-import whatsappIcon from '../../../../../../../public/Assets/images/whatsappIcon.svg';
-import cartIcon from '../../../../../../../public/Assets/images/cartIcon.svg';
+import { useDispatch } from 'react-redux';
+
+// Actions
+import { addToCart } from '../../../../../../redux/reducers/cartSlice';
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
+import whatsappIcon from '../../../../../../../public/Assets/images/whatsappIcon.svg';
+import cartIcon from '../../../../../../../public/Assets/images/cartIcon.svg';
+import style from './Modal.module.scss';
 
 const Modal = ({ openModal, setOpenModal, data }) => {
 	console.log(data);
+	const dispatch = useDispatch();
+	// Copia de la informacion entrante, de esta manera podemos manipularla sin perder los datos originales
+	let productData = { ...data };
+
+	if (data && data._id) {
+		delete productData._id;
+		delete productData.card;
+	}
+
+	productData = productData ? Object.values(productData) : null;
+
+	const addProductToCart = () => {
+		dispatch(addToCart(data));
+	};
+
 	return (
 		<div
 			className={
@@ -21,11 +40,11 @@ const Modal = ({ openModal, setOpenModal, data }) => {
 				<CloseIcon />
 			</button>
 
-			{data ? (
+			{productData ? (
 				<div className={style.productInfo}>
-					<h2>{data[0]}</h2>
-					<h4>{data[1]}</h4>
-					<h4>{data[2]}</h4>
+					<h2>{productData[0]}</h2>
+					<h4>{productData[1]}</h4>
+					<h4>{productData[2]}</h4>
 				</div>
 			) : null}
 
@@ -36,7 +55,7 @@ const Modal = ({ openModal, setOpenModal, data }) => {
 					<h4>Consultar Por Whatsapp</h4>
 				</button>
 
-				<button className={style.cartButton}>
+				<button className={style.cartButton} onClick={addProductToCart}>
 					<Image src={cartIcon} alt='Cart icon' />
 					<h4>Agregar Al Carrito</h4>
 				</button>

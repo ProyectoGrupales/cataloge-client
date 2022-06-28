@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 // Components & functions
 import parserHour from '../../../services/parserAttentionHour';
 import ProfileModal from './Molecules/ProfileModal/ProfileModal';
+import Badge from '@mui/material/Badge';
 
 // Iconos
 import HomeIcon from '@mui/icons-material/Home';
@@ -17,6 +19,7 @@ import catalogeData from '../../../data/cataloge.json';
 
 // Esta es la cabecera por defecto que ve el cliente
 const Header = () => {
+	const productslength = useSelector(state => state.cart.products.length);
 	const route = useRouter();
 	const attentionHour = parserHour(catalogeData.attention_hour);
 	const [open, setOpen] = useState(false);
@@ -51,7 +54,9 @@ const Header = () => {
 
 			<div className={style.iconContainer}>
 				<Link href={'/test/shoppingCart'}>
-					<ShoppingCartIcon fontSize='large' />
+					<Badge badgeContent={productslength} color='error'>
+						<ShoppingCartIcon fontSize='large' />
+					</Badge>
 				</Link>
 			</div>
 

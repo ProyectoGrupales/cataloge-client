@@ -4,15 +4,13 @@ import { useRouter } from 'next/router';
 import SimpleCard from '../../Atoms/SimpleCard/SimpleCard';
 import ComplexCard from '../../Atoms/ComplexCard/ComplexCard';
 
-// Icons
-
 // Este es el item que se muestra al inicio del catalogo
 const Card = ({ data }) => {
-	// Varia el lugar a redireccionar dependiendo de si estamos en client o admin
+	// Varía el lugar a redireccionar dependiendo de si estamos en client o admin
 	const router = useRouter();
 	let href = '/test';
 	if (router.pathname.includes('admin')) {
-		href = '/admin/test/';
+		href = '/admin/test';
 	}
 
 	if (data.type === 'productsInList') {

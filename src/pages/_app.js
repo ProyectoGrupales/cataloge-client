@@ -1,26 +1,17 @@
+import { store, persistor } from '../redux/store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+	return (
+		<Provider store={store}>
+			<PersistGate persistor={persistor}>
+				<Component {...pageProps} />
+			</PersistGate>
+		</Provider>
+	);
 }
 
 export default MyApp;
-
-/*
-	PUBLIC:
-	✔️ /ASSETS: [icons, image, sounds, video] 
-	
-	SRC: 
-	✔️ /COMPONENTS:[COMMON, LAYOUT, UI, VIEW]
-	✔️ /VIEW
-	✔️ /CONFIG
-	✔️ /CONTEXT
-	✔️ /STYLES: 
-	✔️ /HOOKS
-	✔️ /REDUX: [ACTIONS, REDUCERS, STORE]
-	✔️ /SERVICES:    
-
-	// Copiar toda la lógica de las vistas anteriores a las nuevas
-	// Lógica entre home normal y home admin
-
-*/
