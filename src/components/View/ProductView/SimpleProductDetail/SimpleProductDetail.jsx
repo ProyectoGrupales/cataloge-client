@@ -41,7 +41,8 @@ const SimpleProductDetail = () => {
 		setOpenModal(!openModal);
 		setCurrentData({
 			card: router.query.view,
-			...data,
+			copy: data.rowData,
+			...data.simpleProduct,
 		});
 	};
 
@@ -67,7 +68,7 @@ const SimpleProductDetail = () => {
 						return (
 							<SimpleCard
 								columns={rowData}
-								onClick={() => toggleModal(simpleProduct)}
+								onClick={() => toggleModal({ simpleProduct, rowData })}
 								key={index}
 							/>
 						);

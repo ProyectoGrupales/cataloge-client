@@ -16,9 +16,23 @@ const cartSlice = createSlice({
 		byuCart: state => {
 			state.products = [];
 		},
+		removeProduct: (state, action) => {
+			// Elimina el primer elemento que coincida con el id
+			// Se lo hace de esta manera debido a que indexOf() no funciona con el estado en redux
+			let flag = false;
+			state.products.forEach((product, firstIndex) => {
+				if (!flag && product._id === action.payload) {
+					flag = true;
+
+					state.products = state.products.filter(
+						(item, secondIndex) => secondIndex !== firstIndex
+					);
+				}
+			});
+		},
 	},
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, byuCart, removeProduct } = cartSlice.actions;
 
 export default cartSlice.reducer;

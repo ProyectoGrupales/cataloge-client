@@ -1,15 +1,39 @@
 @import '../../../styles/config/color.scss';
 @import '../../../styles/config/mixins.scss';
 
+.deleteContainer {
+	width: fit-content;
+	height: 20px;
+	position: absolute;
+	top: -18px;
+	right: 0px;
+	background-color: #ffff;
+	border-radius: 2px;
+
+	button {
+		width: fit-content;
+		height: fit-content;
+		background-color: transparent;
+		border: none;
+	}
+}
+
 .container {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 1fr 130px 50px;
+	text-align: center;
+	position: relative;
 	height: 30px;
 	padding: 0px 5px;
 	align-items: center;
-	background-color: white;
+	background-color: #ffff;
 	border-radius: 2px;
 	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);
-	cursor: pointer;
-	@include LargeLabel3();
+
+	p {
+		@include LargeLabel3();
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
 }

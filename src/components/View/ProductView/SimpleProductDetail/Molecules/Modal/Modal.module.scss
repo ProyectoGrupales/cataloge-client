@@ -28,7 +28,8 @@
 	.productInfo {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
+		width: 90%;
+		align-self: flex-start;
 		gap: 5px;
 		color: white;
 		margin-bottom: 25px;
@@ -81,10 +82,10 @@
 			}
 			border: 1px solid #ffff;
 			background-color: transparent;
-			transition: all 0.3s;
+			transition: all 0.1s;
 
-			&:hover {
-				background-color: rgb(48, 48, 48);
+			&:active {
+				background-color: rgb(218, 123, 213);
 			}
 		}
 	}
