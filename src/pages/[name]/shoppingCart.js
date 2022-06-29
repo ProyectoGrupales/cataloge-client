@@ -1,4 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTotal } from '../../redux/reducers/cartSlice';
+import parserNumberToCurrency from '../../services/parserNumberToCurrency';
 
 // Components
 import HeaderCustom from '../../components/Common/HeaderCustom/HeaderCustom';
@@ -6,45 +8,20 @@ import SimpleCard from '../../components/Common/SimpleCard/SimpleCard';
 import Card from '../../components/Common/Cataloge/Molecules/Card/Card';
 
 import style from './styles/shoppingCart.module.scss';
+import Link from 'next/link';
+import sortByProductType from '../../services/sortByProductType';
 
 const ShoppingCart = () => {
+	const dispatch = useDispatch();
 	// Obtenemos los productos del estado
 	const products = useSelector(state => state.cart.products);
 
-	let totalSimpleProducts = 0;
-	const simpleProducts = [];
-
-	let totalComplexProducts = 0;
-	const complexProducts = [];
-
-	// Dividimos los dos tipos de productos que hay, para no mostrarlos encimados por las dudas
-	if (products) {
-		// Comenzamos recorriendo el arreglo principal
-		products.forEach(product => {
-			// Diferenciamos los tipos
-			if (product.type === 'productInList') {
-				let flag = false;
-				// Recorremos el arreglo para buscar elementos repetidos
-				simpleProducts.forEach((simpleProduct, index) => {
-					// Y en caso de encontrar repetidos, simplemente le sumamos a la propiedad ctd (cantidad)
-					if (simpleProduct.product._id === product._id) {
-						simpleProducts[index].ctd++;
-						flag = true;
-					}
-				});
-
-				// Si flag continua en false es porque no encontró coincidencias, entonces agrega el producto
-				if (!flag) {
-					simpleProducts.push({ product, ctd: 1 });
-				}
-
-				totalSimpleProducts += product.precio;
-			} else {
-				complexProducts.push(product);
-				totalComplexProducts += product.price;
-			}
-		});
-	}
+	const {
+		simpleProducts,
+		complexProducts,
+		totalComplexProducts,
+		totalSimpleProducts,
+	} = sortByProductType(products);
 
 	return (
 		<div>
@@ -57,7 +34,7 @@ const ShoppingCart = () => {
 							{simpleProducts.map((product, index) => {
 								return (
 									<div key={index}>
-										<p>Cantidad: {product.ctd}</p>
+										<p className={style.ctd}>Cantidad: {product.ctd}</p>
 										<SimpleCard
 											columns={product.product.copy}
 											deleteable={true}
@@ -67,7 +44,8 @@ const ShoppingCart = () => {
 								);
 							})}
 						</div>
-						<h3>${totalSimpleProducts}</h3>
+						<h4>Subtotal: {parserNumberToCurrency(totalSimpleProducts)}</h4>
+						<div className={style.divisor} />
 					</div>
 				) : null}
 
@@ -79,11 +57,26 @@ const ShoppingCart = () => {
 							))}
 						</div>
 
-						<h3>${totalComplexProducts}</h3>
+						<div className={style.divisor} />
+						<h4> {parserNumberToCurrency(totalComplexProducts)}</h4>
 					</div>
 				) : null}
 
-				<h2>Total : ${totalComplexProducts + totalSimpleProducts}</h2>
+				<h2>
+					Total :{' '}
+					{parserNumberToCurrency(totalComplexProducts + totalSimpleProducts)}
+				</h2>
+
+				<Link href={'/test/payment/'}>
+					<button
+						className={style.button}
+						onClick={() =>
+							dispatch(addTotal(totalComplexProducts + totalSimpleProducts))
+						}
+					>
+						Continar compra
+					</button>
+				</Link>
 			</div>
 		</div>
 	);
