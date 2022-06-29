@@ -28,7 +28,8 @@
 	.productInfo {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
+		width: 90%;
+		align-self: flex-start;
 		gap: 5px;
 		color: white;
 		margin-bottom: 25px;

@@ -1,10 +1,15 @@
-import { store, persistor } from '../redux/store';
+// import { store, persistor } from '../redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { useRouter } from 'next/router';
+
+import dynamicStore from '../redux/store/test';
 
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
+	const router = useRouter();
+	const { store, persistor } = dynamicStore(router.query.name);
 	return (
 		<Provider store={store}>
 			<PersistGate persistor={persistor}>

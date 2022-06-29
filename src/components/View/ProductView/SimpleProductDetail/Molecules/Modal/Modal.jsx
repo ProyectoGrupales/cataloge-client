@@ -13,18 +13,10 @@ import style from './Modal.module.scss';
 const Modal = ({ openModal, setOpenModal, data }) => {
 	console.log(data);
 	const dispatch = useDispatch();
-	// Copia de la informacion entrante, de esta manera podemos manipularla sin perder los datos originales
-	let productData = { ...data };
-
-	if (data && data._id) {
-		delete productData._id;
-		delete productData.card;
-	}
-
-	productData = productData ? Object.values(productData) : null;
+	const productData = data ? data.copy : null;
 
 	const addProductToCart = () => {
-		dispatch(addToCart(data));
+		dispatch(addToCart({ ...data, type: 'productInList' }));
 	};
 
 	return (
@@ -44,7 +36,7 @@ const Modal = ({ openModal, setOpenModal, data }) => {
 				<div className={style.productInfo}>
 					<h2>{productData[0]}</h2>
 					<h4>{productData[1]}</h4>
-					<h4>{productData[2]}</h4>
+					<h4>${productData[2]}</h4>
 				</div>
 			) : null}
 

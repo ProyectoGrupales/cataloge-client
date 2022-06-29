@@ -8,7 +8,7 @@ import {
 	REGISTER,
 	REHYDRATE,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storageSession from 'redux-persist/lib/storage/session';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 // Reducers
@@ -18,9 +18,9 @@ import catchCatalogeData from '../reducers/catchCatalogeData';
 
 // Esto es necesario para definir el persist
 const persistConfig = {
-	key: 'root',
+	key: 'hola',
 	version: 1,
-	storage,
+	storage: storageSession,
 };
 
 // Aqui dentro van todos los reducers. Lo que hace esto es combinarlos

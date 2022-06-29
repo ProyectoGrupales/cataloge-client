@@ -2,14 +2,27 @@
 @import '../../../styles/config/mixins.scss';
 
 .container {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 1fr 130px 50px;
+	text-align: center;
 	height: 30px;
 	padding: 0px 5px;
 	align-items: center;
 	background-color: white;
 	border-radius: 2px;
 	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);
-	cursor: pointer;
-	@include LargeLabel3();
+
+	p {
+		@include LargeLabel3();
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	button {
+		background-color: transparent;
+		border: none;
+		position: absolute;
+		right: 10px;
+	}
 }
