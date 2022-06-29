@@ -1,0 +1,17 @@
+@import './config/color.scss';
+
+.addButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 40px;
+	background-color: $violet;
+	color: white;
+	right: 20px;
+	bottom: 30px;
+	cursor: pointer;
+}

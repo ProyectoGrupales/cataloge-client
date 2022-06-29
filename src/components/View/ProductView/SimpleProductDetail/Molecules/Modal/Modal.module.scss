@@ -82,10 +82,10 @@
 			}
 			border: 1px solid #ffff;
 			background-color: transparent;
-			transition: all 0.3s;
+			transition: all 0.1s;
 
-			&:hover {
-				background-color: rgb(48, 48, 48);
+			&:active {
+				background-color: rgb(218, 123, 213);
 			}
 		}
 	}

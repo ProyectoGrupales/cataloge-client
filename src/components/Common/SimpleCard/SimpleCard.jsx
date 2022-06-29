@@ -14,6 +14,14 @@ const SimpleCard = ({ columns, onClick, deleteable, id }) => {
 				className={style.container}
 				onClick={onClick ? () => onClick() : null}
 			>
+				{deleteable ? (
+					<div className={style.deleteContainer}>
+						<button onClick={() => dispatch(removeProduct(id))}>
+							<DeleteIcon fontSize='small' />
+						</button>
+					</div>
+				) : null}
+
 				{columns.map((text, index) =>
 					index < 3 ? (
 						!isNaN(text) ? (
@@ -23,11 +31,6 @@ const SimpleCard = ({ columns, onClick, deleteable, id }) => {
 						)
 					) : null
 				)}
-				{deleteable ? (
-					<button onClick={() => dispatch(removeProduct(id))}>
-						<DeleteIcon />
-					</button>
-				) : null}
 			</div>
 		);
 	}

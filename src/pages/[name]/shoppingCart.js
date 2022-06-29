@@ -1,23 +1,43 @@
 import { useSelector } from 'react-redux';
+
 // Components
 import HeaderCustom from '../../components/Common/HeaderCustom/HeaderCustom';
 import SimpleCard from '../../components/Common/SimpleCard/SimpleCard';
 import Card from '../../components/Common/Cataloge/Molecules/Card/Card';
 
-const ShoppingCart = () => {
-	const products = useSelector(state => state.cart.products);
-	const simpleProducts = [];
-	let totalSimpleProducts = 0;
-	const complexProducts = [];
-	let totalComplexProducts = 0;
+import style from './styles/shoppingCart.module.scss';
 
-	console.log(products);
+const ShoppingCart = () => {
+	// Obtenemos los productos del estado
+	const products = useSelector(state => state.cart.products);
+
+	let totalSimpleProducts = 0;
+	const simpleProducts = [];
+
+	let totalComplexProducts = 0;
+	const complexProducts = [];
 
 	// Dividimos los dos tipos de productos que hay, para no mostrarlos encimados por las dudas
 	if (products) {
+		// Comenzamos recorriendo el arreglo principal
 		products.forEach(product => {
+			// Diferenciamos los tipos
 			if (product.type === 'productInList') {
-				simpleProducts.push(product);
+				let flag = false;
+				// Recorremos el arreglo para buscar elementos repetidos
+				simpleProducts.forEach((simpleProduct, index) => {
+					// Y en caso de encontrar repetidos, simplemente le sumamos a la propiedad ctd (cantidad)
+					if (simpleProduct.product._id === product._id) {
+						simpleProducts[index].ctd++;
+						flag = true;
+					}
+				});
+
+				// Si flag continua en false es porque no encontró coincidencias, entonces agrega el producto
+				if (!flag) {
+					simpleProducts.push({ product, ctd: 1 });
+				}
+
 				totalSimpleProducts += product.precio;
 			} else {
 				complexProducts.push(product);
@@ -26,41 +46,44 @@ const ShoppingCart = () => {
 		});
 	}
 
-	console.log(simpleProducts, complexProducts);
 	return (
 		<div>
 			<HeaderCustom title='Carrito' icon='back' />
 
 			<div className='container'>
-				<div>
-					{simpleProducts.length ? (
-						simpleProducts.map((product, index) => {
-							return (
-								<SimpleCard
-									columns={product.copy}
-									deleteable={true}
-									id={product._id}
-									key={index}
-								/>
-							);
-						})
-					) : (
-						<h1>No hay productos</h1>
-					)}
-					<h3>${totalSimpleProducts}</h3>
-				</div>
+				{simpleProducts.length ? (
+					<div>
+						<div className={style.simpleProductsContainer}>
+							{simpleProducts.map((product, index) => {
+								return (
+									<div key={index}>
+										<p>Cantidad: {product.ctd}</p>
+										<SimpleCard
+											columns={product.product.copy}
+											deleteable={true}
+											id={product.product._id}
+										/>
+									</div>
+								);
+							})}
+						</div>
+						<h3>${totalSimpleProducts}</h3>
+					</div>
+				) : null}
 
-				<div>
-					{complexProducts.length ? (
-						complexProducts.map(product => {
-							return <Card data={product} deleteable={true} key={product.id} />;
-						})
-					) : (
-						<h1>No hay productos</h1>
-					)}
-					<h3>${totalComplexProducts}</h3>
-				</div>
-				<h1>Total : ${totalComplexProducts + totalSimpleProducts}</h1>
+				{complexProducts.length ? (
+					<div>
+						<div className={style.complexProductContainer}>
+							{complexProducts.map(product => (
+								<Card data={product} deleteable={true} key={product.id} />
+							))}
+						</div>
+
+						<h3>${totalComplexProducts}</h3>
+					</div>
+				) : null}
+
+				<h2>Total : ${totalComplexProducts + totalSimpleProducts}</h2>
 			</div>
 		</div>
 	);
