@@ -25,6 +25,12 @@
 	border-radius: 15px 15px 0 0;
 	background: linear-gradient(180deg, #9123ff 0%, rgb(0, 54, 115) 220.78%);
 
+	h4 {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
 	.productInfo {
 		display: flex;
 		flex-direction: column;

@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { addConfig } from '../../../redux/reducers/cartSlice';
+
 // Components
 import HeaderCustom from '../../../components/Common/HeaderCustom/HeaderCustom';
 import Link from 'next/link';
@@ -13,6 +16,8 @@ const ConfigOrder = () => {
 		branchOffice: '',
 		observations: '',
 	});
+
+	const dispatch = useDispatch();
 
 	const handleChange = event => {
 		setConfig({
@@ -58,7 +63,7 @@ const ConfigOrder = () => {
 					<div className={style.payment}>
 						<h4>Método de pago 💰</h4>
 						<select name='payment' onChange={handleChange}>
-							<option selected>Efectivo</option>
+							<option>Efectivo</option>
 							<option>Otros (Mercado Pago)</option>
 						</select>
 
@@ -92,7 +97,9 @@ const ConfigOrder = () => {
 					href='/[name]/payment/confirmation'
 					as='/test/payment/confirmation'
 				>
-					<button>Confirmar compra</button>
+					<button onClick={() => dispatch(addConfig(config))}>
+						Confirmar compra
+					</button>
 				</Link>
 			</div>
 		</div>
