@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-// Recibe la data del usuario y del catálogo y la envía.
+import notification from '../services/notifications';
 
+// Recibe la data del usuario y del catálogo y la envía.
 const createUser = (userData, catalogeData) => {
-	if (!userData) {
-		return 'No se están enviando los datos necesarios';
+	if (!userData || !catalogeData) {
+		notification('No se están enviando los datos necesarios', 'success');
 	}
 
 	axios
@@ -14,9 +15,13 @@ const createUser = (userData, catalogeData) => {
 		})
 		.then(res => {
 			console.log(res);
+			notification(res.data.msg, res.data.status);
 			return res.data;
 		})
 		.catch(err => {
+			console.log('Falló');
+			console.log(err);
+			notification(err.response.data.msg, err.response.data.status);
 			return err.data;
 		});
 };
