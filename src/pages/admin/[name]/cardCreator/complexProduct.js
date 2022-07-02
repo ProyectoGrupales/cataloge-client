@@ -30,7 +30,7 @@ const DetailedProduct = () => {
 			<form className={style.form + ' container'}>
 				{images.length ? (
 					<div className={style.previewImage}>
-						<PreviewImage images={images} setImages={setImages} />
+						<PreviewImage images={images} setImages={setImages} edit />
 					</div>
 				) : (
 					<div>

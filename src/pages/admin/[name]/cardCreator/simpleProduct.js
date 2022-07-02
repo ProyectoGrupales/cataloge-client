@@ -35,7 +35,7 @@ const SimpleProductCreator = () => {
 				<form onSubmit={() => console.log('Se está creando está mierda!!')}>
 					{image.length ? (
 						<div className={style.previewImage}>
-							<PreviewImage images={image} setImages={setImage} />
+							<PreviewImage images={image} setImages={setImage} edit />
 						</div>
 					) : (
 						<div>
