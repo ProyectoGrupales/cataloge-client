@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addConfig } from '../../../redux/reducers/cartSlice';
 
 // Components
@@ -9,6 +9,10 @@ import style from './styles/index.module.scss';
 import { useState } from 'react';
 
 const ConfigOrder = () => {
+	const dispatch = useDispatch();
+	const cart = useSelector(state => state.cart);
+	console.log(cart);
+
 	const [config, setConfig] = useState({
 		shipping: '',
 		payment: 'efectivo',
@@ -16,8 +20,6 @@ const ConfigOrder = () => {
 		branchOffice: '',
 		observations: '',
 	});
-
-	const dispatch = useDispatch();
 
 	const handleChange = event => {
 		setConfig({
@@ -35,7 +37,7 @@ const ConfigOrder = () => {
 			<div className={'container' + ' ' + style.container}>
 				<form>
 					<div className={style.shipping}>
-						<h4>Envío 🛵</h4>
+						<h4>Envío </h4>
 
 						<div>
 							<div>
@@ -61,7 +63,8 @@ const ConfigOrder = () => {
 					</div>
 
 					<div className={style.payment}>
-						<h4>Método de pago 💰</h4>
+						<h4>Método de pago</h4>
+
 						<select name='payment' onChange={handleChange}>
 							<option>Efectivo</option>
 							<option>Otros (Mercado Pago)</option>
@@ -71,7 +74,7 @@ const ConfigOrder = () => {
 					</div>
 
 					<div>
-						<h4>¿A nombre de quien guardamos tu pedido?🤔 </h4>
+						<h4>¿A nombre de quien guardamos tu pedido? </h4>
 						<input type='text' name='nameOfPerson' onChange={handleChange} />
 					</div>
 
@@ -79,7 +82,7 @@ const ConfigOrder = () => {
 						caso contrario, debería aparecer "Retira de: (direccion del comercio)"
 					*/}
 					<div>
-						<h4>Escoja la sucursal más cercana 🏬</h4>
+						<h4>Escoja la sucursal más cercana </h4>
 						<select name='branchOffice' onChange={handleChange}>
 							<option>Sucursal1</option>
 							<option>Sucursal2</option>
@@ -88,7 +91,7 @@ const ConfigOrder = () => {
 					</div>
 
 					<div>
-						<h4>Agregar observaciones sobre el pedido ✍️</h4>
+						<h4>Agregar observaciones sobre el pedido </h4>
 						<input type='text' name='observations' onChange={handleChange} />
 					</div>
 				</form>
