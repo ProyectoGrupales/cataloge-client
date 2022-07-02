@@ -98,7 +98,7 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 
 				<div>
 					<label>Nombre del catálogo</label>
-					<input type='text' name='name' onChange={handleChange} />
+					<input type='text' name='cataloge_name' onChange={handleChange} />
 				</div>
 
 				<div>
