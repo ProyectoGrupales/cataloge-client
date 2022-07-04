@@ -5,7 +5,7 @@ import UserForm from '../components/View/Register/userForm/userForm';
 import CatalogeForm from '../components/View/Register/catalogeForm/catalogeForm';
 
 /*
-	Los pasos del registro dividido en pasos: 
+	Registro dividido en pasos, es el número en el que se encuentra nextForm: 
 	0_ Datos usuario
 	1_ Datos catálogo
 	2_ Submit!
@@ -38,7 +38,7 @@ const RegisterPage = () => {
 		setNextForm(prev => prev + 1);
 	}
 
-	console.log(nextForm);
+	console.log(cataloge);
 
 	return (
 		<div className='container'>

@@ -13,12 +13,20 @@ const SelectHour = ({ idHour, idMin }) => {
 	return (
 		<div className={style.container}>
 			<select id={idHour}>
+				<option value={null} selected>
+					HS
+				</option>
 				{hs.map(hour => (
 					<option key={hour}>{hour}</option>
 				))}
 			</select>
+
 			<p className={style.twoPoints}>:</p>
-			<select id={idMin}>
+
+			<select id={idMin} defaultValue={null}>
+				<option value={null} selected>
+					MINS
+				</option>
 				{min.map(minutes => (
 					<option key={minutes}>{minutes}</option>
 				))}

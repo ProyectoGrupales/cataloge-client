@@ -1,6 +1,7 @@
 // Dependencies
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 // Components
 import styles from './SimpleProductDetail.module.scss';
@@ -10,9 +11,10 @@ import Modal from './Molecules/Modal/Modal';
 import SimpleCard from '../../../../components/Common/SimpleCard/SimpleCard';
 
 // Data
-import catalogeData from '../../../../data/cataloge.json';
+// import catalogeData from '../../../../data/cataloge.json';
 
 const SimpleProductDetail = () => {
+	const catalogeData = useSelector(state => state.cataloge.catalogeData);
 	const router = useRouter();
 	// Controladores del modal
 	const [openModal, setOpenModal] = useState(false);
@@ -20,8 +22,9 @@ const SimpleProductDetail = () => {
 
 	// Busca y guarda la card que coincida con el nombre de la ruta
 	const [card, setCard] = useState();
+	console.log(catalogeData);
 	useEffect(() => {
-		if (router.query.view) {
+		if (router.query.view && catalogeData.cards) {
 			const cardFound = catalogeData.cards.find(card => {
 				if (
 					card.type === 'productsInList' &&
@@ -35,7 +38,7 @@ const SimpleProductDetail = () => {
 
 			setCard(cardFound);
 		}
-	}, [router.query.view]);
+	}, [router.query.view, catalogeData]);
 
 	const toggleModal = data => {
 		setOpenModal(!openModal);
