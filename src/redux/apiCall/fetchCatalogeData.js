@@ -17,7 +17,11 @@ const fetchCatalogeData = (dispatch, name) => {
 				dispatch(fetchSuccess(res.data.cataloge));
 			})
 			.catch(err => {
-				notification(err.response.data.msg, err.response.data.status);
+				console.log(err);
+				notification(
+					err.response.data ? err.response.data.msg : err.message,
+					err.response.data ? err.response.data.status : 'error'
+				);
 				dispatch(fetchError());
 			});
 	}

@@ -7,26 +7,39 @@ import fetchCatalogeData from '../../redux/apiCall/fetchCatalogeData';
 import Header from '../../components/Common/Header/Header';
 import MetaHead from '../../components/Common/MetaHead/MetaHead';
 import Cataloge from '../../components/Common/Cataloge/Cataloge';
+import Link from 'next/link';
 
 const ClientHome = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
-	const cataloge = useSelector(state => state.cataloge.catalogeData);
+	const cataloge = useSelector(state => state.cataloge);
 
 	useEffect(() => {
-		if (router.query || !cataloge) {
+		if (router.query || !cataloge.catalogeData) {
 			fetchCatalogeData(dispatch, router.query.name);
 		}
-	}, []);
+	}, [router]);
 
-	return (
-		<div>
-			<MetaHead title={cataloge.name} />
-			<Header />
+	console.log(cataloge);
 
-			<div className='container'>
-				<Cataloge data={cataloge} />
+	if (!cataloge.error) {
+		return (
+			<div>
+				<MetaHead title={cataloge.catalogeData.name} />
+				<Header />
+
+				<div className='container'>
+					<Cataloge data={cataloge.catalogeData} />
+				</div>
 			</div>
+		);
+	}
+	return (
+		<div className='container'>
+			<h1>Algo no salío como esperabamos :( </h1>
+			<Link href={'/'}>
+				<button>Volver al inicio</button>
+			</Link>
 		</div>
 	);
 };

@@ -23,6 +23,17 @@ const ShoppingCart = () => {
 		totalSimpleProducts,
 	} = sortByProductType(products);
 
+	if (!products.length) {
+		return (
+			<div>
+				<HeaderCustom title='Carrito' icon='back' />
+				<div className='container'>
+					<h3>Añade productos al carrito para realizar una compra mayorista</h3>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<HeaderCustom title='Carrito' icon='back' />
