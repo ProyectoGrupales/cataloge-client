@@ -1,5 +1,6 @@
+// Esta funcion recibe el arreglo con los productos del carrito y los separa según su tipo de card, incluyendo los totales $$ de cada grupo
 const sortByProductType = mainArray => {
-	// Dividimos los dos tipos de productos que hay, para no mostrarlos encimados por las dudas
+	// Dividimos los dos tipos de productos que hay, para no mostrarlos encimados
 	let totalSimpleProducts = 0;
 	const simpleProducts = [];
 

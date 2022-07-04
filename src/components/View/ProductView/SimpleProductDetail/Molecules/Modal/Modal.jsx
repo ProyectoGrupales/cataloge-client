@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import Image from 'next/image';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import generateMsg from '../../../../../../services/generateMsgWpp';
 
 // Actions
 import { addToCart } from '../../../../../../redux/reducers/cartSlice';
@@ -11,7 +13,9 @@ import cartIcon from '../../../../../../../public/Assets/images/cartIcon.svg';
 import style from './Modal.module.scss';
 
 const Modal = ({ openModal, setOpenModal, data }) => {
-	console.log(data);
+	const cataloge = useSelector(state => state.cataloge.catalogeData);
+	const message = generateMsg(data);
+
 	const dispatch = useDispatch();
 	const productData = data ? data.copy : null;
 
@@ -41,12 +45,18 @@ const Modal = ({ openModal, setOpenModal, data }) => {
 			) : null}
 
 			<div className={style.buttonContainer}>
-				<button className={style.whatsappButton}>
-					<Image src={whatsappIcon} alt='Whatasapp icon' />
+				{cataloge.owner.number_phone ? (
+					<Link
+						href={`https://api.whatsapp.com/send?phone=549${cataloge.owner.number_phone}&text=${message}`}
+						target='_blank'
+					>
+						<a target='_blank' className={style.whatsappButton}>
+							<Image src={whatsappIcon} alt='Whatasapp icon' />
 
-					<h4>Consultar Por Whatsapp</h4>
-				</button>
-
+							<h4>Consultar Por Whatsapp</h4>
+						</a>
+					</Link>
+				) : null}
 				<button className={style.cartButton} onClick={addProductToCart}>
 					<Image src={cartIcon} alt='Cart icon' />
 					<h4>Agregar Al Carrito</h4>
