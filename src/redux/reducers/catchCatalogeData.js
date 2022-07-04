@@ -16,10 +16,11 @@ const catalogeSlice = createSlice({
 		fetchSuccess: (state, action) => {
 			state.fetching = false;
 			state.catalogeData = action.payload;
+			state.error = null;
 		},
 		fetchError: (state, action) => {
 			state.fetching = false;
-			state.catalogeData = action.payload;
+			state.error = true;
 		},
 	},
 });

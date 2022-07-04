@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import dynamicStore from '../redux/store/test';
+import dynamicStore from '../redux/store/index';
 
 import '../styles/globals.scss';
 

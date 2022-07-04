@@ -5,12 +5,12 @@ import SimpleCard from '../../Atoms/SimpleCard/SimpleCard';
 import ComplexCard from '../../Atoms/ComplexCard/ComplexCard';
 
 // Este es el item que se muestra al inicio del catalogo
-const Card = ({ data }) => {
+const Card = ({ data, catalogeName }) => {
 	// Varía el lugar a redireccionar dependiendo de si estamos en client o admin
 	const router = useRouter();
-	let href = '/test';
+	let href = `/${catalogeName}`;
 	if (router.pathname.includes('admin')) {
-		href = '/admin/test';
+		href = `/admin/${catalogeName}`;
 	}
 
 	if (data.type === 'productsInList') {

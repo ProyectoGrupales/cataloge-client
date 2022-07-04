@@ -4,13 +4,9 @@ import notification from '../services/notifications';
 
 // Recibe la data del usuario y del catálogo y la envía.
 const createUser = (userData, catalogeData) => {
-	if (!userData || !catalogeData) {
-		notification('No se están enviando los datos necesarios', 'success');
-	}
-
 	axios
 		.post(`${process.env.NEXT_PUBLIC_API_URI}/user`, {
-			user: userData,
+			user: userData || {},
 			cataloge: catalogeData || {},
 		})
 		.then(res => {
@@ -19,8 +15,6 @@ const createUser = (userData, catalogeData) => {
 			return res.data;
 		})
 		.catch(err => {
-			console.log('Falló');
-			console.log(err);
 			notification(err.response.data.msg, err.response.data.status);
 			return err.data;
 		});

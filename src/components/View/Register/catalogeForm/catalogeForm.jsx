@@ -5,6 +5,7 @@ import SelectHour from '../../../UI/selectHour/SelectHour';
 
 // Icons
 import DeleteIcon from '@mui/icons-material/Delete';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 // REFACTORIZAR LA SELECCION DE HORAS
 const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
@@ -41,13 +42,6 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 			});
 		}
 	};
-
-	// Horas y minutos disponibles
-	const hs = [
-		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-		21, 22, 23, 24,
-	];
-	const min = [0, 10, 20, 30, 40, 50];
 
 	// Finaliza el registro
 	const handleSubmit = e => {
@@ -87,7 +81,10 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 
 	return (
 		<div>
-			<button onClick={() => nextForm(prev => prev - 1)}>Atrás</button>
+			<button onClick={() => nextForm(prev => prev - 1)}>
+				<ArrowBackIosNewIcon fontSize='small' />
+			</button>
+
 			<h1>Creación de Catálogo</h1>
 
 			<form onSubmit={e => e.preventDefault()}>
@@ -146,57 +143,18 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 
 						<div>
 							<p>Hasta</p>
-							<div>
-								<select id='AM2_HS'>
-									{hs.map(hour => (
-										<option key={hour}>{hour}</option>
-									))}
-								</select>
-								:
-								<select id='AM2_MIN'>
-									{min.map(minutes => (
-										<option key={minutes}>{minutes}</option>
-									))}
-								</select>
-							</div>
+							<SelectHour idHour={'AM2_HS'} idMin={'AM2_MIN'} />
 						</div>
 					</div>
 
 					<div>
 						<label>PM</label>
 
-						<div>
-							<p>De</p>
-							<div>
-								<select id='PM1_HS'>
-									{hs.map(hour => (
-										<option key={hour}>{hour}</option>
-									))}
-								</select>
-								:
-								<select id='PM1_MIN'>
-									{min.map(minutes => (
-										<option key={minutes}>{minutes}</option>
-									))}
-								</select>
-							</div>
-						</div>
+						<SelectHour idHour={'PM1_HS'} idMin={'PM1_MIN'} />
 
 						<div>
 							<p>Hasta</p>
-							<div>
-								<select id='PM2_HS'>
-									{hs.map(hour => (
-										<option key={hour}>{hour}</option>
-									))}
-								</select>
-								:
-								<select id='PM2_MIN'>
-									{min.map(minutes => (
-										<option key={minutes}>{minutes}</option>
-									))}
-								</select>
-							</div>
+							<SelectHour idHour={'PM2_HS'} idMin={'PM2_MIN'} />
 						</div>
 					</div>
 					{error.attention_hour ? <p>{error.attention_hour}</p> : null}

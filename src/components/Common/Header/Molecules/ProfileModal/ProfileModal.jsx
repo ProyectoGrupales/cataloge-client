@@ -17,7 +17,11 @@ const ProfileModal = ({ data, open, setOpen }) => {
 			</button>
 
 			<div className={style.header}>
-				<img src={data.image} />
+				{data.image ? (
+					<img src={data.image} />
+				) : (
+					<div className={style.imgFallback} />
+				)}
 
 				<div>
 					<h1>{data.name}</h1>

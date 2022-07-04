@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import Link from 'next/link';
 
 // Components & functions
 import parserHour from '../../../services/parserAttentionHour';
@@ -14,62 +14,61 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import style from './Header.module.scss';
 
-// Data
-import catalogeData from '../../../data/cataloge.json';
-
 // Esta es la cabecera por defecto que ve el cliente
 const Header = () => {
-	const productslength = useSelector(state => state.cart.products.length);
 	const route = useRouter();
-	const attentionHour = parserHour(catalogeData.attention_hour);
+	const cataloge = useSelector(state => state.cataloge.catalogeData);
+	const productslength = useSelector(state => state.cart.products.length);
 	const [open, setOpen] = useState(false);
 
-	const homeIcon = (
-		<Link href='/test'>
-			<HomeIcon fontSize='large' />
-		</Link>
-	);
+	if (cataloge.name) {
+		const attentionHour = parserHour(cataloge.attention_hour);
 
-	return (
-		<div className={style.container}>
-			{route.query.view ? (
-				<div className={style.homeIcon}>{homeIcon}</div>
-			) : (
-				<div
-					onClick={() => setOpen(!open)}
-					className={style.profileImageContainer}
-				>
-					{catalogeData.image ? (
-						<img src={catalogeData.image} />
-					) : (
-						<div className={style.imgFallback} />
-					)}
+		const homeIcon = (
+			<Link href={`/${cataloge.name}`}>
+				<HomeIcon fontSize='large' />
+			</Link>
+		);
+
+		return (
+			<div className={style.container}>
+				{route.query.view ? (
+					<div className={style.homeIcon}>{homeIcon}</div>
+				) : (
+					<div
+						onClick={() => setOpen(!open)}
+						className={style.profileImageContainer}
+					>
+						{cataloge.image ? (
+							<img src={cataloge.image} />
+						) : (
+							<div className={style.imgFallback} />
+						)}
+					</div>
+				)}
+				<div className={style.catalogeData} onClick={() => setOpen(!open)}>
+					<h1>{cataloge.name.toUpperCase() || 'Nombre del comercio'}</h1>
+					<p>{attentionHour}</p>
 				</div>
-			)}
-
-			<div className={style.catalogeData} onClick={() => setOpen(!open)}>
-				<h1>{catalogeData.name || 'Nombre del comercio'}</h1>
-				<p>{attentionHour}</p>
-			</div>
-
-			<div className={style.iconContainer}>
-				<Link href={'/test/shoppingCart'}>
-					<Badge badgeContent={productslength} color='error'>
-						<ShoppingCartIcon fontSize='large' />
-					</Badge>
-				</Link>
-			</div>
-
-			<div className={style.searchContainer}>
-				<input type='text' placeholder='¿Que estás buscando? 👀' />
-				<div>
-					<SearchIcon />
+				<div className={style.iconContainer}>
+					<Link href={`/${cataloge.name}/shoppingCart`}>
+						<Badge badgeContent={productslength} color='error'>
+							<ShoppingCartIcon fontSize='large' />
+						</Badge>
+					</Link>
 				</div>
+				<div className={style.searchContainer}>
+					<input type='text' placeholder='¿Que estás buscando? 👀' />
+					<div>
+						<SearchIcon />
+					</div>
+				</div>
+				<ProfileModal data={cataloge} open={open} setOpen={setOpen} />
 			</div>
+		);
+	}
 
-			<ProfileModal data={catalogeData} open={open} setOpen={setOpen} />
-		</div>
-	);
+	return <h1>Loading...</h1>;
 };
 
 export default Header;

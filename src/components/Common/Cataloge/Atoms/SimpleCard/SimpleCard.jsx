@@ -9,7 +9,7 @@ const SimpleCard = ({ data, href }) => {
 		<Link href={`${href}/${data.title.toLowerCase()}`}>
 			<div className={style.container}>
 				<Image
-					src={data.images[0]}
+					src={data.images}
 					alt='Image of the card'
 					layout='fill'
 					objectFit='cover'
