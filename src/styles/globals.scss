@@ -1,7 +1,7 @@
 @import './config/fonts.scss';
 @import './config/color.scss';
+@import 'spinners-react/lib/index.css'; // Reset styles
 
-// Reset styles
 *,
 *::after {
 	box-sizing: border-box;
