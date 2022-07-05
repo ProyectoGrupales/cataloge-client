@@ -84,7 +84,7 @@ const SimpleProductDetail = () => {
 				<OneTimeModal
 					text={[
 						'Puedes tocar un producto para desplegar las opciónes',
-						'Una vez seleccionado puedes consultar este producto por wpp',
+						'Una vez seleccionado puedes consultar ese producto por wpp',
 					]}
 				/>
 			</div>
