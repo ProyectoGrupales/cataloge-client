@@ -9,9 +9,7 @@ import MetaHead from '../../../Common/MetaHead/MetaHead';
 import Carousel from './Molecules/Carousel/Carousel';
 import Modal from './Molecules/Modal/Modal';
 import SimpleCard from '../../../../components/Common/SimpleCard/SimpleCard';
-
-// Data
-// import catalogeData from '../../../../data/cataloge.json';
+import OneTimeModal from '../../../UI/OneTimeModal/OneTimeModal';
 
 const SimpleProductDetail = () => {
 	const catalogeData = useSelector(state => state.cataloge.catalogeData);
@@ -82,6 +80,12 @@ const SimpleProductDetail = () => {
 					openModal={openModal}
 					setOpenModal={setOpenModal}
 					data={currentData}
+				/>
+				<OneTimeModal
+					text={[
+						'Puedes tocar un producto para desplegar las opciónes',
+						'Una vez seleccionado puedes consultar este producto por wpp',
+					]}
 				/>
 			</div>
 		);

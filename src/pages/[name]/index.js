@@ -1,31 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import fetchCatalogeData from '../../redux/apiCall/fetchCatalogeData';
+import { useSelector } from 'react-redux';
 
 // Componets
 import Header from '../../components/Common/Header/Header';
 import MetaHead from '../../components/Common/MetaHead/MetaHead';
 import Cataloge from '../../components/Common/Cataloge/Cataloge';
 import Link from 'next/link';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 const ClientHome = () => {
-	const router = useRouter();
-	const dispatch = useDispatch();
 	const cataloge = useSelector(state => state.cataloge);
 
-	useEffect(() => {
-		if (router.query || !cataloge.catalogeData) {
-			fetchCatalogeData(dispatch, router.query.name);
-		}
-	}, [router]);
+	// Si no está la informacion pero no hay error, que renderice loading
+	if (cataloge.fetching) {
+		return <Spinner />;
+	}
 
-	console.log(cataloge);
-
-	if (!cataloge.error) {
+	// Si la información ya está y no hay error que renderice la info
+	if (cataloge.catalogeData.name && !cataloge.error) {
 		return (
 			<div>
-				<MetaHead title={cataloge.catalogeData.name} />
+				<MetaHead title={cataloge.catalogeData.name.toUpperCase()} />
 				<Header />
 
 				<div className='container'>
@@ -34,6 +28,7 @@ const ClientHome = () => {
 			</div>
 		);
 	}
+
 	return (
 		<div className='container'>
 			<h1>Algo no salío como esperabamos :( </h1>

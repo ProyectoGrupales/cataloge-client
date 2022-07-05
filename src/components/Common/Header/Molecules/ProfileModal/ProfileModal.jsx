@@ -24,7 +24,7 @@ const ProfileModal = ({ data, open, setOpen }) => {
 				)}
 
 				<div>
-					<h1>{data.name}</h1>
+					<h1>{data.name.toUpperCase()}</h1>
 					<p>
 						{data.attention_hour[0][0]}hs a {data.attention_hour[0][1]}
 						hs y de {data.attention_hour[1][0]}hs a {data.attention_hour[1][1]}

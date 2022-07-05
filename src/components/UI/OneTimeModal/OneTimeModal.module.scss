@@ -1,0 +1,60 @@
+@import '../../../styles/config/color.scss';
+@import '../../../styles/config/mixins.scss';
+
+.container {
+	.background {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+
+		top: 0px;
+		left: 0px;
+		z-index: 900;
+
+		background-color: black;
+		opacity: 0.6;
+	}
+
+	.textContainer {
+		display: flex;
+		position: fixed;
+		min-height: 150px;
+		width: 90%;
+		opacity: 1;
+
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		border-radius: 4px;
+		background-color: white;
+		text-align: center;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1000;
+
+		h2 {
+			@include Subtitle2();
+		}
+
+		.next {
+			width: 50%;
+			background-color: $lightViolet;
+			border: none;
+			padding: 10px;
+			border-radius: 4px;
+			color: white;
+			font-weight: bolder;
+			margin-top: 20px;
+		}
+
+		.closeButton {
+			border: none;
+			background-color: transparent;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+	}
+}
