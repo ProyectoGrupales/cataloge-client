@@ -49,7 +49,7 @@ const SimpleProductDetail = () => {
 
 	// En el caso de que está card no tenga productos aún
 	if (!card) {
-		return <h1>No hay productos en esta carta</h1>;
+		return <h1 className='container'>No hay productos en esta carta</h1>;
 	}
 
 	if (card && card.products.length) {

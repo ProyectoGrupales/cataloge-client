@@ -10,7 +10,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 const ClientHome = () => {
 	const cataloge = useSelector(state => state.cataloge);
 
-	// Si no está la informacion pero no hay error, que renderice loading
+	// Mientras se esté trayendo la info muestra un spinner loader
 	if (cataloge.fetching) {
 		return <Spinner />;
 	}
