@@ -19,4 +19,6 @@ const FetchDataComponent = () => {
 	return <div />;
 };
 
+// Tarea: convertir este componente en un servicio 
+
 export default FetchDataComponent;

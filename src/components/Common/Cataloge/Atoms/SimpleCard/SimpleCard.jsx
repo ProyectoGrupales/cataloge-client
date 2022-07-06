@@ -4,6 +4,8 @@ import Link from 'next/link';
 import style from './SimpleCard.module.scss';
 
 const SimpleCard = ({ data, href }) => {
+
+	console.log("Imagenes de la carta simple:", data.images)
 	return (
 		// Este link te envia hacía el nombre del listado
 		<Link href={`${href}/${data.title.toLowerCase()}`}>
