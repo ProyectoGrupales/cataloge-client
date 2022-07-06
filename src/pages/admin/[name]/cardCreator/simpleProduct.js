@@ -19,7 +19,6 @@ const SimpleProductCreator = () => {
 
 	const submitHandler = e => {
 		e.preventDefault();
-
 		if (image.image && productListName && excel) {
 			alert(JSON.stringify({ image, productListName, excel }), null, 2);
 		} else {
