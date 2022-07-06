@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import catchUserData from '../redux/apiCall/catchUserData';
+import fetchUserData from '../redux/apiCall/fetchUserData';
 
 // Components
 import MetaHead from '../components/Common/MetaHead/MetaHead';
@@ -15,12 +15,12 @@ const Login = () => {
 	const submitForm = e => {
 		e.preventDefault();
 		// Tomamos la info de los inputs
-		const userInfo = document.querySelector('#userInfo').value;
+		const userData = document.querySelector('#userData').value;
 		const password = document.querySelector('#password').value;
 
-		if (userInfo && password) {
-			catchUserData(dispatch, { userInfo, password });
-			window.location.href = '/admin/test';
+		if (userData && password) {
+			fetchUserData(dispatch, { userData, password });
+			// window.location.href = '/admin/test';
 		}
 	};
 
@@ -34,7 +34,7 @@ const Login = () => {
 			</div>
 
 			<form>
-				<input type='text' placeholder='Email o teléfono' id='userInfo' />
+				<input type='text' placeholder='Email o teléfono' id='userData' />
 				<input type='password' placeholder='Contraseña' id='password' />
 				<button onClick={submitForm} disabled={false}>
 					Iniciar Sesion

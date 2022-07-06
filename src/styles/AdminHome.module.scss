@@ -1,17 +1,38 @@
 @import './config/color.scss';
 
-.addButton {
+.floatButtonsContainer {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: fit-content;
+	flex-direction: column;
 	position: fixed;
-	width: 40px;
-	height: 40px;
-	border: none;
-	border-radius: 40px;
-	background-color: $violet;
-	color: white;
-	right: 20px;
+
 	bottom: 30px;
-	cursor: pointer;
+	right: 10px;
+	gap: 15px;
+
+	.editButton {
+		display: flex;
+		width: 40px;
+		height: 40px;
+
+		align-items: center;
+		justify-content: center;
+
+		border: none;
+		border-radius: 40px;
+		background-color: $violet;
+		color: white;
+	}
+
+	.addButton {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border: none;
+		border-radius: 40px;
+		background-color: $violet;
+		color: white;
+	}
 }

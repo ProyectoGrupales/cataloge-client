@@ -23,7 +23,10 @@ const AdminView = () => {
 
 	return (
 		<div>
-			<HeaderCustom title={router.query.view || 'Undefined'} icon='back' />
+			<HeaderCustom
+				title={router.query.view.toUpperCase() || 'Undefined'}
+				icon='back'
+			/>
 			<div className={'container'}>{screenConfig}</div>
 		</div>
 	);

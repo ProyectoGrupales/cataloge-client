@@ -18,9 +18,7 @@
 			"type": "productsInList",
 			"title": "Electrodomesticos",
 			"price": 0,
-			"images": [
-				"https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
-			],
+			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600",
 			"products": [
 				{
 					"_id": 1,
@@ -119,9 +117,7 @@
 			"type": "productsInList",
 			"title": "Fiambrería",
 			"price": 0,
-			"images": [
-				"https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
-			],
+			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600",
 			"products": [
 				{
 					"_id": 16,

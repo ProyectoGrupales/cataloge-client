@@ -12,7 +12,7 @@ import storageSession from 'redux-persist/lib/storage/session';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 // Reducers
-import catchUserData from '../reducers/catchUserData';
+import fetchUserData from '../reducers/fetchUserData';
 import cartSlice from '../reducers/cartSlice';
 import catchCatalogeData from '../reducers/catchCatalogeData';
 
@@ -27,7 +27,7 @@ const dynamicStore = name => {
 
 	// Aqui dentro van todos los reducers. Lo que hace esto es combinarlos
 	const rootReducer = combineReducers({
-		user: catchUserData,
+		user: fetchUserData,
 		cart: cartSlice,
 		cataloge: catchCatalogeData,
 	});
