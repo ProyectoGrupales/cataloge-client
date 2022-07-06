@@ -6,7 +6,7 @@ const initialState = {
 	error: null,
 };
 
-const catchUserReducer = createSlice({
+const fetchUserReducer = createSlice({
 	name: 'userData',
 	initialState,
 	reducers: {
@@ -19,7 +19,7 @@ const catchUserReducer = createSlice({
 		},
 		fetchError: (state, action) => {
 			state.fetching = false;
-			state.user = null;
+			state.user = {};
 			state.error = action.payload;
 		},
 	},
@@ -27,7 +27,7 @@ const catchUserReducer = createSlice({
 
 // Importamos las acciones
 export const { fetchingData, fetchSuccess, fetchError } =
-	catchUserReducer.actions;
+	fetchUserReducer.actions;
 
 // Importamos este reducer para incorporarlo en el store
-export default catchUserReducer.reducer;
+export default fetchUserReducer.reducer;

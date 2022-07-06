@@ -10,6 +10,8 @@ const FetchDataComponent = () => {
 	const dispatch = useDispatch();
 	const cataloge = useSelector(state => state.cataloge.catalogeData);
 
+	console.log(router.query, cataloge);
+
 	useEffect(() => {
 		if (router.query.name && !cataloge.name) {
 			fetchCatalogeData(dispatch, router.query.name);

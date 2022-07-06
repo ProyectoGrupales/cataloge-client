@@ -1,5 +1,10 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+
+// Views
+import EditProfile from '../../../../components/View/Admin/Settings/Views/EditProfile/EditProfile';
+
 // Components
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 import parserHour from '../../../../services/parserAttentionHour';
@@ -8,104 +13,77 @@ import parserHour from '../../../../services/parserAttentionHour';
 import EditIcon from '@mui/icons-material/Edit';
 import style from './styles/profile.module.scss';
 
-// Data
-import catalogeData from '../../../../data/cataloge.json';
-
 const ProfilePage = () => {
-	const [catagole, setCataloge] = useState({
-		name: catalogeData.name,
-		image: catalogeData.image,
-		attentionHour: catalogeData.attention_hour,
-		branch_office: catalogeData.branch_office,
-		description: catalogeData.description,
-	});
+	const cataloge = useSelector(state => state.cataloge.catalogeData);
 
-	console.log(setCataloge);
+	const [catalogeEdited, setCataloge] = useState({});
 
+	// Este estado cambia cuando se toca el boton para editar la información
 	const [edit, setEdit] = useState(false);
-	const attentionHour = parserHour(catalogeData.attention_hour);
+	console.log(catalogeEdited);
+
+	useEffect(() => {
+		if (cataloge.name) {
+			setCataloge({
+				name: cataloge.name,
+				image: cataloge.image,
+				attention_hour: cataloge.attention_hour,
+				branch_office: cataloge.branch_office,
+				description: cataloge.description,
+			});
+		}
+	}, [cataloge]);
 
 	if (edit) {
+		return (
+			<EditProfile
+				setEdit={setEdit}
+				cataloge={catalogeEdited}
+				setCataloge={setCataloge}
+			/>
+		);
+	}
+
+	if (cataloge.name) {
+		// Aquí se parsea los horarios de atención
+		const attentionHour = parserHour(cataloge.attention_hour);
+
 		return (
 			<div>
 				<HeaderCustom title='Perfil' icon='back' />
 
-				<div className={'container' + ' ' + style.formContainer}>
+				<div className={'container' + ' ' + style.containerDefault}>
 					<button onClick={() => setEdit(!edit)} className={style.editButton}>
 						<EditIcon />
 					</button>
 
-					<form onSubmit={() => setEdit(!edit)}>
-						<div className={style.text}>
-							<label>Nombre del comercio</label>
-							<input type='text' value={catagole.name} />
-						</div>
+					<Image
+						src={cataloge.image}
+						width={100}
+						height={100}
+						objectFit='contain'
+					/>
+					<h2>{cataloge.name.toUpperCase()}</h2>
 
-						<div className={style.number}>
-							<label>Horarios de atención:</label>
-							<div>
-								AM
-								<div>
-									De <input type='number' />
-									hasta <input type='number' />
-								</div>
-								PM
-								<div>
-									De <input type='number' />
-									Hasta
-									<input type='number' />
-								</div>
-							</div>
-						</div>
+					<p>{attentionHour}</p>
 
-						<div className={style.text}>
-							<div>
-								<label>Sucursales:</label>
-								<input type='text' />
-							</div>
-							<button onClick={e => e.preventDefault()}>Agregar</button>
-						</div>
+					<div>
+						<p> Sucursales : </p>
+						{cataloge.branch_office.map((item, index) => (
+							<p key={index}>
+								<b>{item}</b>
+							</p>
+						))}
+					</div>
 
-						<div>
-							<label>Descripción del comercio</label>
-							<textarea cols={40} rows={10} />
-						</div>
-
-						<button>Guardar cambios</button>
-					</form>
+					<div>
+						<p>Descripción:</p>
+						<h5>{cataloge.description}</h5>
+					</div>
 				</div>
 			</div>
 		);
 	}
-
-	return (
-		<div>
-			<HeaderCustom title='Perfil' icon='back' />
-
-			<div className={'container' + ' ' + style.containerDefault}>
-				<button onClick={() => setEdit(!edit)} className={style.editButton}>
-					<EditIcon />
-				</button>
-
-				<Image
-					src={catalogeData.image}
-					width={100}
-					height={100}
-					objectFit='contain'
-				/>
-				<h1>{catalogeData.name}</h1>
-				<p>{attentionHour}</p>
-				<p>
-					Sucursales :{' '}
-					{catalogeData.branch_office.map((item, index) => (
-						<h5 key={index}>{item}</h5>
-					))}
-				</p>
-				<p>Descripción:</p>
-				<h5>{catalogeData.description}</h5>
-			</div>
-		</div>
-	);
 };
 
 export default ProfilePage;
