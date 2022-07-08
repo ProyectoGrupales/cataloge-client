@@ -7,11 +7,14 @@ import Image from 'next/image';
 
 // Images
 import teamWork from '../../public/Assets/images/teamWork.svg';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import style from '../styles/index.module.scss';
 import { useEffect, useState } from 'react';
 
 const Login = () => {
 	const [disabled, setDisabled] = useState(true);
+	const [viewPassword, setViewPassword] = useState(false);
 	const [user, setUser] = useState({
 		userData: '',
 		password: '',
@@ -44,6 +47,11 @@ const Login = () => {
 		}
 	};
 
+	const togglePassword = e => {
+		e.preventDefault();
+		setViewPassword(!viewPassword);
+	};
+
 	return (
 		<div className={style.container}>
 			<MetaHead title='Inicio de Sesión' />
@@ -60,12 +68,19 @@ const Login = () => {
 					name='userData'
 					onChange={handleChange}
 				/>
-				<input
-					type='password'
-					placeholder='Contraseña'
-					name='password'
-					onChange={handleChange}
-				/>
+				<div className={style.password}>
+					<input
+						type={viewPassword ? 'text' : 'password'}
+						placeholder='Contraseña'
+						name='password'
+						onChange={handleChange}
+					/>
+
+					<button onClick={togglePassword}>
+						{viewPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+					</button>
+				</div>
+
 				<button onClick={submitForm} disabled={disabled}>
 					Iniciar Sesion
 				</button>
