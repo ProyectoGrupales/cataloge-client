@@ -41,4 +41,19 @@
 			margin: auto;
 		}
 	}
+
+	.button {
+		display: flex;
+		position: absolute;
+		padding: 5px;
+
+		align-items: center;
+		top: 3px;
+		right: 4px;
+
+		background-color: white;
+		border-radius: 4px;
+		color: red;
+		z-index: 1;
+	}
 }

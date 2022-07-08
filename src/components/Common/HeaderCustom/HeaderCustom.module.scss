@@ -33,4 +33,11 @@
 		right: 15px;
 		cursor: pointer;
 	}
+
+	.menu {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 15px;
+	}
 }

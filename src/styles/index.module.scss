@@ -31,6 +31,10 @@
 			margin: auto;
 			margin-top: 15px;
 			color: white;
+
+			&:disabled {
+				opacity: 0.5;
+			}
 		}
 	}
 }
