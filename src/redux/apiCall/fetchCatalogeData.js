@@ -1,7 +1,6 @@
 import axios from 'axios';
 import notification from '../../services/notifications';
 
-// ACTIONS
 import {
 	fetchError,
 	fetchSuccess,
@@ -17,7 +16,6 @@ const fetchCatalogeData = (dispatch, name) => {
 				dispatch(fetchSuccess(res.data.cataloge));
 			})
 			.catch(err => {
-				console.log(err);
 				notification(
 					err.response.data ? err.response.data.msg : err.message,
 					err.response.data ? err.response.data.status : 'error'

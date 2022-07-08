@@ -29,6 +29,7 @@ const dynamicStore = name => {
 		key: name || 'root',
 		version: 1,
 		storage: storageSession,
+		blacklist: ['user'],
 	};
 
 	// Aqui dentro van todos los reducers. Lo que hace esto es combinarlos

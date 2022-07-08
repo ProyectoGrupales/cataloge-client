@@ -1,5 +1,6 @@
 .container {
 	display: flex;
+	gap: 2px !important;
 
 	select {
 		appearance: none;
@@ -7,14 +8,18 @@
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		-o-appearance: none;
-		min-width: 30px;
+
+		min-height: 25px;
 		color: black;
 		text-align: center;
-		border-radius: 1px;
+
+		border: none;
+		border-radius: 4px;
+		padding: 0px 5px;
 
 		option {
 			&:hover {
-				background-color: lightblue;
+				background-color: palevioletred;
 			}
 		}
 

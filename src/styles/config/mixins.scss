@@ -33,7 +33,7 @@
 	@include Font(18px, 28px, 500);
 }
 @mixin Subtitle3 {
-	@include Font(16px, 23px, 500);
+	@include Font(15px, 23px, 300);
 }
 
 @mixin Lead1 {

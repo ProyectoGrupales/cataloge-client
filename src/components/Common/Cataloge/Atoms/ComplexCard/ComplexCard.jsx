@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 // icons
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import style from './ComplexCard.module.scss';
 
-const ComplexCard = ({ data, href }) => {
+const ComplexCard = ({ data, href, editMode, deleteMode }) => {
 	let priceWithDiscount;
 
 	if (data.discount) {
@@ -16,44 +17,64 @@ const ComplexCard = ({ data, href }) => {
 		priceWithDiscount = Math.floor(data.price - priceWithDiscount);
 	}
 
-	return (
-		// Este link te envía hacía el id del producto
-		<div className={style.container}>
-			<Link href={`${href}/${data.id}`}>
-				<div>
-					{data.images.length ? (
-						<Image
-							src={data.images[0]}
-							alt='Image of the card'
-							width={130}
-							height={150}
-							objectFit='contain'
-							layout='fixed'
-						/>
-					) : (
-						<div className={style.fallBackImage} />
-					)}
+	const closeButton = () => {
+		console.log('Eliminando...');
+	};
 
-					<div className={style.title}>
-						{data.discount ? (
-							<div className={style.priceWithDiscount}>
-								<div>
-									<h1>${priceWithDiscount}</h1>
-									<p className={style.discount}>{data.discount}%</p>
-								</div>
-								<p>${data.price}</p>
-							</div>
-						) : (
-							<h1>${data.price}</h1>
-						)}
-						<h2>{data.title}</h2>
+	const stateHandler = () => {
+		if (deleteMode) {
+			closeButton();
+		} else {
+			window.location.href = `${href}/${editMode ? 'edit/' : ''}${data.title}`;
+		}
+	};
+
+	// Este link te envía hacía el id del producto
+	return (
+		<div className={style.container}>
+			<div onClick={stateHandler}>
+				{editMode ? (
+					<div className={style.button}>
+						<EditIcon />
 					</div>
+				) : deleteMode ? (
+					<div className={style.button}>
+						<DeleteIcon />
+					</div>
+				) : null}
+
+				{data.images.length ? (
+					<Image
+						src={data.images[0]}
+						alt={data.title}
+						width={170}
+						height={150}
+						objectFit='contain'
+						layout='fixed'
+					/>
+				) : (
+					<div className={style.fallBackImage} />
+				)}
+
+				<div className={style.title}>
+					{data.discount ? (
+						<div className={style.priceWithDiscount}>
+							<div>
+								<h1>${priceWithDiscount}</h1>
+								<p className={style.discount}>{data.discount}%</p>
+							</div>
+							<p>${data.price}</p>
+						</div>
+					) : (
+						<h1>${data.price}</h1>
+					)}
+					<h2>{data.title}</h2>
 				</div>
-			</Link>
+			</div>
 
 			<div className={style.buttonContainer}>
 				<button>
-					<ShoppingCartIcon fontSize='small' /> Añadir al carrito
+					<ShoppingCartIcon fontSize='small' /> Aañadir al carrito
 				</button>
 			</div>
 		</div>
