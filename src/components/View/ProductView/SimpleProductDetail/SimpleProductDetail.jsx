@@ -21,6 +21,8 @@ const SimpleProductDetail = ({ card }) => {
 		});
 	};
 
+	console.log(card);
+
 	// En el caso de que está card no tenga productos aún
 	if (!card) {
 		return <h1 className='container'>No hay productos en esta carta</h1>;
@@ -38,7 +40,6 @@ const SimpleProductDetail = ({ card }) => {
 					{card.products.map((simpleProduct, index) => {
 						// Parseamos los datos, de objeto a un arreglo
 						const rowData = Object.values(simpleProduct);
-
 						return (
 							<SimpleCard
 								columns={rowData}
