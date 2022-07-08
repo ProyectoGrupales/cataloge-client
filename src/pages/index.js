@@ -57,9 +57,7 @@ const Login = () => {
 			<MetaHead title='Inicio de Sesión' />
 			<h1>Bienvenido de nuevo! 🚀</h1>
 
-			<div>
-				<Image src={teamWork} height={500} width={500} />
-			</div>
+			<Image src={teamWork} height={425} width={500} />
 
 			<form>
 				<input
@@ -85,6 +83,10 @@ const Login = () => {
 					Iniciar Sesion
 				</button>
 			</form>
+
+			<p>
+				Or <a href='/register'>Create a new account</a>{' '}
+			</p>
 		</div>
 	);
 };

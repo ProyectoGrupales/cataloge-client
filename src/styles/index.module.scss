@@ -7,12 +7,26 @@
 	width: 300px;
 	gap: 10px;
 	margin: auto;
-	margin-top: 50px;
+	margin-top: 10px;
 	text-align: center;
+
+	h1 {
+		font-size: 28px;
+		line-height: 28px;
+	}
+
+	p {
+		font-size: 12px;
+
+		a {
+			text-decoration: underline;
+		}
+	}
 
 	form {
 		display: flex;
 		flex-direction: column;
+		margin-top: 10px;
 		gap: 15px;
 		input {
 			height: 30px;
