@@ -15,7 +15,7 @@ const SpeedDialMenu = ({ catalogeData, setEditMode, setDeleteMode }) => {
 
 	return (
 		<SpeedDial
-			ariaLabel='SpeedDial basic example'
+			ariaLabel='Menu of products options'
 			sx={{
 				position: 'absolute',
 				bottom: 16,
@@ -23,9 +23,9 @@ const SpeedDialMenu = ({ catalogeData, setEditMode, setDeleteMode }) => {
 			}}
 			FabProps={{
 				sx: {
-					bgcolor: 'secondary.main',
+					bgcolor: '#9123ff',
 					'&:hover': {
-						bgcolor: 'secondary.main',
+						bgcolor: '#a058e9',
 					},
 				},
 			}}
