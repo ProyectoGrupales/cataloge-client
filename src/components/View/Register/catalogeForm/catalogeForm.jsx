@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 // Components
 import SelectHour from '../../../UI/selectHour/SelectHour';
-import BranchOffice from '../../../UI/branchOffice/branchOffice';
+import BranchOffice from '../../../UI/branchOffice/BranchOffice';
 
 // Icons
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
