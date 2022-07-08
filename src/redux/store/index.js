@@ -15,6 +15,12 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import fetchUserData from '../reducers/fetchUserData';
 import cartSlice from '../reducers/cartSlice';
 import catchCatalogeData from '../reducers/catchCatalogeData';
+import {
+	simple_product_create_reducer,
+	simple_product_get_reducer,
+	simple_product_put_reducer,
+	simple_product_delete_reducer,
+} from '../reducers/simpleProduct.reducer';
 
 // De esta manera generamos un store distinto para cada catálogo que se visite
 const dynamicStore = name => {
@@ -29,6 +35,7 @@ const dynamicStore = name => {
 	const rootReducer = combineReducers({
 		user: fetchUserData,
 		cart: cartSlice,
+		create_simple_product: simple_product_create_reducer,
 		cataloge: catchCatalogeData,
 	});
 
