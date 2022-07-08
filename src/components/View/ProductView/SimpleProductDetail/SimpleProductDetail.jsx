@@ -38,8 +38,7 @@ const SimpleProductDetail = ({ card }) => {
 					{card.products.map((simpleProduct, index) => {
 						// Parseamos los datos, de objeto a un arreglo
 						const rowData = Object.values(simpleProduct);
-						// Le quitamos el ID
-						rowData.shift();
+
 						return (
 							<SimpleCard
 								columns={rowData}
