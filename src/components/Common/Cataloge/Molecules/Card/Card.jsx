@@ -13,7 +13,7 @@ const Card = ({ data, catalogeName, editMode, deleteMode }) => {
 		href = `/admin/${catalogeName}`;
 	}
 
-	if (data.type === 'productsInList') {
+	if (data.type === 'simpleProduct') {
 		return (
 			<SimpleCard
 				data={data}
