@@ -47,10 +47,10 @@ const ComplexCard = ({ data, href, editMode, deleteMode }) => {
 					<Image
 						src={data.images[0]}
 						alt={data.title}
-						width={170}
-						height={150}
+						width={150}
+						height={130}
 						objectFit='contain'
-						layout='fixed'
+						layout='responsive'
 					/>
 				) : (
 					<div className={style.fallBackImage} />
@@ -74,7 +74,7 @@ const ComplexCard = ({ data, href, editMode, deleteMode }) => {
 
 			<div className={style.buttonContainer}>
 				<button>
-					<ShoppingCartIcon fontSize='small' /> Aañadir al carrito
+					<ShoppingCartIcon fontSize='small' /> Añadir al carrito
 				</button>
 			</div>
 		</div>
