@@ -34,7 +34,10 @@ const catchUserData = (dispatch, userData) => {
 					window.location.href = `/admin/${res.data.user.cataloge_name}`;
 				})
 				.catch(err => {
-					notification(err.response.data.msg, err.response.data.status);
+					notification(
+						err.response.data ? err.response.data.msg : err.message,
+						err.response.data ? err.response.data.status : 'error'
+					);
 					dispatch(fetchError());
 				});
 		}

@@ -14,7 +14,7 @@ const FetchDataComponent = () => {
 	const user = JSON.parse(sessionStorage.getItem('userData'));
 
 	useEffect(() => {
-		if (router.pathname.includes('admin') && !user.name) {
+		if (router.pathname.includes('admin') && !user) {
 			window.location.href = '/';
 		} else {
 			dispatch(fetchSuccess(user));

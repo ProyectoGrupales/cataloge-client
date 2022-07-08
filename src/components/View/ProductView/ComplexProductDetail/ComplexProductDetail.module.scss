@@ -9,25 +9,6 @@
 
 	row-gap: 2rem;
 
-	.imageContainer {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		width: 90%;
-		padding: 0 3rem;
-		height: fit-content;
-
-		background-color: #bebaba3b;
-
-		img {
-			width: 270px !important;
-			height: 290px !important;
-
-			object-fit: fill;
-		}
-	}
-
 	.priceWithDiscount {
 		width: 100%;
 		div {
@@ -86,6 +67,7 @@
 			border-radius: 10px;
 
 			background-color: #fff;
+			transition: all 0.3s;
 
 			h4 {
 				text-align: left;
@@ -93,14 +75,9 @@
 				@include LargeLabel2();
 			}
 
-			&:hover {
+			&:active {
 				background-color: $lightGray;
-				transition: 0.3s;
 			}
-		}
-
-		.test {
-			cursor: pointer;
 		}
 	}
 
