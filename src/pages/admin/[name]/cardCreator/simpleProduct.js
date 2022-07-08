@@ -18,6 +18,7 @@ const SimpleProductCreator = () => {
 		image: null,
 		preview: null,
 	});
+	
 	const [title, setTitle] = useState(null);
 	const [excel, setExcel] = useState(null);
 
