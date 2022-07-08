@@ -8,19 +8,39 @@ import Image from 'next/image';
 // Images
 import teamWork from '../../public/Assets/images/teamWork.svg';
 import style from '../styles/index.module.scss';
+import { useEffect, useState } from 'react';
 
 const Login = () => {
+	const [disabled, setDisabled] = useState(true);
+	const [user, setUser] = useState({
+		userData: '',
+		password: '',
+	});
 	const dispatch = useDispatch();
+
+	const handleChange = e => {
+		setUser({
+			...user,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	useEffect(() => {
+		if (user.userData && user.password) {
+			setDisabled(false);
+		} else {
+			setDisabled(true);
+		}
+	}, [user]);
 
 	const submitForm = e => {
 		e.preventDefault();
-		// Tomamos la info de los inputs
-		const userData = document.querySelector('#userData').value;
-		const password = document.querySelector('#password').value;
 
-		if (userData && password) {
-			fetchUserData(dispatch, { userData, password });
-			// window.location.href = '/admin/test';
+		if (user.userData && user.password) {
+			fetchUserData(dispatch, {
+				userData: user.userData,
+				password: user.password,
+			});
 		}
 	};
 
@@ -34,9 +54,19 @@ const Login = () => {
 			</div>
 
 			<form>
-				<input type='text' placeholder='Email o teléfono' id='userData' />
-				<input type='password' placeholder='Contraseña' id='password' />
-				<button onClick={submitForm} disabled={false}>
+				<input
+					type='text'
+					placeholder='Email o teléfono'
+					name='userData'
+					onChange={handleChange}
+				/>
+				<input
+					type='password'
+					placeholder='Contraseña'
+					name='password'
+					onChange={handleChange}
+				/>
+				<button onClick={submitForm} disabled={disabled}>
 					Iniciar Sesion
 				</button>
 			</form>

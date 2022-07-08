@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 // Icons
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import style from './userForm.module.scss';
 
 const UserForm = ({ nextForm, user, setUser }) => {
 	// Controla el boton "Siguiente"
@@ -58,8 +59,8 @@ const UserForm = ({ nextForm, user, setUser }) => {
 	}, [user, error]);
 
 	return (
-		<div>
-			<h1>Creacion de usuario</h1>
+		<div className={style.container}>
+			<h1>Usuario</h1>
 			<form onSubmit={e => e.preventDefault()}>
 				<div>
 					<label>Nombre</label>
@@ -91,44 +92,46 @@ const UserForm = ({ nextForm, user, setUser }) => {
 					/>
 				</div>
 
-				<div>
-					<label>Contraseña</label>
+				<div className={style.passwordContainer}>
+					<div>
+						<label>Contraseña</label>
 
-					<input
-						type={visibility ? 'text' : 'password'}
-						name='password'
-						value={user.password}
-						onChange={handleChange}
-					/>
-					<p style={{ color: 'red' }}>
-						{error.password ? 'Las contraseñas deben ser iguales' : null}
-					</p>
-				</div>
+						<input
+							type={visibility ? 'text' : 'password'}
+							name='password'
+							value={user.password}
+							onChange={handleChange}
+						/>
+						<p className={style.error}>
+							{error.password ? 'Las contraseñas deben ser iguales' : null}
+						</p>
+					</div>
 
-				<div>
-					<label>Repita contraseña</label>
-					<input
-						type={visibility ? 'text' : 'password'}
-						name='rePassword'
-						value={user.rePassword}
-						onChange={handleChange}
-					/>
-					<p style={{ color: 'red' }}>
-						{error.password ? 'Las contraseñas deben ser iguales' : null}
-					</p>
-				</div>
+					<div>
+						<label>Repita contraseña</label>
+						<input
+							type={visibility ? 'text' : 'password'}
+							name='rePassword'
+							value={user.rePassword}
+							onChange={handleChange}
+						/>
+						<p className={style.error}>
+							{error.password ? 'Las contraseñas deben ser iguales' : null}
+						</p>
+					</div>
 
-				<div>
-					<label>Mostrar contraseñas</label>
-					{visibility ? (
-						<button onClick={() => setVisibility(!visibility)}>
-							<VisibilityOffIcon />
-						</button>
-					) : (
-						<button onClick={() => setVisibility(!visibility)}>
-							<VisibilityIcon />
-						</button>
-					)}
+					<div className={style.viewPassword}>
+						<label>Mostrar contraseñas</label>
+						{visibility ? (
+							<button onClick={() => setVisibility(!visibility)}>
+								<VisibilityOffIcon />
+							</button>
+						) : (
+							<button onClick={() => setVisibility(!visibility)}>
+								<VisibilityIcon />
+							</button>
+						)}
+					</div>
 				</div>
 
 				<div>
@@ -141,8 +144,12 @@ const UserForm = ({ nextForm, user, setUser }) => {
 					/>
 				</div>
 
-				<button disabled={disabled} onClick={() => nextForm(prev => prev + 1)}>
-					Siguiente!
+				<button
+					disabled={disabled}
+					onClick={() => nextForm(prev => prev + 1)}
+					className={style.nextButton}
+				>
+					Siguiente
 				</button>
 			</form>
 		</div>

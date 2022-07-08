@@ -1,7 +1,6 @@
 import axios from 'axios';
 import notification from '../../services/notifications';
 
-// ACTIONS
 import {
 	fetchError,
 	fetchSuccess,

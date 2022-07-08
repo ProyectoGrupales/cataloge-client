@@ -3,9 +3,11 @@ import Link from 'next/link';
 
 // icons
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import style from './ComplexCard.module.scss';
 
-const ComplexCard = ({ data, href }) => {
+const ComplexCard = ({ data, href, editMode, deleteMode }) => {
 	let priceWithDiscount;
 
 	if (data.discount) {
@@ -19,6 +21,15 @@ const ComplexCard = ({ data, href }) => {
 	return (
 		// Este link te envía hacía el id del producto
 		<div className={style.container}>
+			{editMode ? (
+				<div className={style.button}>
+					<EditIcon />
+				</div>
+			) : deleteMode ? (
+				<div className={style.button}>
+					<DeleteIcon />
+				</div>
+			) : null}
 			<Link href={`${href}/${data.id}`}>
 				<div>
 					{data.images.length ? (

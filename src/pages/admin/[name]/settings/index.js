@@ -10,6 +10,10 @@ import style from './styles/Settings.module.scss';
 const SettingsPage = () => {
 	const cataloge = useSelector(state => state.cataloge.catalogeData);
 
+	const closeSession = () => {
+		sessionStorage.setItem('userData', JSON.stringify({}));
+	};
+
 	if (cataloge.name) {
 		return (
 			<div className={style.container}>
@@ -38,7 +42,7 @@ const SettingsPage = () => {
 					</Link>
 
 					<Link href='/' as={'/'}>
-						<button>Cerrar sesión</button>
+						<button onClick={closeSession}>Cerrar sesión</button>
 					</Link>
 				</div>
 			</div>

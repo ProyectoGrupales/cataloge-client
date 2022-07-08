@@ -7,14 +7,15 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 
 // Icons
 import SettingsIcon from '@mui/icons-material/Settings';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import style from '../../../styles/AdminHome.module.scss';
 
 // Data
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const AdminHome = () => {
+	// Estos son los que puede tener un producto
+	const [editMode, setEditMode] = useState(false);
+	const [deleteMode, setDeleteMode] = useState(false);
 	const cataloge = useSelector(state => state.cataloge);
 
 	if (cataloge.fetching) {
@@ -35,25 +36,11 @@ const AdminHome = () => {
 				/>
 
 				<div className='container'>
-					<Cataloge data={cataloge.catalogeData} />
-				</div>
-
-				<div className={style.floatButtonsContainer}>
-					<button
-						onClick={() => console.log('Boton de editar')}
-						className={style.editButton}
-					>
-						<EditIcon />
-					</button>
-
-					<div className={style.addButton}>
-						<Link
-							href='/admin/[name]/cardCreator'
-							as={`/admin/${cataloge.catalogeData.name}/cardCreator`}
-						>
-							<AddIcon fontSize='large' />
-						</Link>
-					</div>
+					<Cataloge
+						data={cataloge.catalogeData}
+						editMode={editMode}
+						deleteMode={deleteMode}
+					/>
 				</div>
 			</div>
 		);
