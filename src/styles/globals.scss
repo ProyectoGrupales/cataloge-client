@@ -1,7 +1,7 @@
 @import './config/fonts.scss';
 @import './config/color.scss';
+@import 'spinners-react/lib/index.css'; // Reset styles
 
-// Reset styles
 *,
 *::after {
 	box-sizing: border-box;
@@ -10,6 +10,7 @@
 html,
 body {
 	margin: 0;
+	margin-bottom: 15px;
 	font-family: 'Poppins';
 	color: $black;
 	background-color: #dbdee7;
@@ -72,5 +73,6 @@ figure {
 .container {
 	min-width: 100%;
 	padding: 0 10px;
+	margin-bottom: 15px;
 }
 // }

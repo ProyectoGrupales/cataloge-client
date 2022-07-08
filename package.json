@@ -1,27 +1,33 @@
 {
-    "name": "client",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@mui/icons-material": "^5.8.4",
-        "next": "12.1.6",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "react-router-dom": "^6.3.0",
-        "sass": "^1.52.3",
-        "swiper": "^8.2.4"
-    },
-    "devDependencies": {
-        "eslint": "^8.18.0",
-        "eslint-config-next": "12.1.6",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-config-standard": "^17.0.0",
-        "prettier": "^2.7.1"
-    }
+	"name": "client",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"check": "npx prettier --check . "
+	},
+	"dependencies": {
+		"@mui/icons-material": "^5.8.4",
+		"@reduxjs/toolkit": "^1.8.2",
+		"axios": "^0.27.2",
+		"next": "12.1.6",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-redux": "^8.0.2",
+		"react-router-dom": "^6.3.0",
+		"react-toastify": "^9.0.5",
+		"redux-persist": "^6.0.0",
+		"sass": "^1.52.3",
+		"spinners-react": "^1.0.7",
+		"swiper": "^8.2.4"
+	},
+	"devDependencies": {
+		"eslint": "^8.18.0",
+		"eslint-config-next": "12.1.6",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-config-standard": "^17.0.0",
+		"prettier": "^2.7.1"
+	}
 }

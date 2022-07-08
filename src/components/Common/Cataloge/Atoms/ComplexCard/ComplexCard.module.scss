@@ -1,0 +1,102 @@
+@import '../../../../../styles/config/color.scss';
+@import '../../../../../styles/config/mixins.scss';
+
+.container {
+	z-index: 0 !important;
+	position: relative;
+	height: 280px;
+	width: 48%;
+	max-width: 180px;
+	text-align: center;
+	border-radius: 2px;
+	padding: 5px 0px;
+	background-color: white;
+
+	.fallBackImage {
+		height: 150px;
+		width: 85%;
+		background-color: $label;
+		margin: auto;
+		border-radius: 2px;
+	}
+
+	.priceWithDiscount {
+		display: flex;
+		flex-direction: column;
+
+		div {
+			display: flex;
+			gap: 5px;
+
+			.discount {
+				color: green;
+				text-decoration: none;
+			}
+		}
+
+		p {
+			color: $label;
+			text-decoration: line-through;
+			font-size: 12px;
+		}
+	}
+
+	.title {
+		text-align: left;
+		margin-top: 10px;
+		padding: 0px 10px;
+		h1 {
+			@include Subtitle2();
+			height: 25px;
+		}
+
+		h2 {
+			@include Lead2();
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size: 15px;
+			padding: 0px;
+		}
+	}
+
+	.button {
+		display: flex;
+		position: absolute;
+		padding: 5px;
+
+		align-items: center;
+		top: 3px;
+		right: 4px;
+
+		background-color: white;
+		border-radius: 4px;
+		color: red;
+		z-index: 1;
+	}
+
+	.buttonContainer {
+		button {
+			display: flex;
+			position: absolute;
+			align-items: center;
+			width: fit-content;
+			gap: 5px;
+			padding: 5px 15px;
+			bottom: 5px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: $black;
+			border: none;
+			background-color: transparent;
+			border-radius: 4px;
+			cursor: pointer;
+
+			&:active {
+				background-color: $violet;
+				color: white;
+				transition: 0.2s;
+			}
+		}
+	}
+}

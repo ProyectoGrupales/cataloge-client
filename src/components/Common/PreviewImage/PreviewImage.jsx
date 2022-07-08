@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import style from './PreviewImage.module.scss';
+import Image from 'next/image';
 
 // Icons
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -7,26 +8,42 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 // Recibe por parametros un arreglo con las imagenes que debe mostrar
-const PreviewImage = ({ images, setImages }) => {
+const PreviewImage = ({ images, setImages, edit }) => {
 	const [current, setCurrent] = useState(0);
 
 	const deleteImage = () => {
-		const newArray = images.filter((item, index) => index !== current);
-		setImages(newArray);
-		setCurrent(0);
+		if (Array.isArray(images)) {
+			const newArray = images.filter((item, index) => index !== current);
+			setImages(newArray);
+			setCurrent(0);
+		} else {
+			setImages({
+				image: null,
+				preview: null,
+			});
+		}
 	};
 
 	return images.length ? (
 		<div className={style.container}>
-			<div onClick={deleteImage} className={style.deleteButton}>
-				<DeleteIcon />
-			</div>
+			{edit ? (
+				<div onClick={deleteImage} className={style.deleteButton}>
+					<DeleteIcon />
+				</div>
+			) : null}
 
-			<img src={images[current]} />
+			<Image
+				src={images ? (Array.isArray(images) ? images[current] : images) : null}
+				width={250}
+				height={250}
+				objectFit='cover'
+				layout='fixed'
+			/>
 
-			{images.length > 1 ? (
+			{Array.isArray(images) && images.length > 1 ? (
 				<div className={style.arrows}>
 					<ArrowBackIosIcon
+						className={style.left}
 						fontSize='large'
 						onClick={() => {
 							if (current >= 1) {
@@ -36,6 +53,7 @@ const PreviewImage = ({ images, setImages }) => {
 					/>
 
 					<ArrowForwardIosIcon
+						className={style.rigth}
 						fontSize='large'
 						onClick={() => {
 							if (current < images.length - 1) {

@@ -1,17 +1,44 @@
 @import './config/color.scss';
+@import './config/mixins.scss';
 
-.addButton {
+.menu {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	width: 40px;
-	height: 40px;
-	border: none;
-	border-radius: 40px;
-	background-color: $violet;
-	color: white;
-	right: 20px;
-	bottom: 30px;
-	cursor: pointer;
+	flex-direction: column;
+	gap: 15px;
+	height: 100%;
+	width: 150px;
+
+	.profile {
+		display: flex;
+		padding: 15px 0px;
+		justify-content: center;
+		align-items: center;
+
+		font-size: 10px;
+		background-color: $violet;
+		color: white;
+
+		h2 {
+			@include Subtitle3();
+			font-weight: 400;
+		}
+
+		gap: 5px;
+	}
+
+	button {
+		border: none;
+		background-color: transparent;
+
+		text-align: left;
+		padding: 10px 0px;
+		padding-left: 15px;
+
+		@include LargeLabel3();
+		font-size: 14px;
+
+		&:hover {
+			background-color: lightgray;
+		}
+	}
 }

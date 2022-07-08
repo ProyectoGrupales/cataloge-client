@@ -33,7 +33,7 @@
 	@include Font(18px, 28px, 500);
 }
 @mixin Subtitle3 {
-	@include Font(16px, 28px, 500);
+	@include Font(15px, 23px, 300);
 }
 
 @mixin Lead1 {
@@ -44,10 +44,10 @@
 }
 
 @mixin Body1 {
-	@include Font(18px, 26px, 500);
+	@include Font(18px, 30px, 600);
 }
 @mixin Body2 {
-	@include Font(14px, 20px, 400);
+	@include Font(14px, 20px, 500);
 }
 
 @mixin LargeLabel1 {
@@ -57,7 +57,7 @@
 	@include Font(14px, 20px, 400);
 }
 @mixin LargeLabel3 {
-	@include Font(13px, 16px, 600);
+	@include Font(13px, 16px, 400);
 }
 
 @mixin Capitalised {

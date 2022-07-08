@@ -1,64 +1,55 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 // Componets
 import Header from '../../../components/Common/Header/Header';
 import ComplexProductDetail from '../../../components/View/ProductView/ComplexProductDetail/ComplexProductDetail';
 import SimpleProductDetail from '../../../components/View/ProductView/SimpleProductDetail/SimpleProductDetail';
 
-// Data
-import products from '../../../data/products.json';
-
 const ProductView = () => {
-	const routes = useRouter();
-	let screenConfig;
+	const [card, setCard] = useState();
+	const [screenConfig, setScreenConfig] = useState();
+	const router = useRouter();
+	const cataloge = useSelector(state => state.cataloge.catalogeData);
 
-	// En caso de que sea una lista de productos
-	if (routes.query.view && isNaN(routes.query.view)) {
-		const [openModal, setOpenModal] = useState(false);
-		screenConfig = (
-			<SimpleProductDetail
-				products={products}
-				openModal={openModal}
-				setOpenModal={setOpenModal}
-			/>
-		);
-	}
+	useEffect(() => {
+		if (router.query && cataloge.cards) {
+			const title = router.query.view;
 
-	// En caso de que sea un producto detallado
-	if (!isNaN(routes.query.view)) {
-		screenConfig = (
-			<div className={'mainContainer_div'}>
-				<ComplexProductDetail />
+			const cardFounded = cataloge.cards.filter(
+				product => product.title.toLowerCase() === title.toLowerCase()
+			);
+
+			if (cardFounded.length) {
+				setCard(cardFounded[0]);
+			}
+		}
+	}, [router.query, cataloge]);
+
+	useEffect(() => {
+		if (card && card.type === 'simpleProduct') {
+			setScreenConfig(<SimpleProductDetail card={card} />);
+		}
+
+		if (card && card.type === 'complexProduct') {
+			setScreenConfig(
+				<ComplexProductDetail
+					card={card}
+					numberPhone={cataloge.owner.number_phone}
+				/>
+			);
+		}
+	}, [card]);
+
+	if (router.query.view) {
+		return (
+			<div>
+				<Header />
+				<div className={'container'}>{screenConfig}</div>
 			</div>
 		);
 	}
-
-	return (
-		<div>
-			<Header />
-			<div className='container'>{screenConfig}</div>
-		</div>
-	);
 };
 
 export default ProductView;
-
-/*
-
-{products.map((simpleProduct, index) => {
-    // Parseamos la info del objeto
-    const parseObj = [];
-    for (const property in simpleProduct) {
-        parseObj.push(simpleProduct[property]);
-    }
-
-    return (
-        <SimpleCard
-            colums={parseObj}
-            onClick={() => setOpenModal(!openModal)}
-            key={index}
-        />
-    );
-})}
-*/

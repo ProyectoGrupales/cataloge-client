@@ -1,55 +1,261 @@
 {
 	"id": 768123,
-	"image": "",
+	"image": "https://cdn-icons-png.flaticon.com/512/178/178157.png",
 	"name": "Comercio de Locos",
 	"description": "Un humilde comercio destinado a brindar calidad en nuestros productos para el bienestar de nuestros clientes",
 	"attention_hour": [
 		[9, 13],
 		[18, 22]
 	],
-	"branch_office": "Santiago del estero y AV Raúl Alfonsín",
+	"branch_office": [
+		"Santiago del estero y AV Raúl Alfonsín",
+		"Jesus Fernandez 320",
+		"Remedios de escalada y AV Belgrano"
+	],
 	"cards": [
 		{
 			"id": 123456,
 			"type": "productsInList",
 			"title": "Electrodomesticos",
 			"price": 0,
-			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
+			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600",
+			"products": [
+				{
+					"_id": 1,
+					"nombre": "Nombre del producto 1",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 2,
+					"nombre": "Nombre del producto 2",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 3,
+					"nombre": "Nombre del producto 3",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 4,
+					"nombre": "Nombre del producto 4",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 5,
+					"nombre": "Nombre del producto 5",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 6,
+					"nombre": "Nombre del producto 6",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 7,
+					"nombre": "Nombre del producto 7",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 8,
+					"nombre": "Nombre del producto 8",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 9,
+					"nombre": "Nombre del producto 9",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 10,
+					"nombre": "Nombre del producto 10",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 11,
+					"nombre": "Nombre del producto 11",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 12,
+					"nombre": "Nombre del producto 12",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 13,
+					"nombre": "Nombre del producto 13",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 14,
+					"nombre": "Nombre del producto 14",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 15,
+					"nombre": "Nombre del producto 15",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				}
+			]
 		},
 		{
 			"id": 123457,
 			"type": "productsInList",
 			"title": "Fiambrería",
 			"price": 0,
-			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
+			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600",
+			"products": [
+				{
+					"_id": 16,
+					"nombre": "Desodorante AXE chocolate",
+					"categoria": "Desodorante",
+					"precio": 25
+				},
+				{
+					"_id": 17,
+					"nombre": "Desodorante AXE vainilla",
+					"categoria": "Desodorante",
+					"precio": 30
+				},
+				{
+					"_id": 18,
+					"nombre": "Desodorante AXE frutilla",
+					"categoria": "Desodorante",
+					"precio": 780
+				},
+				{
+					"_id": 19,
+					"nombre": "Foco 200w",
+					"categoria": "Iluminación",
+					"precio": 8373
+				},
+				{
+					"_id": 20,
+					"nombre": "Termostato JHON DEEREeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+					"categoria": "Agro",
+					"precio": 9182
+				},
+				{
+					"_id": 21,
+					"nombre": "Celular Samsung A10 60GB",
+					"categoria": "Telefono movil celulaaaarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrsr",
+					"precio": 25870
+				},
+				{
+					"_id": 22,
+					"nombre": "Nombre del producto 22",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 23,
+					"nombre": "Nombre del producto 23",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 24,
+					"nombre": "Nombre del producto 24",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 25,
+					"nombre": "Nombre del producto 25",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 26,
+					"nombre": "Nombre del producto 26",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 27,
+					"nombre": "Nombre del producto 27",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 28,
+					"nombre": "Nombre del producto 28",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 29,
+					"nombre": "Nombre del producto 29",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				},
+				{
+					"_id": 30,
+					"nombre": "Nombre del producto 30",
+					"categoria": "Categoria del producto",
+					"precio": 0
+				}
+			]
 		},
 		{
 			"id": 123458,
+			"images": [
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/200px-Trousers-colourisolated.jpg"
+			],
 			"type": "productPreview",
 			"title": "Pantalon jogger blanco",
 			"price": 10250,
-			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/200px-Trousers-colourisolated.jpg"
+			"discount": 0,
+			"description": "Remera negra TRASHER para hombre mujer UNISEX todas las tallas excelente calidad"
 		},
 		{
 			"id": 123459,
+			"images": [
+				"https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+			],
 			"type": "productPreview",
 			"title": "Remera unisex negra",
 			"price": 1250,
-			"image": "https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+			"discount": 0,
+			"description": "Remera negra TRASHER para hombre mujer UNISEX todas las tallas excelente calidad"
 		},
 		{
 			"id": 123460,
-			"type": "productsInList",
-			"title": "Elemento de prueba",
-			"price": 1250,
-			"image": "https://images.pexels.com/photos/64613/pexels-photo-64613.jpeg?auto=compress&cs=tinysrgb&w=600"
+			"images": [
+				"https://drifters.com.ar/uploads/product_image/21571/650w_DriftersPDP_APP_Thrasher_5104-A-NEGRO_Shot1.jpg"
+			],
+			"type": "productPreview",
+			"title": "Remeron Negro oversize",
+			"price": 2900,
+			"discount": 5,
+			"stock": 5,
+			"description": "Remera negra TRASHER para hombre mujer UNISEX todas las tallas excelente calidad"
 		},
 		{
 			"id": 123461,
+			"images": [
+				"https://www.hotelramada.com/pluginAppObj_20_14/Matrimonial.JPG"
+			],
 			"type": "productPreview",
-			"title": "Elemento de prueba 2",
-			"price": 1250,
-			"image": "https://images.pexels.com/photos/6138720/pexels-photo-6138720.jpeg?auto=compress&cs=tinysrgb&w=600"
+			"title": "Habitación por noche",
+			"description": "Habitación disponible, cuenta con televisor, ducha, y una cama de dos plazas. La hora comienza a correr al momento en que usted llega al edificio",
+			"price": 3200,
+			"discount": 0,
+			"stock": 0
 		}
 	]
 }

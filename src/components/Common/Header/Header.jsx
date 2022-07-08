@@ -1,9 +1,12 @@
-import Link from 'next/link';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
+import Link from 'next/link';
 
-// Components
+// Components & functions
+import parserHour from '../../../services/parserAttentionHour';
 import ProfileModal from './Molecules/ProfileModal/ProfileModal';
+import Badge from '@mui/material/Badge';
 
 // Iconos
 import HomeIcon from '@mui/icons-material/Home';
@@ -11,59 +14,61 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import style from './Header.module.scss';
 
-// Data
-import catalogeData from '../../../data/cataloge.json';
-
-// Este componente es la cabecera de todas las páginas
+// Esta es la cabecera por defecto que ve el cliente
 const Header = () => {
-	const [open, setOpen] = useState(false);
 	const route = useRouter();
-	const attentionHour = `De: ${catalogeData.attention_hour[0][0]}hs a ${catalogeData.attention_hour[0][1]}hs, y de ${catalogeData.attention_hour[1][0]}hs a ${catalogeData.attention_hour[1][1]}hs`;
+	const cataloge = useSelector(state => state.cataloge.catalogeData);
+	const productslength = useSelector(state => state.cart.products.length);
+	const [open, setOpen] = useState(false);
 
-	console.log(route.query.view);
+	if (cataloge.name) {
+		const attentionHour = parserHour(cataloge.attention_hour);
 
-	const homeIcon = (
-		<Link href='/test'>
-			<div className={style.homeIcon}>
+		const homeIcon = (
+			<Link href={`/${cataloge.name}`}>
 				<HomeIcon fontSize='large' />
-			</div>
-		</Link>
-	);
+			</Link>
+		);
 
-	return (
-		<div className={style.container}>
-			<div onClick={() => setOpen(!open)}>
-				{/* Si estamos fuera de home, renderiza el icono de la casa, caso contrario evalua que el usuario tenga imagen de perfil */}
+		return (
+			<div className={style.container}>
 				{route.query.view ? (
-					homeIcon
-				) : catalogeData.image ? (
-					<img src={catalogeData.image} />
+					<div className={style.homeIcon}>{homeIcon}</div>
 				) : (
-					<div className={style.imgFallback} />
+					<div
+						onClick={() => setOpen(!open)}
+						className={style.profileImageContainer}
+					>
+						{cataloge.image ? (
+							<img src={cataloge.image} />
+						) : (
+							<div className={style.imgFallback} />
+						)}
+					</div>
 				)}
-			</div>
-
-			<div className={style.catalogeData} onClick={() => setOpen(!open)}>
-				<h1>{catalogeData.name || 'Nombre del comercio'}</h1>
-				<p>{attentionHour}</p>
-			</div>
-
-			<div className={style.iconContainer}>
-				<Link href={'/test/shoppingCart'}>
-					<ShoppingCartIcon fontSize='large' />
-				</Link>
-			</div>
-
-			<div className={style.searchContainer}>
-				<input type='text' placeholder='¿Que estás buscando? 👀' />
-				<div>
-					<SearchIcon />
+				<div className={style.catalogeData} onClick={() => setOpen(!open)}>
+					<h1>{cataloge.name.toUpperCase() || 'Nombre del comercio'}</h1>
+					<p>{attentionHour}</p>
 				</div>
+				<div className={style.iconContainer}>
+					<Link href={`/${cataloge.name}/shoppingCart`}>
+						<Badge badgeContent={productslength} color='error'>
+							<ShoppingCartIcon fontSize='large' />
+						</Badge>
+					</Link>
+				</div>
+				<div className={style.searchContainer}>
+					<input type='text' placeholder='¿Que estás buscando? 👀' />
+					<div>
+						<SearchIcon />
+					</div>
+				</div>
+				<ProfileModal data={cataloge} open={open} setOpen={setOpen} />
 			</div>
+		);
+	}
 
-			<ProfileModal data={catalogeData} open={open} setOpen={setOpen} />
-		</div>
-	);
+	return <h1>Loading...</h1>;
 };
 
 export default Header;

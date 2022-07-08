@@ -6,24 +6,34 @@
 	transition: 0.5s !important;
 }
 
+.close {
+	bottom: -70vh;
+	transition: 0.3s;
+}
+
+.open {
+	bottom: -1px;
+	transition: 0.3s;
+}
+
 .container {
-	visibility: hidden;
-	width: 90%;
-	min-height: 350px;
+	z-index: 10 !important;
+	width: 95%;
+	max-height: 70vh;
 	padding: 10px;
 	padding-top: 30px;
+	padding-bottom: 30px;
 
 	position: fixed;
-	bottom: -1px;
 	left: 50%;
 	transform: translateX(-50%);
 
-	border-radius: 4px;
+	border-radius: 10px 10px 0px 0px;
 	background: linear-gradient(180deg, #9123ff 0%, rgb(0, 54, 115) 220.78%);
 	color: white;
 
 	p {
-		@include LargeLabel2();
+		@include LargeLabel3();
 	}
 
 	.closeButton {
@@ -45,23 +55,30 @@
 			@include Headline5();
 		}
 
-		.fallbackImage {
-			width: 65px;
-			height: 65px;
+		img {
+			width: 130px;
+			height: 100px;
+			border-radius: 50%;
+		}
 
-			border-radius: 40px;
+		.imgFallback {
+			height: 100px;
+			width: 130px;
+			border-radius: 50%;
 			background-color: $label;
+		}
+	}
+	.description {
+		margin: 15px 0px;
+		p {
+			@include LargeLabel2();
+			text-align: center;
 		}
 	}
 
 	.branch_office {
-		margin: 15px 0px;
-	}
-
-	.description {
-		p {
-			@include LargeLabel1();
-			text-align: center;
+		h5 {
+			@include Body2();
 		}
 	}
 }

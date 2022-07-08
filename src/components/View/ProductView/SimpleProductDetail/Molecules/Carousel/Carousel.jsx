@@ -24,31 +24,31 @@ export default function Carousel() {
 				modules={[Autoplay, Pagination, Navigation]}
 			>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 				<SwiperSlide>
-					<Image src={TioNicoLogo} alt='Tio Nico Logo' />
+					<Image src={TioNicoLogo} />
 				</SwiperSlide>
 			</Swiper>
 		</div>
