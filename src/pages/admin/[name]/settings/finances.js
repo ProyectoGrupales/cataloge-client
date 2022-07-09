@@ -1,5 +1,14 @@
+import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
+
 const FinancesPage = () => {
-	return <h1>Aqui habría algo relacionado a las finanzas</h1>;
+	return (
+		<div>
+			<HeaderCustom icon='back' title='Finanzas' />
+			<div className='container'>
+				<h3>En construcción...🛠️</h3>
+			</div>
+		</div>
+	);
 };
 
 export default FinancesPage;
