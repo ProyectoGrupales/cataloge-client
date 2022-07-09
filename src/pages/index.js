@@ -79,7 +79,7 @@ const Login = () => {
 					</button>
 				</div>
 
-				<button onClick={submitForm} disabled={disabled}>
+				<button style={{cursor:"pointer"}} onClick={submitForm} disabled={disabled}>
 					Iniciar Sesion
 				</button>
 			</form>
