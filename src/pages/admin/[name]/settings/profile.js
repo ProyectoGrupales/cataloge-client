@@ -8,6 +8,7 @@ import EditProfile from '../../../../components/View/Admin/Settings/Views/EditPr
 // Components
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 import parserHour from '../../../../services/parserAttentionHour';
+import OneTimeModal from '../../../../components/UI/OneTimeModal/OneTimeModal';
 
 // Icons
 import EditIcon from '@mui/icons-material/Edit';
@@ -57,12 +58,16 @@ const ProfilePage = () => {
 						<EditIcon />
 					</button>
 
-					<Image
-						src={cataloge.image}
-						width={100}
-						height={100}
-						objectFit='contain'
-					/>
+					{cataloge.image ? (
+						<Image
+							src={cataloge.image}
+							width={100}
+							height={100}
+							objectFit='contain'
+						/>
+					) : (
+						<div className={style.fallback} />
+					)}
 					<h2>{cataloge.name.toUpperCase()}</h2>
 
 					<p>{attentionHour}</p>
@@ -81,6 +86,13 @@ const ProfilePage = () => {
 						<h5>{cataloge.description}</h5>
 					</div>
 				</div>
+				<OneTimeModal
+					text={[
+						'Puedes editar la información pulsando el lápiz de la esquina superior derecha',
+						'Para guardar los cambios pulse el boton "Guardar cambios"',
+						'Si se pulsa el lápiz sin guardar los cambios se perderan los cambios realizados',
+					]}
+				/>
 			</div>
 		);
 	}

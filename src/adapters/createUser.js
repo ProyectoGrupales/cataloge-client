@@ -10,13 +10,11 @@ const createUser = (userData, catalogeData) => {
 			cataloge: catalogeData || {},
 		})
 		.then(res => {
-			console.log(res);
 			notification(res.data.msg, res.data.status);
-			return res.data;
+			window.location.href = '/';
 		})
 		.catch(err => {
 			notification(err.response.data.msg, err.response.data.status);
-			return err.data;
 		});
 };
 

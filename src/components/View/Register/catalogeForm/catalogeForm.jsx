@@ -1,20 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Components
 import SelectHour from '../../../UI/selectHour/SelectHour';
+import BranchOffice from '../../../UI/branchOffice/BranchOffice';
 
 // Icons
-import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import style from './catalogeForm.module.scss';
 
-// REFACTORIZAR LA SELECCION DE HORAS
 const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
-	// Manejador de errores
-	const [error, setError] = useState({
-		branch_office: '',
-		attention_hour: '',
-	});
-
+	const [disabled, setDisabled] = useState(true);
 	// Las direcciones las menajamos por separado, luego la unimos al estado original
 	const [tempDirections, setTempDirections] = useState([]);
 
@@ -26,22 +21,13 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 		});
 	};
 
-	// Controla y agrega las direcciones del usuario
-	const moreBranchOffices = e => {
-		const direction = document.querySelector('#branch_office').value;
-
-		if (direction.length >= 5) {
-			setTempDirections([...tempDirections, direction]);
-			document.querySelector('#branch_office').value = '';
-			setError({
-				branch_office: '',
-			});
-		} else {
-			setError({
-				branch_office: 'La dirección debe tener al menos 5 caracteres ',
-			});
-		}
-	};
+	// Cada vez que se añada una dirección lo añadimos al arreglo padre
+	useEffect(() => {
+		setCataloge({
+			...cataloge,
+			branch_office: tempDirections,
+		});
+	}, [tempDirections]);
 
 	// Finaliza el registro
 	const handleSubmit = e => {
@@ -79,17 +65,37 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 		nextForm(prev => prev + 1);
 	};
 
-	return (
-		<div>
-			<button onClick={() => nextForm(prev => prev - 1)}>
-				<ArrowBackIosNewIcon fontSize='small' />
-			</button>
+	useEffect(() => {
+		if (
+			cataloge.cataloge_name &&
+			cataloge.description &&
+			cataloge.branch_office.length
+		) {
+			setDisabled(false);
+		} else {
+			setDisabled(true);
+		}
+	}, [cataloge]);
 
-			<h1>Creación de Catálogo</h1>
+	console.log('Sucursales:', cataloge.branch_office.length);
+	console.log('Disabled', disabled);
+
+	return (
+		<div className={style.container}>
+			<div className={style.header}>
+				<button
+					onClick={() => nextForm(prev => prev - 1)}
+					className={style.backButton}
+				>
+					<ArrowBackIosNewIcon fontSize='medium' />
+				</button>
+
+				<h1>Catálogo</h1>
+			</div>
 
 			<form onSubmit={e => e.preventDefault()}>
 				<div>
-					<label>Logo</label>
+					<label>Logo (Opcional)</label>
 					<input type='file' name='image' onChange={handleChange} />
 				</div>
 
@@ -105,61 +111,39 @@ const CatalogeForm = ({ cataloge, setCataloge, nextForm }) => {
 
 				<div>
 					<label>Dirección</label>
-
-					{tempDirections.length
-						? tempDirections.map((direction, index) => (
-								<div key={index}>
-									<p>{direction}</p>
-
-									<button
-										onClick={e => {
-											setTempDirections(
-												tempDirections.filter(
-													(direction, index2) => index2 !== index
-												)
-											);
-										}}
-									>
-										<DeleteIcon />
-									</button>
-								</div>
-						  ))
-						: null}
-
-					<input type='text' name='branch_office' id='branch_office' />
-
-					<button onClick={e => moreBranchOffices(e)}>Agregar dirección</button>
-					{error.branch_office ? <p>{error.branch_office}</p> : null}
+					<BranchOffice setState={setTempDirections} state={tempDirections} />
 				</div>
 
 				<div>
-					<label>Horarios de atención (opciónal)</label>
-					<div>
+					<label>Horarios de atención (Opcional)</label>
+
+					<div className={style.hourSelectionContainer}>
 						<label>AM</label>
-						<div>
-							<p>De</p>
-							<SelectHour idHour={'AM1_HS'} idMin={'AM1_MIN'} />
-						</div>
 
 						<div>
-							<p>Hasta</p>
-							<SelectHour idHour={'AM2_HS'} idMin={'AM2_MIN'} />
+							<SelectHour idHour={'AM1_HS'} idMin={'AM1_MIN'} isAM />
+							<p>-</p>
+							<SelectHour idHour={'AM2_HS'} idMin={'AM2_MIN'} isAM />
 						</div>
 					</div>
 
-					<div>
+					<div className={style.hourSelectionContainer}>
 						<label>PM</label>
 
-						<SelectHour idHour={'PM1_HS'} idMin={'PM1_MIN'} />
-
 						<div>
-							<p>Hasta</p>
-							<SelectHour idHour={'PM2_HS'} idMin={'PM2_MIN'} />
+							<SelectHour idHour={'PM1_HS'} idMin={'PM1_MIN'} isPM />
+							<p>-</p>
+							<SelectHour idHour={'PM2_HS'} idMin={'PM2_MIN'} isPM />
 						</div>
 					</div>
-					{error.attention_hour ? <p>{error.attention_hour}</p> : null}
 				</div>
-				<button onClick={handleSubmit}>Crear catálogo</button>
+				<button
+					onClick={handleSubmit}
+					disabled={disabled}
+					className={style.createButton}
+				>
+					Crear catálogo
+				</button>
 			</form>
 		</div>
 	);

@@ -1,43 +1,67 @@
-import { useState } from 'react';
+// Dependencies
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { SpinnerInfinity } from 'spinners-react';
+import { useRouter } from 'next/router';
 
-// Components
+// Styles - Components - Assets
+import style from './styles/simpleProduct.module.scss';
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 import PreviewImage from '../../../../components/Common/PreviewImage/PreviewImage';
 import Notification from '../../../../services/notifications';
 
-// Icons
-
-import style from './styles/simpleProduct.module.scss';
+// States - Hooks - Utils - Services
+import { simple_product_create_action } from '../../../../redux/apiCall/simpleProduct.actions';
 
 const SimpleProductCreator = () => {
+	const router = useRouter();
+
 	const [image, setImage] = useState({
 		image: null,
 		preview: null,
 	});
-	const [productListName, setProductListName] = useState(null);
+	const [title, setTitle] = useState(null);
 	const [excel, setExcel] = useState(null);
 
-	const submitHandler = e => {
-		e.preventDefault();
-		if (image.image && productListName && excel) {
-			alert(JSON.stringify({ image, productListName, excel }), null, 2);
-		} else {
-			Notification('Complete Todos Los Campos', 'error');
-		}
-	};
+	const dispatch = useDispatch();
+
+	const { loading, success } = useSelector(
+		state => state.create_simple_product
+	);
+
+	// Tarea: una vez arreglado el redux persist este use Effect nos llevara a la vista detallada del producto que acabanos de crear
+	// useEffect(() => {
+	// 	if (success === true) {
+	// 		router.push('/');
+	// 	}
+	// }, [success]);
 
 	// Esta funcion convierte el archivo seleccionado para poder mostrar una preview del mismo
 	const createPreviewAndConvertImage = event => {
-		if (event.target.value) {
+		if (event.target.files[0]) {
 			const preview = URL.createObjectURL(event.target.files[0]);
-
-			// Tarea: convertir imagen en base64 para poder enviarla al back-end
 
 			setImage({
 				...image,
-				image: event.target.value,
+				image: event.target.files[0],
 				preview: preview,
 			});
+		}
+	};
+
+	const submitHandler = e => {
+		e.preventDefault();
+
+		const data = new FormData();
+
+		data.append('title', title);
+		data.append('excel', excel);
+		data.append('image', image.image);
+
+		if (image.image && title && excel) {
+			dispatch(simple_product_create_action(data));
+		} else {
+			Notification('Complete Todos Los Campos', 'error');
 		}
 	};
 
@@ -70,7 +94,8 @@ const SimpleProductCreator = () => {
 						</p>
 						<input
 							type='text'
-							onChange={e => setProductListName(e.target.value)}
+							value={title}
+							onChange={e => setTitle(e.target.value)}
 						/>
 					</div>
 
@@ -79,11 +104,22 @@ const SimpleProductCreator = () => {
 						<input
 							type='file'
 							accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-							onChange={e => setExcel(e.target.value)}
+							onChange={e => setExcel(e.target.files[0])}
 						/>
 					</div>
 
-					<button>Crear</button>
+					<button>
+						{loading ? (
+							<SpinnerInfinity
+								color='#a058e9'
+								secondaryColor='#919293'
+								size={10}
+								thickness={150}
+							/>
+						) : (
+							'Crear'
+						)}
+					</button>
 				</form>
 			</div>
 		</div>

@@ -7,12 +7,26 @@
 	width: 300px;
 	gap: 10px;
 	margin: auto;
-	margin-top: 50px;
+	margin-top: 10px;
 	text-align: center;
+
+	h1 {
+		font-size: 28px;
+		line-height: 28px;
+	}
+
+	p {
+		font-size: 12px;
+
+		a {
+			text-decoration: underline;
+		}
+	}
 
 	form {
 		display: flex;
 		flex-direction: column;
+		margin-top: 10px;
 		gap: 15px;
 		input {
 			height: 30px;
@@ -20,6 +34,22 @@
 			font-size: 14px;
 			border-radius: 8px;
 			border: none;
+		}
+
+		.password {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			input {
+				width: 90%;
+			}
+			button {
+				background-color: transparent;
+				color: black;
+				width: fit-content;
+				padding: 0px;
+				margin: 0px;
+			}
 		}
 
 		button {
@@ -31,6 +61,10 @@
 			margin: auto;
 			margin-top: 15px;
 			color: white;
+
+			&:disabled {
+				opacity: 0.5;
+			}
 		}
 	}
 }

@@ -20,14 +20,14 @@
 
 .container {
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto 60px;
 	position: relative;
 	height: 30px;
 	padding: 0px 5px;
+	align-items: center;
 
 	column-gap: 10px;
 	text-align: left;
-	align-items: center;
 	background-color: #ffff;
 	border-radius: 2px;
 	box-shadow: 3px 4px 9px -1px rgba(0, 0, 0, 0.38);

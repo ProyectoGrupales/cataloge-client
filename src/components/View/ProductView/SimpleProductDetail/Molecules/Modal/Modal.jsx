@@ -48,7 +48,6 @@ const Modal = ({ openModal, setOpenModal, data }) => {
 				{cataloge.owner.number_phone ? (
 					<Link
 						href={`https://api.whatsapp.com/send?phone=549${cataloge.owner.number_phone}&text=${message}`}
-						target='_blank'
 					>
 						<a target='_blank' className={style.whatsappButton}>
 							<Image src={whatsappIcon} alt='Whatasapp icon' />

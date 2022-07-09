@@ -12,17 +12,15 @@ const PreviewImage = ({ images, setImages, edit }) => {
 	const [current, setCurrent] = useState(0);
 
 	const deleteImage = () => {
-
-		if(Array.isArray(images)) {
+		if (Array.isArray(images)) {
 			const newArray = images.filter((item, index) => index !== current);
 			setImages(newArray);
 			setCurrent(0);
-		}
-		else {
+		} else {
 			setImages({
 				image: null,
 				preview: null,
-			})
+			});
 		}
 	};
 
@@ -34,11 +32,18 @@ const PreviewImage = ({ images, setImages, edit }) => {
 				</div>
 			) : null}
 
-			<Image src={images ? Array.isArray(images) ? images[current] : images : null } width={200} height={200} objectFit='cover' />
+			<Image
+				src={images ? (Array.isArray(images) ? images[current] : images) : null}
+				width={250}
+				height={250}
+				objectFit='cover'
+				layout='fixed'
+			/>
 
 			{Array.isArray(images) && images.length > 1 ? (
 				<div className={style.arrows}>
 					<ArrowBackIosIcon
+						className={style.left}
 						fontSize='large'
 						onClick={() => {
 							if (current >= 1) {
@@ -48,6 +53,7 @@ const PreviewImage = ({ images, setImages, edit }) => {
 					/>
 
 					<ArrowForwardIosIcon
+						className={style.rigth}
 						fontSize='large'
 						onClick={() => {
 							if (current < images.length - 1) {

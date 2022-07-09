@@ -31,16 +31,16 @@ const Profile = ({ setEdit, cataloge, setCataloge }) => {
 							AM
 							<div>
 								De
-								<SelectHour idHour='AM1_HS' idMin='AM1_MIN' />
+								<SelectHour idHour='AM1_HS' idMin='AM1_MIN' isAM />
 								Hasta
-								<SelectHour idHour='AM2_HS' idMin='AM2_MIN' />
+								<SelectHour idHour='AM2_HS' idMin='AM2_MIN' isAM />
 							</div>
 							PM
 							<div>
 								De
-								<SelectHour idHour='PM1_HS' idMin='PM1_MIN' />
+								<SelectHour idHour='PM1_HS' idMin='PM1_MIN' isPM />
 								Hasta
-								<SelectHour idHour='PM2_HS' idMin='PM2_MIN' />
+								<SelectHour idHour='PM2_HS' idMin='PM2_MIN' isPM />
 							</div>
 						</div>
 					</div>

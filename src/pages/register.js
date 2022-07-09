@@ -19,7 +19,7 @@ const RegisterPage = () => {
 		image: '',
 		name: '',
 		last_name: '',
-		number_phone: undefined,
+		number_phone: '',
 		email: '',
 		password: '',
 		rePassword: '',
