@@ -1,6 +1,8 @@
 // Dependencies
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { SpinnerInfinity } from 'spinners-react';
+import { useRouter } from 'next/router';
 
 // Styles - Components - Assets
 import style from './styles/simpleProduct.module.scss';
@@ -12,15 +14,27 @@ import Notification from '../../../../services/notifications';
 import { simple_product_create_action } from '../../../../redux/apiCall/simpleProduct.actions';
 
 const SimpleProductCreator = () => {
-	const dispatch = useDispatch();
+	const router = useRouter();
 
 	const [image, setImage] = useState({
 		image: null,
 		preview: null,
 	});
-	
 	const [title, setTitle] = useState(null);
 	const [excel, setExcel] = useState(null);
+
+	const dispatch = useDispatch();
+
+	const { loading, success } = useSelector(
+		state => state.create_simple_product
+	);
+
+	// Tarea: una vez arreglado el redux persist este use Effect nos llevara a la vista detallada del producto que acabanos de crear
+	// useEffect(() => {
+	// 	if (success === true) {
+	// 		router.push('/');
+	// 	}
+	// }, [success]);
 
 	// Esta funcion convierte el archivo seleccionado para poder mostrar una preview del mismo
 	const createPreviewAndConvertImage = event => {
@@ -56,7 +70,7 @@ const SimpleProductCreator = () => {
 			<HeaderCustom title='Lista de productos' icon='back' />
 
 			<div className={style.formContainer}>
-				<form onSubmit={submitHandler} enctype='multipart/form-data'>
+				<form onSubmit={submitHandler}>
 					{image.image && image.preview ? (
 						<div className={style.previewImage}>
 							<PreviewImage images={image.preview} setImages={setImage} edit />
@@ -80,8 +94,8 @@ const SimpleProductCreator = () => {
 						</p>
 						<input
 							type='text'
-							onChange={e => setTitle(e.target.value)}
 							value={title}
+							onChange={e => setTitle(e.target.value)}
 						/>
 					</div>
 
@@ -94,7 +108,18 @@ const SimpleProductCreator = () => {
 						/>
 					</div>
 
-					<button>Crear</button>
+					<button>
+						{loading ? (
+							<SpinnerInfinity
+								color='#a058e9'
+								secondaryColor='#919293'
+								size={10}
+								thickness={150}
+							/>
+						) : (
+							'Crear'
+						)}
+					</button>
 				</form>
 			</div>
 		</div>

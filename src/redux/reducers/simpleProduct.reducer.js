@@ -33,7 +33,7 @@ export const simple_product_create_reducer = (state = {}, action) => {
 			return {
 				loading: false,
 				success: true,
-				simpleProduct: action.payload,
+				simple_product: action.payload,
 			};
 
 		case SIMPLE_PRODUCT_CREATE_RESET: {
@@ -46,7 +46,7 @@ export const simple_product_create_reducer = (state = {}, action) => {
 };
 
 export const simple_product_get_reducer = (
-	state = { simpleProduct: [], simpleProducts: [] },
+	state = { simple_product: [], simple_products: [] },
 	action
 ) => {
 	switch (action.type) {
@@ -67,7 +67,7 @@ export const simple_product_get_reducer = (
 				...state,
 				loading: false,
 				success: true,
-				simpleProduct: action.payload,
+				simple_product: action.payload,
 			};
 
 		case SIMPLE_PRODUCTS_GET_SUCCESS:
@@ -75,7 +75,7 @@ export const simple_product_get_reducer = (
 				...state,
 				loading: false,
 				success: true,
-				simpleProducts: action.payload,
+				simple_products: action.payload,
 			};
 
 		default:
@@ -100,7 +100,7 @@ export const simple_product_put_reducer = (state = {}, action) => {
 			return {
 				loading: false,
 				success: true,
-				simpleProduct: action.payload,
+				simple_product: action.payload,
 			};
 
 		default:
@@ -125,7 +125,7 @@ export const simple_product_delete_reducer = (state = {}, action) => {
 			return {
 				loading: false,
 				success: true,
-				simpleProduct: action.payload,
+				simple_product: action.payload,
 			};
 
 		default:

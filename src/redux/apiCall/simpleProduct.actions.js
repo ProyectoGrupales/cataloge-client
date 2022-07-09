@@ -16,18 +16,15 @@ export const simple_product_create_action =
 			});
 
 			const {
-				// user: { token },
-				cataloge: {
-					catalogeData: { _id },
-				},
+				user: {
+					userData: { token },
+				}
 			} = getState();
-
-			formData.append('catalogueId', _id);
 
 			const config = {
 				headers: {
 					'Content-type': `multipart/form-data`,
-					Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmM2ZGNlYzhlZDgzYjI1MDg1MDhmYWYiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2NTcyODI5NzUsImV4cCI6MTY1NzMyNjE3NX0.EMv2aovNmXAfmN1ozUZDBKNUvN-2JcPaGf8PiNTDmPY`,
+					Authorization: `Bearer ${token}`,
 				},
 			};
 
@@ -41,16 +38,17 @@ export const simple_product_create_action =
 				type: SIMPLE_PRODUCT_CREATE_SUCCESS,
 				payload: data,
 			});
-		} catch (error) {
-			const msg =
-				error.response && error.response.data.msg
-					? error.response.data.msg
-					: error.message;
 
-			// Tarea: Si el token no es valido la cuenta deberia cerrarse
-			// if(msg === "Not authorized, token failed" || msg === "Not authorized, no token") {
-			//     dispatch(logout())
-			// }
+			Notification("Lista de productos creada", "success")
+		} catch (error) {
+		
+			const msg = error.response && error.response.data.msg
+				? error.response.data.msg
+				: error.message;
+
+			if(msg === "Not authorized, token failed" || msg === "Not authorized, no token") {
+			    sessionStorage.setItem('userData', JSON.stringify({}));
+			}
 
 			dispatch({
 				type: SIMPLE_PRODUCT_CREATE_ERROR,
