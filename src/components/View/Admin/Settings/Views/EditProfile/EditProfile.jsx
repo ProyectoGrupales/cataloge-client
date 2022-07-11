@@ -4,7 +4,7 @@ import { useState } from 'react';
 import HeaderCustom from '../../../../../Common/HeaderCustom/HeaderCustom';
 import SelectHour from '../../../../../UI/selectHour/SelectHour';
 import BranchOffice from '../../../../../UI/branchOffice/BranchOffice';
-import updateCataloge from '../../../../../../redux/apiCall/updateCataloge';
+import updateCataloge from '../../../../../../adapters/updateCataloge';
 
 // Icons & Styles
 import EditIcon from '@mui/icons-material/Edit';
