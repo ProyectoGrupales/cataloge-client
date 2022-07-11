@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 // Views
@@ -17,32 +17,11 @@ import style from './styles/profile.module.scss';
 const ProfilePage = () => {
 	const cataloge = useSelector(state => state.cataloge.catalogeData);
 
-	const [catalogeEdited, setCataloge] = useState({});
-
 	// Este estado cambia cuando se toca el boton para editar la información
 	const [edit, setEdit] = useState(false);
-	console.log(catalogeEdited);
-
-	useEffect(() => {
-		if (cataloge.name) {
-			setCataloge({
-				name: cataloge.name,
-				image: cataloge.image,
-				attention_hour: cataloge.attention_hour,
-				branch_office: cataloge.branch_office,
-				description: cataloge.description,
-			});
-		}
-	}, [cataloge]);
 
 	if (edit) {
-		return (
-			<EditProfile
-				setEdit={setEdit}
-				cataloge={catalogeEdited}
-				setCataloge={setCataloge}
-			/>
-		);
+		return <EditProfile setEdit={setEdit} cataloge={cataloge} />;
 	}
 
 	if (cataloge.name) {

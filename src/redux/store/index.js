@@ -13,8 +13,9 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 // Reducers
 import fetchUserData from '../reducers/fetchUserData';
-import cartSlice from '../reducers/cartSlice';
+import cart from '../reducers/cartSlice';
 import catchCatalogeData from '../reducers/catchCatalogeData';
+
 import {
 	simple_product_create_reducer,
 	simple_product_get_reducer,
@@ -35,8 +36,8 @@ const dynamicStore = name => {
 	// Aqui dentro van todos los reducers. Lo que hace esto es combinarlos
 	const rootReducer = combineReducers({
 		user: fetchUserData,
-		cart: cartSlice,
-		create_simple_product: simple_product_create_reducer,
+		cart,
+		simpleProduct: simple_product_create_reducer,
 		cataloge: catchCatalogeData,
 	});
 

@@ -1,14 +1,14 @@
 // Dependencies
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SpinnerInfinity } from 'spinners-react';
+import { SpinnerCircular } from 'spinners-react';
 import { useRouter } from 'next/router';
 
 // Styles - Components - Assets
 import style from './styles/simpleProduct.module.scss';
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 import PreviewImage from '../../../../components/Common/PreviewImage/PreviewImage';
-import Notification from '../../../../services/notifications';
+import notification from '../../../../services/notifications';
 
 // States - Hooks - Utils - Services
 import { simple_product_create_action } from '../../../../redux/apiCall/simpleProduct.actions';
@@ -44,7 +44,7 @@ const SimpleProductCreator = () => {
 			setImage({
 				...image,
 				image: event.target.files[0],
-				preview: preview,
+				preview,
 			});
 		}
 	};
@@ -61,7 +61,7 @@ const SimpleProductCreator = () => {
 		if (image.image && title && excel) {
 			dispatch(simple_product_create_action(data));
 		} else {
-			Notification('Complete Todos Los Campos', 'error');
+			notification('Complete Todos Los Campos', 'error');
 		}
 	};
 
@@ -110,7 +110,7 @@ const SimpleProductCreator = () => {
 
 					<button>
 						{loading ? (
-							<SpinnerInfinity
+							<SpinnerCircular
 								color='#a058e9'
 								secondaryColor='#919293'
 								size={10}

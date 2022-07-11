@@ -18,7 +18,7 @@ export const simple_product_create_action =
 			const {
 				user: {
 					userData: { token },
-				}
+				},
 			} = getState();
 
 			const config = {
@@ -39,15 +39,18 @@ export const simple_product_create_action =
 				payload: data,
 			});
 
-			Notification("Lista de productos creada", "success")
+			Notification('Lista de productos creada', 'success');
 		} catch (error) {
-		
-			const msg = error.response && error.response.data.msg
-				? error.response.data.msg
-				: error.message;
+			const msg =
+				error.response && error.response.data.msg
+					? error.response.data.msg
+					: error.message;
 
-			if(msg === "Not authorized, token failed" || msg === "Not authorized, no token") {
-			    sessionStorage.setItem('userData', JSON.stringify({}));
+			if (
+				msg === 'Not authorized, token failed' ||
+				msg === 'Not authorized, no token'
+			) {
+				sessionStorage.setItem('userData', JSON.stringify({}));
 			}
 
 			dispatch({
