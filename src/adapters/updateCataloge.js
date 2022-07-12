@@ -5,8 +5,15 @@ import { fetchSuccess } from '../redux/reducers/catchCatalogeData';
 const updateCataloge = (dispatch, cataloge, token) => {
 	notification('Actualizando catálogo', 'load');
 
+	const config = {
+		headers: {
+			'Content-type': `multipart/form-data`,
+			Authorization: `Bearer ${token}`,
+		},
+	};
+
 	axios
-		.put(`${process.env.NEXT_PUBLIC_API_URI}/cataloge/`, cataloge)
+		.put(`${process.env.NEXT_PUBLIC_API_URI}/cataloge/`, cataloge, config)
 		.then(res => {
 			notification(res.data.msg, res.data.status);
 			dispatch(fetchSuccess(res.data.cataloge));
