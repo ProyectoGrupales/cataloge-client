@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 // Componets
-import HeaderCustom from '../../../../../Common/HeaderCustom/HeaderCustom';
-import SelectHour from '../../../../../UI/selectHour/SelectHour';
-import BranchOffice from '../../../../../UI/branchOffice/BranchOffice';
-import updateCataloge from '../../../../../../adapters/updateCataloge';
+import HeaderCustom from '../../../../Common/HeaderCustom/HeaderCustom';
+import SelectHour from '../../../../UI/selectHour/SelectHour';
+import BranchOffice from '../../../../UI/branchOffice/BranchOffice';
+import updateCataloge from '../../../../../adapters/updateCataloge';
 
 // Icons & Styles
 import EditIcon from '@mui/icons-material/Edit';

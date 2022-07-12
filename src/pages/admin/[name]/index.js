@@ -52,7 +52,7 @@ const AdminHome = () => {
 					onClick={() => setOpen(prev => !prev)}
 				/>
 
-				{/* Menu */}
+				{/* Menu lateral */}
 				<Drawer anchor='left' open={open} onClose={toggleDrawer}>
 					<div className={style.menu}>
 						<div className={style.profile}>
@@ -105,14 +105,16 @@ const AdminHome = () => {
 		);
 	}
 
-	return (
-		<div className='container'>
-			<h1>Algo no salío como esperabamos :( </h1>
-			<Link href={'/'}>
-				<button>Volver al inicio</button>
-			</Link>
-		</div>
-	);
+	if (cataloge.error) {
+		return (
+			<div className='container'>
+				<h1>Algo no salío como esperabamos :( </h1>
+				<Link href={'/'}>
+					<button>Volver al inicio</button>
+				</Link>
+			</div>
+		);
+	}
 };
 
 export default AdminHome;

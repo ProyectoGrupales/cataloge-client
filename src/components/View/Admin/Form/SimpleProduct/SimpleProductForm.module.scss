@@ -1,0 +1,57 @@
+@import '../../../../../styles/config/color.scss';
+
+.container {
+	h1 {
+		font-size: 18px;
+		text-align: center;
+	}
+
+	.formContainer {
+		min-height: 500px;
+		width: 90%;
+		position: relative;
+		margin: auto;
+		padding-top: 20px;
+		padding-bottom: 15px;
+
+		background-color: white;
+		border-radius: 4px;
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			gap: 40px;
+
+			input[type='text'] {
+				width: 80%;
+				height: 30px;
+				padding: 0px 10px;
+				border: none;
+				border-radius: 5px;
+				background-color: $lightGray;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			button {
+				width: 60%;
+				height: 35px;
+				border: none;
+				border-radius: 8px;
+				padding: 5px 15px;
+				background-color: $violet;
+				color: white;
+				cursor: pointer;
+			}
+
+			p {
+				font-size: 11px;
+			}
+		}
+	}
+}

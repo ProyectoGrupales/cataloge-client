@@ -16,15 +16,13 @@ const SimpleProductDetail = ({ card }) => {
 	const [currentData, setCurrentData] = useState(null);
 
 	const toggleModal = data => {
-		setOpenModal(!openModal);
 		setCurrentData({
 			card: router.query.view,
 			copy: data.rowData,
 			...data.simpleProduct,
 		});
+		setOpenModal(!openModal);
 	};
-
-	console.log(card);
 
 	// En el caso de que está card no tenga productos aún
 	if (!card) {

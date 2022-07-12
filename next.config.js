@@ -8,6 +8,7 @@ const nextConfig = {
 			'drifters.com.ar',
 			'cdn-icons-png.flaticon.com',
 			'www.hotelramada.com',
+			'storage.googleapis.com',
 		],
 	},
 };

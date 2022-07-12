@@ -14,7 +14,7 @@
 
 	.fallBackImage {
 		height: 150px;
-		width: 85%;
+		width: 100%;
 		background-color: $label;
 		margin: auto;
 		border-radius: 2px;
@@ -29,7 +29,7 @@
 			gap: 5px;
 
 			.discount {
-				color: green;
+				color: #008000;
 				text-decoration: none;
 			}
 		}

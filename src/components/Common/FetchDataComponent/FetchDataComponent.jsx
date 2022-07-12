@@ -5,8 +5,9 @@ import { fetchSuccess } from '../../../redux/reducers/fetchUserData';
 import fetchCatalogeData from '../../../redux/apiCall/fetchCatalogeData';
 
 // Este componente no muestra nada pero se renderiza en todas las vistas
-// Se encarga de la lógica de los datos que manejamos en aplicación
+// Se encarga de la lógica de los datos que manejamos en la aplicación
 // Como controlar las peticiones, o restringir el acceso a ciertas páginas
+
 const FetchDataComponent = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
@@ -14,7 +15,8 @@ const FetchDataComponent = () => {
 	const user = JSON.parse(sessionStorage.getItem('userData'));
 
 	useEffect(() => {
-		if (router.pathname.includes('admin') && !user) {
+		// Si está en admin y no está logeado no redirreciona al login
+		if (router.pathname.includes('admin') && !Object.entries(user).length) {
 			window.location.href = '/';
 		} else {
 			dispatch(fetchSuccess(user));
@@ -22,6 +24,7 @@ const FetchDataComponent = () => {
 
 		if (!user || !user.name) {
 			// De está manera accedemos a la información del usuario, en caso de que se hayá logueado.
+			console.log('Estoy dentro');
 			const userData = JSON.parse(sessionStorage.getItem('userData'));
 			dispatch(fetchSuccess(userData));
 		}
@@ -30,10 +33,6 @@ const FetchDataComponent = () => {
 			fetchCatalogeData(dispatch, router.query.name);
 		}
 	}, [router]);
-
-	return <div />;
 };
-
-// Tarea: convertir este componente en un servicio
 
 export default FetchDataComponent;
