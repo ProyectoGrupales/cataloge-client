@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 // Views
-import EditProfile from '../../../../components/View/Admin/Settings/Views/EditProfile/EditProfile';
+import EditProfile from '../../../../components/View/Admin/Settings/EditProfile/EditProfile';
 
 // Components
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';

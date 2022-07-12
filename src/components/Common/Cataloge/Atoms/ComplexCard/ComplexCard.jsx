@@ -9,6 +9,8 @@ import style from './ComplexCard.module.scss';
 const ComplexCard = ({ data, href, editMode, deleteMode }) => {
 	let priceWithDiscount;
 
+	console.log(data);
+
 	if (data.discount) {
 		// Aplicamos el descuento
 		priceWithDiscount = Math.floor(data.price * data.discount) / 100;

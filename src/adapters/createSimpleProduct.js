@@ -20,7 +20,7 @@ const createSimpleProduct = (productData, token) => {
 		.then(res => {
 			notification(res.data.msg, res.data.status);
 			console.log('Estoy aquí', res.data);
-			window.history.go(-1);
+			// window.history.go(-1);
 		})
 		.catch(err => {
 			notification(

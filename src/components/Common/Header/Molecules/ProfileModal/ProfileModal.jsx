@@ -36,20 +36,24 @@ const ProfileModal = ({ data, open, setOpen }) => {
 				</div>
 			</div>
 
-			<div className={style.hourContainer}>
-				<WatchLaterIcon fontSize='small' />
-				<p>{attentionHour}</p>
-			</div>
+			{attentionHour ? (
+				<div className={style.hourContainer}>
+					<WatchLaterIcon fontSize='small' />
+					<p>{attentionHour}</p>
+				</div>
+			) : null}
 
-			<div className={style.branch_office}>
-				<p>Sucursales:</p>
-				{data.branch_office.map((item, index) => (
-					<div key={index}>
-						<LocationOnIcon fontSize='small' />
-						<h5>{item}</h5>
-					</div>
-				))}
-			</div>
+			{data.branch_office.length ? (
+				<div className={style.branch_office}>
+					<p>Sucursales:</p>
+					{data.branch_office.map((item, index) => (
+						<div key={index}>
+							<LocationOnIcon fontSize='small' />
+							<h5>{item}</h5>
+						</div>
+					))}
+				</div>
+			) : null}
 		</div>
 	);
 };

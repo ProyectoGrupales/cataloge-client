@@ -20,7 +20,7 @@ const Modal = ({ openModal, setOpenModal, data }) => {
 	const productData = data ? data.copy : null;
 
 	const addProductToCart = () => {
-		dispatch(addToCart({ ...data, type: 'productInList' }));
+		dispatch(addToCart(data));
 	};
 
 	return (

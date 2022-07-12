@@ -17,7 +17,7 @@ const SpeedDialMenu = ({ catalogeData, setEditMode, setDeleteMode }) => {
 		<SpeedDial
 			ariaLabel='Menu of products options'
 			sx={{
-				position: 'absolute',
+				position: 'fixed',
 				bottom: 16,
 				right: 16,
 			}}

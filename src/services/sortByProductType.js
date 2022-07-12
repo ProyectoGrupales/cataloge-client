@@ -10,8 +10,8 @@ const sortByProductType = mainArray => {
 	if (mainArray) {
 		// Comenzamos recorriendo el arreglo principal
 		mainArray.forEach(product => {
-			// Diferenciamos los tipos
-			if (product.type === 'productInList') {
+			// Diferenciamos los tipos, si el producto tiene esta propiedad, es un simpleProduct
+			if (product.copy) {
 				let flag = false;
 				// Recorremos el arreglo para buscar elementos repetidos
 				simpleProducts.forEach((simpleProduct, index) => {
