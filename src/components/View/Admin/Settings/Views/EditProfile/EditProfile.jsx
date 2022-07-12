@@ -16,7 +16,7 @@ const Profile = ({ setEdit, cataloge }) => {
 	const dispatch = useDispatch();
 	const token = useSelector(state => state.user.userData.token);
 	const [newCataloge, setNewCataloge] = useState(cataloge);
-	const [branchOffice, setBranchOffie] = useState(cataloge.branch_office);
+	const [branchOffice, setBranchOffie] = useState(cataloge.branch_office || []);
 
 	const changeHandler = e => {
 		setNewCataloge({

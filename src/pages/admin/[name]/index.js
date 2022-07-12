@@ -10,6 +10,8 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import SpeedDialMenu from '../../../components/View/Admin/SpeedRadial/SpeedRadial';
 import Drawer from '@mui/material/Drawer';
 
+// Icons
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import style from '../../../styles/AdminHome.module.scss';
 
 const AdminHome = () => {
@@ -45,7 +47,7 @@ const AdminHome = () => {
 			<div>
 				<MetaHead title='Admin' />
 				<HeaderCustom
-					title={cataloge.catalogeData.name.toUpperCase()}
+					title={cataloge.catalogeData.name}
 					icon='menu'
 					onClick={() => setOpen(prev => !prev)}
 				/>
@@ -54,8 +56,15 @@ const AdminHome = () => {
 				<Drawer anchor='left' open={open} onClose={toggleDrawer}>
 					<div className={style.menu}>
 						<div className={style.profile}>
-							<h2>{user.name}</h2>
-							<h2>{user.last_name}</h2>
+							<div className={style.name}>
+								<AccountCircleIcon />
+								<div>
+									<h2>{user.name}</h2>
+									<h2>{user.last_name}</h2>
+								</div>
+							</div>
+							<p>{user.email}</p>
+							<p>{user.number_phone}</p>
 						</div>
 
 						<Link

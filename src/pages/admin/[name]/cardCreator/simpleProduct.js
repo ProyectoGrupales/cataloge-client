@@ -1,20 +1,17 @@
 // Dependencies
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { SpinnerCircular } from 'spinners-react';
-import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 // Styles - Components - Assets
-import style from './styles/simpleProduct.module.scss';
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
 import PreviewImage from '../../../../components/Common/PreviewImage/PreviewImage';
 import notification from '../../../../services/notifications';
 
-// States - Hooks - Utils - Services
-import { simple_product_create_action } from '../../../../redux/apiCall/simpleProduct.actions';
+import style from './styles/simpleProduct.module.scss';
+import createSimpleProduct from '../../../../adapters/createSimpleProduct';
 
 const SimpleProductCreator = () => {
-	const router = useRouter();
+	const token = useSelector(state => state.user.userData.token);
 
 	const [image, setImage] = useState({
 		image: null,
@@ -22,19 +19,6 @@ const SimpleProductCreator = () => {
 	});
 	const [title, setTitle] = useState(null);
 	const [excel, setExcel] = useState(null);
-
-	const dispatch = useDispatch();
-
-	const { loading, success } = useSelector(
-		state => state.create_simple_product
-	);
-
-	// Tarea: una vez arreglado el redux persist este use Effect nos llevara a la vista detallada del producto que acabanos de crear
-	// useEffect(() => {
-	// 	if (success === true) {
-	// 		router.push('/');
-	// 	}
-	// }, [success]);
 
 	// Esta funcion convierte el archivo seleccionado para poder mostrar una preview del mismo
 	const createPreviewAndConvertImage = event => {
@@ -58,8 +42,9 @@ const SimpleProductCreator = () => {
 		data.append('excel', excel);
 		data.append('image', image.image);
 
+		// Si tenemos todo cargado realizamos la petición
 		if (image.image && title && excel) {
-			dispatch(simple_product_create_action(data));
+			createSimpleProduct(data, token);
 		} else {
 			notification('Complete Todos Los Campos', 'error');
 		}
@@ -108,18 +93,7 @@ const SimpleProductCreator = () => {
 						/>
 					</div>
 
-					<button>
-						{loading ? (
-							<SpinnerCircular
-								color='#a058e9'
-								secondaryColor='#919293'
-								size={10}
-								thickness={150}
-							/>
-						) : (
-							'Crear'
-						)}
-					</button>
+					<button>Crear</button>
 				</form>
 			</div>
 		</div>

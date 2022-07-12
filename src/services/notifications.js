@@ -11,12 +11,15 @@ const config = {
 	progress: undefined,
 };
 
-// Este objeto
 const notification = (text, status) => {
 	if (status === 'success') {
+		toast.dismiss();
 		toast.success(text, config);
 	} else if (status === 'error') {
+		toast.dismiss();
 		toast.error(text, config);
+	} else if (status === 'load') {
+		toast.loading(text, config);
 	}
 };
 

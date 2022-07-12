@@ -7,7 +7,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-// Recibe por parametros un arreglo con las imagenes que debe mostrar
+// Recibe por parametros un arreglo con las imagenes que debe mostrar, y en caso de estar en modo edit
+// Recibe la funcion seteadora del estado para eliminar las imagenes que el usuario desee
 const PreviewImage = ({ images, setImages, edit }) => {
 	const [current, setCurrent] = useState(0);
 
