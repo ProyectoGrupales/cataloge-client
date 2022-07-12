@@ -22,7 +22,6 @@ const FetchDataComponent = () => {
 
 		if (!user || !user.name) {
 			// De está manera accedemos a la información del usuario, en caso de que se hayá logueado.
-			console.log('Estoy seteando el usuario');
 			const userData = JSON.parse(sessionStorage.getItem('userData'));
 			dispatch(fetchSuccess(userData));
 		}

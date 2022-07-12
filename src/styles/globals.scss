@@ -14,6 +14,17 @@ body {
 	font-family: 'Poppins';
 	color: $black;
 	background-color: #dbdee7;
+	min-width: 360px;
+}
+
+button {
+	font-family: 'Poppins';
+}
+
+textarea {
+	font-family: 'Poppins';
+	font-weight: 300;
+	resize: vertical;
 }
 
 h1,

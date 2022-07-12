@@ -1,17 +1,21 @@
-@import './config/color.scss';
+@import '../../../styles/config/color.scss';
 
-.addButton {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	width: 40px;
-	height: 40px;
-	border: none;
-	border-radius: 40px;
-	background-color: $violet;
-	color: white;
-	right: 20px;
-	bottom: 30px;
-	cursor: pointer;
+.error {
+	margin-top: 15px;
+	h1 {
+		font-size: 25px;
+		text-align: center;
+	}
+	button {
+		display: block;
+		margin: auto;
+		margin-top: 10px;
+
+		border: none;
+		border-radius: 4px;
+		padding: 10px 15px;
+		font-weight: bolder;
+		color: white;
+		background-color: $lightViolet;
+	}
 }

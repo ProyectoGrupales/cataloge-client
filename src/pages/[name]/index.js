@@ -7,6 +7,8 @@ import Cataloge from '../../components/Common/Cataloge/Cataloge';
 import Link from 'next/link';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
+import style from './styles/home.module.scss';
+
 const ClientHome = () => {
 	const cataloge = useSelector(state => state.cataloge);
 
@@ -29,14 +31,16 @@ const ClientHome = () => {
 		);
 	}
 
-	return (
-		<div className='container'>
-			<h1>Algo no salío como esperabamos :( </h1>
-			<Link href={'/'}>
-				<button>Volver al inicio</button>
-			</Link>
-		</div>
-	);
+	if (cataloge.error) {
+		return (
+			<div className={`container ${style.error}`}>
+				<h1>Algo no salió como esperabamos :( </h1>
+				<Link href={'/'}>
+					<button>Volver al inicio</button>
+				</Link>
+			</div>
+		);
+	}
 };
 
 export default ClientHome;

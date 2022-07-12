@@ -4,11 +4,12 @@
 	width: 100%;
 	max-height: 250px;
 	justify-content: center;
+	background-color: red;
 
 	.deleteButton {
 		position: absolute;
 		top: 5px;
-		right: -40px;
+		right: -30px;
 		cursor: pointer;
 	}
 
@@ -22,37 +23,27 @@
 		.left {
 			display: flex;
 			position: absolute;
-			padding-left: 10px;
 			left: 0px;
-			color: white;
-			background-color: rgba(0, 0, 0, 0.637);
 
+			padding-left: 10px;
 			border-radius: 50%;
+
+			background-color: rgba(0, 0, 0, 0.637);
+			color: white;
 		}
 
 		.rigth {
 			display: flex;
-			justify-content: center;
 			position: absolute;
+			right: 0px;
+
+			justify-content: center;
 			padding-right: 4px;
 			padding-left: 6px;
-			right: 0px;
-			color: white;
-			background-color: rgba(0, 0, 0, 0.637);
 			border-radius: 50%;
+
+			background-color: rgba(0, 0, 0, 0.637);
+			color: white;
 		}
-
-		// display: flex;
-		// flex-direction: row;
-		// justify-content: space-between;
-		// position: absolute;
-		// width: 135%;
-		// top: 50%;
-		// transform: translateY(-50%);
-
-		// // Esto hace referencia a todos los hijos
-		// & > * {
-		// 	cursor: pointer;
-		// }
 	}
 }

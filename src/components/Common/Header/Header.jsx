@@ -47,7 +47,7 @@ const Header = () => {
 					</div>
 				)}
 				<div className={style.catalogeData} onClick={() => setOpen(!open)}>
-					<h1>{cataloge.name.toUpperCase() || 'Nombre del comercio'}</h1>
+					<h1>{cataloge.name || 'Nombre del comercio'}</h1>
 					<p>{attentionHour}</p>
 				</div>
 				<div className={style.iconContainer}>

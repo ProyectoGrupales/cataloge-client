@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 			<PersistGate persistor={persistor}>
 				<Component {...pageProps} />
 				<FetchDataComponent />
-				<ToastContainer />
+				<ToastContainer limit={3} />
 			</PersistGate>
 		</Provider>
 	);

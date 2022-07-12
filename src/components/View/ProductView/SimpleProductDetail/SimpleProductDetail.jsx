@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 // Components
@@ -9,6 +10,7 @@ import SimpleCard from '../../../../components/Common/SimpleCard/SimpleCard';
 import OneTimeModal from '../../../UI/OneTimeModal/OneTimeModal';
 
 const SimpleProductDetail = ({ card }) => {
+	const router = useRouter();
 	// Controladores del modal
 	const [openModal, setOpenModal] = useState(false);
 	const [currentData, setCurrentData] = useState(null);
@@ -16,6 +18,7 @@ const SimpleProductDetail = ({ card }) => {
 	const toggleModal = data => {
 		setOpenModal(!openModal);
 		setCurrentData({
+			card: router.query.view,
 			copy: data.rowData,
 			...data.simpleProduct,
 		});
