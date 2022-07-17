@@ -1,0 +1,128 @@
+@import "src/styles/config/color";
+
+.container{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+    padding:10px;
+    *{
+        margin:0 !important;
+    }
+    .day_container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: .5rem;
+        padding: .5rem;
+        background-color: #f5f5f5;
+        align-items: center;
+        width: fit-content;
+        width: 100%;
+        @media (max-width: 768px){
+            flex-direction: column;
+        }
+        &:not(:last-child){
+            background-image: linear-gradient(to right, grey 33%, rgba(255,255,255,0) 0%);
+            background-position: bottom;
+            background-size: 3px 1px;
+            background-repeat: repeat-x;
+        }
+
+        .toggle{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            gap: .5rem;
+            .day{
+                width: fit-content;
+                text-align: left;
+            }
+            .slider{
+                -webkit-tap-highlight-color: transparent;
+                width: 40px;
+                height: 1.5rem;
+                border-radius: 20px;
+                position: relative;
+                border: 2px solid #dbdee7;
+                cursor: pointer;
+                transition: {
+                    property: background-color, border-color;
+                    duration: .2s
+                }
+                &_off{
+                    background-color: white;
+                }
+                &_on{
+                    background-color: $lightViolet;
+                    border-color:  $lightViolet;
+                }
+                .slide_check{
+                    position: absolute;
+                    height: calc(100% - 4px);
+                    width: calc(50% - 2px);
+                    border-radius: 50%;
+                    top:0;
+                    margin: 2px !important;
+                    box-sizing: border-box;
+                    background-color: #dbdee7;
+                    transition: {
+                        property: left, background-color;
+                        duration: .2s
+                    }
+                    &_off{
+                        left: 0%;
+                    }
+                    &_on{
+                        left: calc(50% - 2px);
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+        }
+
+        
+        .settings{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .5rem;
+            @media (max-width: 768px){
+                .state{
+                    display: none;
+                }
+                .service_hours{
+                    flex-direction: column !important;
+                    >span{
+                        display: none;
+                    }
+                }
+            }
+            .state{
+                width: 7ch;
+                text-align: right;
+            }
+            .service_hours{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                transition: filter .2s;
+                &_off{
+                    filter: opacity(0.25);
+                    pointer-events: none;
+                }
+                &_on{
+                    filter: unset;
+                }
+            }
+            
+        }
+        
+    }
+}

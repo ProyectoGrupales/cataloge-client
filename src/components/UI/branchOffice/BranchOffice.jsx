@@ -9,43 +9,39 @@ const BranchOffice = ({ setState, state }) => {
 	});
 
 	// Controla y agrega las direcciones del usuario
-	const moreBranchOffices = e => {
+	const moreBranchOffices = () => {
 		const direction = document.querySelector('#branch_office').value;
 
 		if (direction.length >= 5) {
 			setState([...state, direction]);
 			document.querySelector('#branch_office').value = '';
-			setError({
-				branch_office: '',
-			});
+			setError({ branch_office: '' });
 		} else {
-			setError({
-				branch_office: 'La dirección debe tener al menos 5 caracteres ',
-			});
+			setError({ branch_office: 'La dirección debe tener al menos 5 caracteres ' });
 		}
 	};
 
 	return (
 		<div className={style.container}>
+			<label> Dirección </label>
+			<div className={style.inputContainer}>
+				<input type='text' name='branch_office' id='branch_office' />
+				<button onClick={moreBranchOffices} className={style.addDirection}>
+					+
+				</button>
+			</div>
+
 			{state.map((direction, index) => (
 				<div key={index} className={style.direction}>
 					<p>{direction}</p>
-
-					<button
-						onClick={e => {
-							setState(state.filter((direction, index2) => index2 !== index));
-						}}
-					>
+					<button onClick={() => {
+						setState(state.filter((direction, index2) => index2 !== index))
+						setError({branch_office: ''})
+						}}>
 						<DeleteIcon />
 					</button>
 				</div>
 			))}
-
-			<input type='text' name='branch_office' id='branch_office' />
-
-			<button onClick={moreBranchOffices} className={style.addDirection}>
-				Agregar dirección
-			</button>
 
 			{error.branch_office ? (
 				<p className={style.error}>{error.branch_office}</p>

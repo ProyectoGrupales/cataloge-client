@@ -7,85 +7,41 @@ import Image from 'next/image';
 
 // Images
 import teamWork from '../../public/Assets/images/teamWork.svg';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import style from '../styles/index.module.scss';
 import { useEffect, useState } from 'react';
+import FormInput from '../components/UI/formInput/FormInput';
 
 const Login = () => {
 	const [disabled, setDisabled] = useState(true);
-	const [viewPassword, setViewPassword] = useState(false);
-	const [user, setUser] = useState({
-		userData: '',
-		password: '',
-	});
+	const [user, setUser] = useState({userData: '', password: ''});
+
 	const dispatch = useDispatch();
 
-	const handleChange = e => {
-		setUser({
-			...user,
-			[e.target.name]: e.target.value,
-		});
-	};
+	const handleChange = e => setUser({...user, [e.target.name]: e.target.value});
 
-	useEffect(() => {
-		if (user.userData && user.password) {
-			setDisabled(false);
-		} else {
-			setDisabled(true);
-		}
-	}, [user]);
+	useEffect(() => setDisabled(!(user.userData && user.password)), [user]);
 
 	const submitForm = e => {
 		e.preventDefault();
-
-		if (user.userData && user.password) {
-			fetchUserData(dispatch, {
-				userData: user.userData,
-				password: user.password,
-			});
-		}
-	};
-
-	const togglePassword = e => {
-		e.preventDefault();
-		setViewPassword(!viewPassword);
+		const { userData, password } = user;
+		if (userData && password) fetchUserData(dispatch, {userData, password});
 	};
 
 	return (
 		<div className={style.container}>
 			<MetaHead title='Inicio de Sesión' />
 			<h1>Bienvenido de nuevo! 🚀</h1>
-
 			<Image src={teamWork} height={425} width={500} />
-
 			<form>
-				<input
-					type='text'
-					placeholder='Email o teléfono'
-					name='userData'
-					onChange={handleChange}
-				/>
-				<div className={style.password}>
-					<input
-						type={viewPassword ? 'text' : 'password'}
-						placeholder='Contraseña'
-						name='password'
-						onChange={handleChange}
-					/>
-
-					<button onClick={togglePassword}>
-						{viewPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-					</button>
-				</div>
-
+				<FormInput type='text' name='userData' onChange={handleChange} label='Email o teléfono'/>
+				<FormInput type='password' name='password' onChange={handleChange} label='Contraseña'/>
 				<button onClick={submitForm} disabled={disabled}>
-					Iniciar Sesion
+					Iniciar Sesión
 				</button>
 			</form>
 
 			<p>
-				Or <a href='/register'>Create a new account</a>{' '}
+				<a href='/register'>Quiero crear una cuenta</a>{' '}
 			</p>
 		</div>
 	);

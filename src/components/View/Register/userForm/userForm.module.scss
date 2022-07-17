@@ -2,7 +2,6 @@
 
 .container {
 	text-align: center;
-
 	h1 {
 		font-size: 27px;
 	}
@@ -10,49 +9,10 @@
 	form {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
-
-		div {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-
-			input {
-				height: 25px;
-
-				padding: 0px 10px;
-				border: none;
-				border-radius: 4px;
-				background-color: #fff !important;
-			}
-		}
-
-		.passwordContainer {
-			margin: 25px 0px;
-		}
-
-		.error {
-			color: red;
-			font-size: 12px;
-		}
-
-		.viewPassword {
-			flex-direction: row;
-			gap: 5px;
-			margin: auto;
-
-			label {
-				color: $label;
-			}
-
-			button {
-				display: block;
-				width: 10%;
-
-				border: none;
-				background-color: transparent;
-			}
-		}
+		gap: .5rem;
+		width: 30%;
+		margin: auto;
+		min-width: 300px;
 
 		.nextButton {
 			display: block;

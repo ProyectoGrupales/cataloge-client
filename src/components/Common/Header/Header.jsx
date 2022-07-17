@@ -4,9 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 // Components & functions
-import parserHour from '../../../services/parserAttentionHour';
 import ProfileModal from './Molecules/ProfileModal/ProfileModal';
 import Badge from '@mui/material/Badge';
+import AttentionHours from '../../UI/AttentionHours/AttentionHours';
 
 // Iconos
 import HomeIcon from '@mui/icons-material/Home';
@@ -22,7 +22,6 @@ const Header = () => {
 	const [open, setOpen] = useState(false);
 
 	if (cataloge.name) {
-		const attentionHour = parserHour(cataloge.attention_hour);
 
 		const homeIcon = (
 			<Link href={`/${cataloge.name}`}>
@@ -48,7 +47,7 @@ const Header = () => {
 				)}
 				<div className={style.catalogeData} onClick={() => setOpen(!open)}>
 					<h1>{cataloge.name.toUpperCase() || 'Nombre del comercio'}</h1>
-					<p>{attentionHour}</p>
+					<AttentionHours hours={cataloge.attention_hour} simple/>
 				</div>
 				<div className={style.iconContainer}>
 					<Link href={`/${cataloge.name}/shoppingCart`}>

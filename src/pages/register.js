@@ -12,7 +12,7 @@ import CatalogeForm from '../components/View/Register/catalogeForm/catalogeForm'
 */
 const RegisterPage = () => {
 	// Cuando esté en true avanza al sieguiente form
-	const [nextForm, setNextForm] = useState(0);
+	const [nextForm, setNextForm] = useState(1);
 
 	// Aqui controlamos toda la lógica del formulario, las views solamente acceden a ellas
 	const [user, setUser] = useState({
@@ -37,8 +37,6 @@ const RegisterPage = () => {
 		createUser(user, cataloge);
 		setNextForm(prev => prev + 1);
 	}
-
-	console.log(cataloge);
 
 	return (
 		<div className='container'>

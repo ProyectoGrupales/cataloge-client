@@ -1,12 +1,51 @@
 // Componets
+import { useState, useEffect } from 'react';
 import HeaderCustom from '../../../../../Common/HeaderCustom/HeaderCustom';
-import SelectHour from '../../../../../UI/selectHour/SelectHour';
+import OfficeHours from '../../../../../UI/officeHours/OfficeHours';
+import BranchOffice from '../../../../../UI/branchOffice/BranchOffice';
+import FormInput from '../../../../../UI/formInput/FormInput';
 
 // Icons & Styles
 import EditIcon from '@mui/icons-material/Edit';
 import style from './EditProfile.module.scss';
 
 const Profile = ({ setEdit, cataloge, setCataloge }) => {
+
+	const [serviceHours, setServiceHours] = useState(cataloge.attention_hour || {});
+	const [tempDirections, setTempDirections] = useState(cataloge?.branch_office || []);
+
+	const handleTimeRange = ({day, startRange, endRange, remove}) => {
+		if(remove){
+			const newServiceHours = {...serviceHours};
+			delete newServiceHours[day];
+			setServiceHours(newServiceHours);
+		}
+		else{
+			setServiceHours({
+				...serviceHours,
+				[day]: {
+					startRange: startRange ?? (serviceHours[day]?.startRange || 0),
+					endRange: endRange ?? (serviceHours[day]?.endRange || 0),
+				},
+			});
+		}
+	}
+
+	useEffect(() => {
+		setCataloge({
+			...cataloge,
+			branch_office: tempDirections,
+			attention_hour: serviceHours,
+		});
+	}, [tempDirections, serviceHours]);
+
+	const handleChange = event => {
+		setCataloge({
+			...cataloge,
+			[event.target.name]: event.target.value,
+		});
+	};
+
 	return (
 		<div>
 			<HeaderCustom title='Perfil' icon='back' />
@@ -20,45 +59,15 @@ const Profile = ({ setEdit, cataloge, setCataloge }) => {
 				</button>
 
 				<form onSubmit={e => e.preventDefault()}>
-					<div className={style.text}>
-						<label>Nombre del comercio</label>
-						<input type='text' value={cataloge.name} />
-					</div>
+					<FormInput label='Logo (Opcional)' value={cataloge} name='image' onChange={handleChange} type='file'/>
+					<FormInput label='Nombre del comercio' value={cataloge} name='cataloge_name' onChange={handleChange} />
+					<FormInput label='Descripción del comercio' value={cataloge} name='description' onChange={handleChange} area/>
+					<FormInput label='Nombre del catálogo' value={cataloge} name='name' onChange={handleChange} />
 
-					<div className={style.number}>
-						<label>Horarios de atención:</label>
-						<div>
-							AM
-							<div>
-								De
-								<SelectHour idHour='AM1_HS' idMin='AM1_MIN' isAM />
-								Hasta
-								<SelectHour idHour='AM2_HS' idMin='AM2_MIN' isAM />
-							</div>
-							PM
-							<div>
-								De
-								<SelectHour idHour='PM1_HS' idMin='PM1_MIN' isPM />
-								Hasta
-								<SelectHour idHour='PM2_HS' idMin='PM2_MIN' isPM />
-							</div>
-						</div>
-					</div>
-
-					<div className={style.text}>
-						<div>
-							<label>Sucursales:</label>
-							<input type='text' />
-						</div>
-						<button onClick={e => e.preventDefault()}>Agregar</button>
-					</div>
-
-					<div>
-						<label>Descripción del comercio</label>
-						<textarea cols={40} rows={10} />
-					</div>
-
-					<button>Guardar cambios</button>
+					<BranchOffice setState={setTempDirections} state={tempDirections} />
+					<OfficeHours setTimeRange={handleTimeRange} hours={serviceHours}/>
+					
+					<button onClick={()=>{/* falta ruta para actualizar perfil */}}>Guardar cambios</button>
 				</form>
 			</div>
 		</div>

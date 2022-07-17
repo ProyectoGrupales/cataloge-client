@@ -2,55 +2,79 @@
 
 .container {
 	display: flex;
-	gap: 10px;
-	margin: 10px 0px;
+	margin-bottom: 10px;
+	>label{
+		font-family: Poppins;
+		font-size: 0.9rem;
+		color: #333;
+		text-align: left;
+	}
+
+	.error{
+        font-family: Poppins;
+        font-size: .8rem;
+        color: #333;
+        text-align: left;
+        color: #ED4337; 
+    }
 
 	.direction {
-		display: grid;
-		grid-template-columns: 1fr 30px;
-		text-align: left;
-
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: 5px !important;
+		gap: 10px;
+		*{margin: 0 !important;}
 		p {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			font-size: 15px;
-			color: $label;
+			color: #333;
 		}
-
 		button {
+			padding: 0!important;
 			display: flex;
 			justify-content: center;
-
 			border: none;
 			background-color: transparent;
-
 			color: $label;
+			cursor: pointer;
+			height: fit-content;
 		}
 	}
 
 	input {
 		height: 25px;
-		padding: 0px 10px;
-
+		padding: 5px;
+		width: 100%;
 		border: none;
 		border-radius: 4px;
-
+		background-color: #f5f5f5 !important;
 		&:focus {
 			outline: none;
 		}
 	}
 
-	.addDirection {
-		display: block;
-		margin: auto;
-		width: 50%;
-		padding: 5px 10px;
-
-		border: none;
-		border-radius: 4px;
-		background-color: $lightViolet;
-		color: white;
-		font-weight: bolder;
+	.inputContainer{
+		display: flex;
+		flex-direction: row;
+		gap: 5px;
+		.addDirection {
+			display: block;
+			width: fit-content;
+			padding: 5px 10px;
+			border: none;
+			border-radius: 4px;
+			background-color: $lightViolet;
+			color: white;
+			white-space: nowrap;
+			box-sizing: border-box;
+			font-size: 2rem;
+			line-height: 0;
+		}
 	}
+
+	
 }

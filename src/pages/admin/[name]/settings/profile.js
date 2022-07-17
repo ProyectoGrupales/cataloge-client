@@ -7,7 +7,7 @@ import EditProfile from '../../../../components/View/Admin/Settings/Views/EditPr
 
 // Components
 import HeaderCustom from '../../../../components/Common/HeaderCustom/HeaderCustom';
-import parserHour from '../../../../services/parserAttentionHour';
+import AttentionHours from '../../../../components/UI/AttentionHours/AttentionHours';
 import OneTimeModal from '../../../../components/UI/OneTimeModal/OneTimeModal';
 
 // Icons
@@ -21,19 +21,19 @@ const ProfilePage = () => {
 
 	// Este estado cambia cuando se toca el boton para editar la información
 	const [edit, setEdit] = useState(false);
-	console.log(catalogeEdited);
 
 	useEffect(() => {
 		if (cataloge.name) {
 			setCataloge({
 				name: cataloge.name,
 				image: cataloge.image,
-				attention_hour: cataloge.attention_hour,
+				attention_hour: Object.fromEntries(cataloge.attention_hour?.map(({day, startRange, endRange})=>[day, {startRange, endRange}])),
 				branch_office: cataloge.branch_office,
 				description: cataloge.description,
 			});
 		}
 	}, [cataloge]);
+	console.log(catalogeEdited)
 
 	if (edit) {
 		return (
@@ -47,7 +47,6 @@ const ProfilePage = () => {
 
 	if (cataloge.name) {
 		// Aquí se parsea los horarios de atención
-		const attentionHour = parserHour(cataloge.attention_hour);
 
 		return (
 			<div>
@@ -70,7 +69,7 @@ const ProfilePage = () => {
 					)}
 					<h2>{cataloge.name.toUpperCase()}</h2>
 
-					<p>{attentionHour}</p>
+					<AttentionHours hours={cataloge?.attention_hour} />
 
 					<div>
 						<p> Sucursales : </p>
